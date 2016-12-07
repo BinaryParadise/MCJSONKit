@@ -1,5 +1,31 @@
-# COJSONCore
-非侵入式JSON转换框架,方便灵活迁移
+# JSONCore
+轻量的JSON对象转换库,方便灵活迁移
+- 不改变目标对象的属性类型
+- null对应为nil
+- 过滤类型不匹配的情况，例如'类型为NSArray，但是JSON数据为""'
+***
+
+JavaScript Object Notation, or [JSON][], is a lightweight, text-based, serialization format for structured data that is used by many web-based services and API's.  It is defined by [RFC 4627][].
+
+JSON provides the following primitive types:
+
+* `null`
+* Boolean `true` and `false`
+* Number
+* String
+* Array
+* Object
+
+These primitive types are mapped to the following Objective-C Foundation classes:
+
+JSON               | Objective-C
+-------------------|-------------
+`null`             | [`nil`][nil]
+`true` and `false` | [`BOOL`][BOOL]
+Number             | [`NSNumber`][NSNumber or type of Property]
+String             | [`NSString`][NSString]
+Array              | [`NSArray`][NSArray]
+Object             | [`NSDictionary`][NSDictionary]
 
 ## 基本用法
 
