@@ -26,12 +26,12 @@ These primitive types are mapped to the following Objective-C Foundation classes
 
 JSON               | Objective-C
 -------------------|-------------
-`null`             | [`nil`][nil]
-`true` and `false` | [`NSNumber`][NSNumber]
-Number             | [`NSNumber`][NSNumber]
-String             | [`NSString`][NSString]
-Array              | [`NSArray`][NSArray]
-Object             | [`NSDictionary`][NSDictionary]
+`null`             | [`nil`]
+`true` and `false` | [`NSNumber`]
+Number             | [`NSNumber`]
+String             | [`NSString`]
+Array              | [`NSArray`]
+Object             | [`NSDictionary`]
 
 ## 基本用法
 
@@ -110,3 +110,7 @@ CountryModel *country = [CountryModel objectFromJSONString:myJson];
 
 @end
 ```
+## Futures
+- [] 复杂JSON解析测试
+- [] 解析速度对比分析
+- [] 全面覆盖测试，找出BUG
