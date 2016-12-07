@@ -1,8 +1,13 @@
 # JSONCore
-轻量的JSON对象转换库,方便灵活迁移
+一直是用第三方库，总是发现一些不灵活或者不足、不适用的地方，所以自己心血来潮写一个轻量的JSON对象转换库。目前为测试版，可能还有很多问题，目前正在找工作比较忙，尽量坚持持续维护更新，也算是一种学习。
+## 水平有限，欢迎各位大牛批评指教
+
 - 不改变目标对象的属性类型
 - null对应为nil
-- 过滤类型不匹配的情况，例如'类型为NSArray，但是JSON数据为""'
+- 过滤类型不匹配的情况，例如`类型为NSArray，但是JSON数据为字符串的情况`
+- 使用时建议创建一个继承自JSONCore的基类，然后所有的Model基础这个基类，方便后续迁移
+- 待完善
+
 ***
 
 JavaScript Object Notation, or [JSON][], is a lightweight, text-based, serialization format for structured data that is used by many web-based services and API's.  It is defined by [RFC 4627][].
@@ -21,8 +26,8 @@ These primitive types are mapped to the following Objective-C Foundation classes
 JSON               | Objective-C
 -------------------|-------------
 `null`             | [`nil`][nil]
-`true` and `false` | [`BOOL`][BOOL]
-Number             | [`NSNumber`][NSNumber or type of Property]
+`true` and `false` | [`NSNumber`][NSNumber]
+Number             | [`NSNumber`][NSNumber]
 String             | [`NSString`][NSString]
 Array              | [`NSArray`][NSArray]
 Object             | [`NSDictionary`][NSDictionary]
