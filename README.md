@@ -111,6 +111,6 @@ CountryModel *country = [CountryModel objectFromJSONString:myJson];
 @end
 ```
 ## Futures
-- [] 复杂JSON解析测试
-- [] 解析速度对比分析
-- [] 全面覆盖测试，找出BUG
+-[] 复杂JSON解析测试
+-[] 解析速度对比分析
+-[] 全面覆盖测试，找出BUG
