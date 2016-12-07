@@ -3,17 +3,13 @@
 
 ## 基本用法
 
-<p>具体可参考示例：COTestModel.h
-</p>
-
-### JSON数据定义
 ```json
 { "id": 10, "country": "Germany", "dialCode": 49, "isInEurope": true }
 ```
-- 创建继承自JSONCore的基类，最低代码侵入
-- 创建需要解析的目标对象类
+- [可选]为了降低代码侵入，首先创建继承自JSONCore的基类JSONCoreBase，迁移时修改此类即可
+- 创建需Model对象类CountryModel
 ```objc
-@interface CountryModel : [JSONCore](可以是你的自定义并继承自JSONCore的基类减少代码侵入)
+@interface CountryModel : JSONCoreBase
 @property (nonatomic) NSInteger id;
 @property (nonatomic) NSString *country;
 @property (nonatomic) NSString *dialCode;
@@ -25,4 +21,60 @@
 
 ```objc
 CountryModel *country = [CountryModel objectFromJSONString:myJson];
+```
+
+## 关系映射
+
+```json
+{
+	"orderId": 104,
+	"totalPrice": 103.45,
+	"products": [
+		{
+			"id": 123,
+			"name": "Product #1",
+			"price": 12.95
+		},
+		{
+			"id": 137,
+			"name": "Product #2",
+			"price": 82.95
+		}
+	]
+}
+```
+```objc
+@interface ProductModel : JSONCoreBase
+@property (nonatomic) NSInteger productId;
+@property (nonatomic) NSString *name;
+@property (nonatomic) float price;
+@end
+
+@interface OrderModel : JSONCoreBase
+@property (nonatomic) NSInteger orderId;
+@property (nonatomic) float totalPrice;
+@property (nonatomic) NSArray *products;
+@end
+
+```
+
+### key嵌套映射
+```objc
+@implementation ProductModel
+
+- (NSDictionary *)keyMappingDictionary {
+    return @{@"productId":@"id"};
+}
+
+@end
+```
+### Model嵌套
+```objc
+@implementation OrderModel
+
+- (NSDictionary *)typeMappingDictionary {
+    return @{@"products":[ProductModel class]};
+}
+
+@end
 ```
