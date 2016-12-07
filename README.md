@@ -35,6 +35,11 @@ Object             | [`NSDictionary`]
 
 ## 基本用法
 
+```objc
+导入JSONCore文件夹到你的项目，并引用：
+#import "JSONCore.h"
+```
+
 ```json
 { "id": 10, "country": "Germany", "dialCode": 49, "isInEurope": true }
 ```
