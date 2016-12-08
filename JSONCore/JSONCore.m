@@ -13,6 +13,7 @@
 
 static NSArray *allowedJSONTypes;//允许的对象类型
 static NSDictionary *allowedPrimitiveTypes;//允许的基础类型
+static const char *kClassPropertiesKey;
 
 @implementation JSONCore
 
@@ -45,6 +46,7 @@ static NSDictionary *allowedPrimitiveTypes;//允许的基础类型
                                       @"Td":@[@"11",@"doubleValue"],
                                       @"TB":@[@"12",@"boolValue"]};
         }
+        
     });
     
 }
@@ -175,9 +177,13 @@ static NSDictionary *allowedPrimitiveTypes;//允许的基础类型
  对象的属性集合
  */
 - (NSMutableDictionary *)allProperties {
+    NSMutableDictionary *mdict = objc_getAssociatedObject(self.class, &kClassPropertiesKey);
+    if (mdict) {
+        return mdict;
+    }
     unsigned int outCount;
     objc_property_t *properties = class_copyPropertyList(self.class, &outCount);
-    NSMutableDictionary *mdict = [NSMutableDictionary dictionary];
+    mdict = [NSMutableDictionary dictionary];
     
     NSScanner *scanner;
     NSDictionary *keyMapping = [self keyMappingDictionary];
@@ -226,7 +232,7 @@ static NSDictionary *allowedPrimitiveTypes;//允许的基础类型
                 coprop.typeClass = NSClassFromString(typeCls);
                 coprop.isMutable = [typeCls rangeOfString:@"Mutable"].location!=NSNotFound;
                 coprop.type = JSONCorePropertyTypeObject;
-                NSLog(@"%s - %@",propertyName,propertyAttributes);
+                //NSLog(@"%s - %@",propertyName,propertyAttributes);
             }
             
             if (typeMapping && [typeMapping.allKeys containsObject:coprop.name]) {
@@ -236,6 +242,7 @@ static NSDictionary *allowedPrimitiveTypes;//允许的基础类型
         
         [mdict setObject:coprop forKey:coprop.name.lowercaseString];
     }
+    objc_setAssociatedObject(self.class, &kClassPropertiesKey, mdict, OBJC_ASSOCIATION_RETAIN);
     return mdict;
 }
 
