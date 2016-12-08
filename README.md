@@ -9,6 +9,12 @@
 - 使用时建议创建一个继承自JSONCore的基类，然后所有的Model基础这个基类，方便后续迁移
 - 待完善
 
+## 更新记录
+### 2016-12-08
+-	增加NSDate支持
+-	修复类型不匹配的问题例如：属性定义为NSString但是JSON数据为Number
+
+
 ***
 
 JavaScript Object Notation, or [JSON][], is a lightweight, text-based, serialization format for structured data that is used by many web-based services and API's.  It is defined by [RFC 4627][].
@@ -27,8 +33,8 @@ These primitive types are mapped to the following Objective-C Foundation classes
 JSON               | Objective-C
 -------------------|-------------
 `null`             | [`nil`]
-`true` and `false` | [`NSNumber`]
-Number             | [`NSNumber`]
+`true` and `false` | [`NSNumber`] or [`BOOL`]
+Number             | [`NSNumber`] or [`NSDate`]
 String             | [`NSString`]
 Array              | [`NSArray`]
 Object             | [`NSDictionary`]

@@ -24,6 +24,7 @@ static const char *kClassPropertiesKey;
             allowedJSONTypes = @[[NSString class],
                                  [NSNumber class],
                                  [NSDecimalNumber class],
+                                 [NSDate class],
                                  [NSArray class],
                                  [NSMutableArray class],
                                  [NSDictionary class],
@@ -127,6 +128,31 @@ static const char *kClassPropertiesKey;
                         }
                         [self setValue:newValue forKey:property.name];
                     }
+                }else {
+                    if ([value isKindOfClass:[NSNumber class]]) {
+                        if ([property.typeClass isSubclassOfClass:[NSString class]]) {
+                            //属性是NSString，但是值类型为NSNumber
+                            [self setValue:[value stringValue] forKey:property.name];
+                        }else if ([property.typeClass isSubclassOfClass:[NSDate class]]) {
+                            //属性是NSDate，但是值类型为NSNumber
+                            double timeInterval = [value doubleValue];
+                            if (timeInterval > 10000000000) {//时间戳为毫秒
+                                timeInterval = timeInterval/1000.0;
+                            }
+                            [self setValue:[NSDate dateWithTimeIntervalSince1970:timeInterval] forKey:property.name];
+                        }
+                    }else {
+                        if ([value isKindOfClass:[NSString class]]) {
+                            if ([property.typeClass isSubclassOfClass:[NSDate class]]) {
+                                //属性是NSDate，但是值类型为NSString
+                                double timeInterval = [value doubleValue];
+                                if (timeInterval > 10000000000) {//时间戳为毫秒
+                                    timeInterval = timeInterval/1000.0;
+                                }
+                                [self setValue:[NSDate dateWithTimeIntervalSince1970:timeInterval] forKey:property.name];
+                            }
+                        }
+                    }
                 }
             }else {
                 //自定义对象
@@ -156,7 +182,10 @@ static const char *kClassPropertiesKey;
                             [marr addObject:[obj toDictionary]];
                         }];
                         return [marr copy];
-                    }else {
+                    }else if ([value isKindOfClass:[NSDate class]]) {
+                        return @([(NSDate *)value timeIntervalSince1970]);
+                    }
+                    else {
                         return value;
                     }
                 }
@@ -186,12 +215,16 @@ static const char *kClassPropertiesKey;
     mdict = [NSMutableDictionary dictionary];
     
     NSScanner *scanner;
+    NSSet *ignoreSet = [self ignoreDictionary];
     NSDictionary *keyMapping = [self keyMappingDictionary];
     NSDictionary *typeMapping = [self typeMappingDictionary];
     for (unsigned int i = 0; i<outCount; i++) {
         objc_property_t property = properties[i];
         //属性名
         const char *propertyName = property_getName(property);
+        if ([ignoreSet containsObject:[NSString stringWithUTF8String:propertyName]]) {
+            continue;
+        }
         
         //特性
         const char *attrs = property_getAttributes(property);
@@ -244,6 +277,10 @@ static const char *kClassPropertiesKey;
     }
     objc_setAssociatedObject(self.class, &kClassPropertiesKey, mdict, OBJC_ASSOCIATION_RETAIN);
     return mdict;
+}
+
+- (NSSet *)ignoreDictionary {
+    return nil;
 }
 
 - (NSDictionary *)keyMappingDictionary {

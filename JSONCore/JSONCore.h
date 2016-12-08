@@ -33,6 +33,12 @@
  */
 - (NSDictionary *)typeMappingDictionary;
 
+
+/**
+ 忽略,不做处理的属性
+ */
+- (NSSet *)ignoreDictionary;
+
 - (NSDictionary *)toDictionary;
 - (NSString *)toJSONString;
 
