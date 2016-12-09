@@ -48,5 +48,6 @@
 @property (nonatomic, retain) NSMutableDictionary *mdict;
 @property (nonatomic, retain) NSSet *set;
 @property (nonatomic, retain) NSMutableSet *mset;
+@property (nonatomic, copy) NSString *keyName;
 
 @end

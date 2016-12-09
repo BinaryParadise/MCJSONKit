@@ -73,10 +73,10 @@
 		D28293371DF6474B009884F3 /* JSONCore */ = {
 			isa = PBXGroup;
 			children = (
-				D28293541DF7EB2B009884F3 /* JSONCoreProperty.h */,
-				D28293551DF7EB2B009884F3 /* JSONCoreProperty.m */,
 				D28293411DF648DD009884F3 /* JSONCore.h */,
 				D28293421DF648DD009884F3 /* JSONCore.m */,
+				D28293541DF7EB2B009884F3 /* JSONCoreProperty.h */,
+				D28293551DF7EB2B009884F3 /* JSONCoreProperty.m */,
 			);
 			name = JSONCore;
 			path = COJSONCore;

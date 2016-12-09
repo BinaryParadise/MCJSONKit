@@ -297,9 +297,9 @@ static const char *kClassPropertiesKey;
     [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JSONCoreProperty * _Nonnull obj, BOOL * _Nonnull stop) {
         id value = [self valueForProperty:obj];
         if (value) {
-            [mdict setObject:value forKey:obj.jsonKey];
+            [mdict setValue:value forKeyPath:obj.jsonKey];
         }else {
-            [mdict setObject:[NSNull null] forKey:obj.jsonKey];
+            [mdict setValue:[NSNull null] forKeyPath:obj.jsonKey];
         }
     }];
     return mdict;

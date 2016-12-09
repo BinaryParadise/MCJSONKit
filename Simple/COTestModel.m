@@ -22,4 +22,8 @@
 
 @implementation COTestModelObject
 
+- (NSDictionary *)keyMappingDictionary {
+    return @{@"keyName":@"dict.key"};
+}
+
 @end
