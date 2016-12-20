@@ -161,8 +161,10 @@ static const char *kClassPropertiesKey;
             }
         }else {
             NSNumber *number = value;
-            if ([number isKindOfClass:[NSNumber class]]) {
-                [self setValue:[number valueForKey:property.keyPath] forKey:property.name];
+            if ([number isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
+                if ([value respondsToSelector:NSSelectorFromString(property.keyPath)]) {
+                    [self setValue:[number valueForKey:property.keyPath] forKey:property.name];
+                }
             }
         }
     }
