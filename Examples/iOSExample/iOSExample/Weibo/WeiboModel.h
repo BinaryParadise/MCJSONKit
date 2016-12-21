@@ -6,8 +6,8 @@
 //  Copyright © 2016年 maintoco. All rights reserved.
 //
 
-#import "JSONCore.h"
+#import "NSObject+JSONCore.h"
 
-@interface WeiboModel : JSONCore
+@interface WeiboModel : NSObject
 
 @end

@@ -26,7 +26,8 @@
 		A92AA96F1E08E38B00B4579F /* JSONCoreProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA96D1E08E38B00B4579F /* JSONCoreProperty.m */; };
 		A92AA9721E08E3CC00B4579F /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA9711E08E3CC00B4579F /* WeiboModel.m */; };
 		A92AA9761E08E3E500B4579F /* StatuseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA9751E08E3E500B4579F /* StatuseModel.m */; };
-		A92AA9791E08EEF400B4579F /* WeiboUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA9781E08EEF400B4579F /* WeiboUser.m */; };
+		A92AA9791E08EEF400B4579F /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA9781E08EEF400B4579F /* UserModel.m */; };
+		A92AA97C1E0A372000B4579F /* NSObject+JSONCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA97B1E0A372000B4579F /* NSObject+JSONCore.m */; };
 		A9F9A0101E08B06C00E22FE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F9A00F1E08B06C00E22FE7 /* main.m */; };
 		A9F9A0131E08B06C00E22FE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F9A0121E08B06C00E22FE7 /* AppDelegate.m */; };
 		A9F9A0191E08B06C00E22FE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F9A0171E08B06C00E22FE7 /* Main.storyboard */; };
@@ -84,8 +85,10 @@
 		A92AA9711E08E3CC00B4579F /* WeiboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboModel.m; sourceTree = "<group>"; };
 		A92AA9741E08E3E500B4579F /* StatuseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatuseModel.h; sourceTree = "<group>"; };
 		A92AA9751E08E3E500B4579F /* StatuseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatuseModel.m; sourceTree = "<group>"; };
-		A92AA9771E08EEF400B4579F /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
-		A92AA9781E08EEF400B4579F /* WeiboUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboUser.m; sourceTree = "<group>"; };
+		A92AA9771E08EEF400B4579F /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		A92AA9781E08EEF400B4579F /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		A92AA97A1E0A372000B4579F /* NSObject+JSONCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSONCore.h"; sourceTree = "<group>"; };
+		A92AA97B1E0A372000B4579F /* NSObject+JSONCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSONCore.m"; sourceTree = "<group>"; };
 		A9F9A00B1E08B06C00E22FE7 /* iOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F9A00F1E08B06C00E22FE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9F9A0111E08B06C00E22FE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 				A92AA96B1E08E38B00B4579F /* JSONCore.m */,
 				A92AA96C1E08E38B00B4579F /* JSONCoreProperty.h */,
 				A92AA96D1E08E38B00B4579F /* JSONCoreProperty.m */,
+				A92AA97A1E0A372000B4579F /* NSObject+JSONCore.h */,
+				A92AA97B1E0A372000B4579F /* NSObject+JSONCore.m */,
 			);
 			name = JSONCore;
 			path = ../../../JSONCore;
@@ -197,8 +202,8 @@
 				A92AA9711E08E3CC00B4579F /* WeiboModel.m */,
 				A92AA9741E08E3E500B4579F /* StatuseModel.h */,
 				A92AA9751E08E3E500B4579F /* StatuseModel.m */,
-				A92AA9771E08EEF400B4579F /* WeiboUser.h */,
-				A92AA9781E08EEF400B4579F /* WeiboUser.m */,
+				A92AA9771E08EEF400B4579F /* UserModel.h */,
+				A92AA9781E08EEF400B4579F /* UserModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -380,7 +385,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A92AA9791E08EEF400B4579F /* WeiboUser.m in Sources */,
+				A92AA97C1E0A372000B4579F /* NSObject+JSONCore.m in Sources */,
+				A92AA9791E08EEF400B4579F /* UserModel.m in Sources */,
 				A92AA96E1E08E38B00B4579F /* JSONCore.m in Sources */,
 				A92AA9721E08E3CC00B4579F /* WeiboModel.m in Sources */,
 				A9F9A0131E08B06C00E22FE7 /* AppDelegate.m in Sources */,
