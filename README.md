@@ -10,6 +10,9 @@
 - 待完善
 
 ## 更新记录
+### 2016-12-21
+-   增加Category使用方式
+
 ### 2016-12-08
 -	增加NSDate支持
 -	修复类型不匹配的问题例如：属性定义为NSString但是JSON数据为Number
@@ -39,17 +42,23 @@ String             | [`NSString`]
 Array              | [`NSArray`]
 Object             | [`NSDictionary`]
 
-## 基本用法
+## 基本用法：继承
 
 ```objc
 导入JSONCore文件夹到你的项目，并引用：
 #import "JSONCore.h"
+[可选]为了降低代码侵入，首先创建继承自JSONCore的基类JSONCoreBase，迁移时修改此类即可
+```
+## 基本用法：Category无需继承
+```objc
+导入JSONCore文件夹到你的项目，并引用：
+#import "NSObject+JSONCore.h"
 ```
 
 ```json
 { "id": 10, "country": "Germany", "dialCode": 49, "isInEurope": true }
 ```
-- [可选]为了降低代码侵入，首先创建继承自JSONCore的基类JSONCoreBase，迁移时修改此类即可
+
 - 创建需Model对象类CountryModel
 ```objc
 @interface CountryModel : JSONCoreBase
