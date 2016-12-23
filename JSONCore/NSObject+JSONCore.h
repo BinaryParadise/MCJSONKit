@@ -13,9 +13,9 @@
  */
 @interface NSObject (JSONCore)
 
-+ (instancetype)objectFromJSONString:(NSString *)jsonString;
-+ (instancetype)objectFromDictionary:(NSDictionary *)dict;
-+ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array;
++ (instancetype)co_objectFromJSONString:(NSString *)jsonString;
++ (instancetype)co_objectFromDictionary:(NSDictionary *)dict;
++ (NSArray *)co_arrayOfModelsFromDictionaries:(NSArray *)array;
 
 
 /**
@@ -23,7 +23,7 @@
  
  @return key:对象属性 value:keyPath
  */
-- (NSDictionary *)keyMappingDictionary;
+- (NSDictionary *)co_keyMappingDictionary;
 
 
 /**
@@ -31,15 +31,15 @@
  
  @return key:对象属性   value:类型class
  */
-- (NSDictionary *)typeMappingDictionary;
+- (NSDictionary *)co_typeMappingDictionary;
 
 
 /**
  忽略,不做处理的属性
  */
-- (NSSet *)ignoreDictionary;
+- (NSSet *)co_ignoreDictionary;
 
-- (NSDictionary *)toDictionary;
-- (NSString *)toJSONString;
+- (NSDictionary *)co_toDictionary;
+- (NSString *)co_toJSONString;
 
 @end

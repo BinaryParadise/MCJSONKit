@@ -10,7 +10,7 @@
 
 @implementation StatuseModel
 
-- (NSDictionary *)keyMappingDictionary {
+- (NSDictionary *)co_keyMappingDictionary {
     return @{@"wid":@"id",@"visible":@"visible.type"};
 }
 

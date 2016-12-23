@@ -52,13 +52,13 @@ static const char *kClassPropertiesKey;
     
 }
 
-+ (instancetype)objectFromJSONString:(NSString *)jsonString {
++ (instancetype)co_objectFromJSONString:(NSString *)jsonString {
     JSONCore *jsonCore = [[self.class alloc] init];
     [jsonCore setValuesWithJSONString:jsonString];
     return jsonCore;
 }
 
-+ (instancetype)objectFromDictionary:(NSDictionary *)dict {
++ (instancetype)co_objectFromDictionary:(NSDictionary *)dict {
     if (dict && [dict isKindOfClass:[NSDictionary class]]) {
         JSONCore *jsonCore = [[self.class alloc] init];
         [jsonCore setValuesWithDictionary:dict];
@@ -67,7 +67,7 @@ static const char *kClassPropertiesKey;
     return nil;
 }
 
-+ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array {
++ (NSArray *)co_arrayOfModelsFromDictionaries:(NSArray *)array {
     if (array && [array isKindOfClass:[NSArray class]]) {
         NSMutableArray *marr = [NSMutableArray arrayWithCapacity:array.count];
         [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -117,7 +117,7 @@ static const char *kClassPropertiesKey;
                 if ([value isKindOfClass:property.typeClass]) {
                     if (property.itemClass) {
                         //自定义对象数组
-                        id obj = [property.itemClass arrayOfModelsFromDictionaries:value];
+                        id obj = [property.itemClass co_arrayOfModelsFromDictionaries:value];
                         [self setValue:obj forKey:property.name];
                     }else {
                         id newValue = value;
@@ -156,7 +156,7 @@ static const char *kClassPropertiesKey;
                 }
             }else {
                 //自定义对象
-                id obj = [property.typeClass objectFromDictionary:value];
+                id obj = [property.typeClass co_objectFromDictionary:value];
                 [self setValue:obj forKey:property.name];
             }
         }else {
@@ -181,7 +181,7 @@ static const char *kClassPropertiesKey;
                         //自定义对象数组
                         NSMutableArray *marr = [NSMutableArray array];
                         [value enumerateObjectsUsingBlock:^(JSONCore *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                            [marr addObject:[obj toDictionary]];
+                            [marr addObject:[obj co_toDictionary]];
                         }];
                         return [marr copy];
                     }else if ([value isKindOfClass:[NSDate class]]) {
@@ -194,7 +194,7 @@ static const char *kClassPropertiesKey;
             }else {
                 //自定义对象
                 if ([value isKindOfClass:[JSONCore class]]) {
-                    return [value toDictionary];
+                    return [value co_toDictionary];
                 }
             }
         }else {
@@ -217,9 +217,9 @@ static const char *kClassPropertiesKey;
     mdict = [NSMutableDictionary dictionary];
     
     NSScanner *scanner;
-    NSSet *ignoreSet = [self ignoreDictionary];
-    NSDictionary *keyMapping = [self keyMappingDictionary];
-    NSDictionary *typeMapping = [self typeMappingDictionary];
+    NSSet *ignoreSet = [self co_ignoreDictionary];
+    NSDictionary *keyMapping = [self co_keyMappingDictionary];
+    NSDictionary *typeMapping = [self co_typeMappingDictionary];
     for (unsigned int i = 0; i<outCount; i++) {
         objc_property_t property = properties[i];
         //属性名
@@ -281,19 +281,19 @@ static const char *kClassPropertiesKey;
     return mdict;
 }
 
-- (NSSet *)ignoreDictionary {
+- (NSSet *)co_ignoreDictionary {
     return nil;
 }
 
-- (NSDictionary *)keyMappingDictionary {
+- (NSDictionary *)co_keyMappingDictionary {
     return nil;
 }
 
-- (NSDictionary *)typeMappingDictionary {
+- (NSDictionary *)co_typeMappingDictionary {
     return nil;
 }
 
-- (NSDictionary *)toDictionary {
+- (NSDictionary *)co_toDictionary {
     NSDictionary<NSString *,JSONCoreProperty *> *dict = [self allProperties];
     NSMutableDictionary *mdict = [NSMutableDictionary dictionary];
     [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JSONCoreProperty * _Nonnull obj, BOOL * _Nonnull stop) {
@@ -307,8 +307,8 @@ static const char *kClassPropertiesKey;
     return mdict;
 }
 
-- (NSString *)toJSONString {
-    NSDictionary *dict =[self toDictionary];
+- (NSString *)co_toJSONString {
+    NSDictionary *dict =[self co_toDictionary];
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
     if (!error) {

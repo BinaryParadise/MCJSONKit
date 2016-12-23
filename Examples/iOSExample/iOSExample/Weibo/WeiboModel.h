@@ -6,8 +6,36 @@
 //  Copyright © 2016年 maintoco. All rights reserved.
 //
 
-#import "NSObject+JSONCore.h"
+#import <Foundation/Foundation.h>
 
 @interface WeiboModel : NSObject
+
++ (instancetype)objectFromJSONString:(NSString *)jsonString;
++ (instancetype)objectFromDictionary:(NSDictionary *)dict;
++ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array;
+
+/**
+ key关联字段
+ 
+ @return key:对象属性 value:keyPath
+ */
++ (NSDictionary *)keyMappingDictionary;
+
+
+/**
+ 类型关联字典
+ 
+ @return key:对象属性   value:类型class
+ */
++ (NSDictionary *)typeMappingDictionary;
+
+
+/**
+ 忽略,不做处理的属性
+ */
++ (NSSet *)ignoreSet;
+
+- (NSDictionary *)toDictionary;
+- (NSString *)toJSONString;
 
 @end

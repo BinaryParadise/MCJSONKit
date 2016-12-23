@@ -7,8 +7,7 @@
 //
 
 #import "WeiboModel.h"
-
-@class UserModel;
+#import "UserModel.h"
 
 @interface StatuseModel : WeiboModel
 
