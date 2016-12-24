@@ -8,13 +8,24 @@
 
 #import "NSObject+JSONCore.h"
 #import "JSONCoreProperty.h"
+#import "NSMutableDictionary+JSONCore.h"
+
 #import <objc/runtime.h>
 
 static NSArray *allowedJSONTypes;//允许的对象类型
 static NSDictionary *allowedPrimitiveTypes;//允许的基础类型
 static const char *kClassPropertiesKey;
+static BOOL _prettyPrinted;
 
 @implementation NSObject (JSONCore)
+
++ (BOOL)prettyPrinted {
+    return _prettyPrinted;
+}
+
++ (void)setPrettyPrinted:(BOOL)prettyPrinted {
+    _prettyPrinted = prettyPrinted;
+}
 
 + (void)load {
     static dispatch_once_t once;
@@ -51,26 +62,37 @@ static const char *kClassPropertiesKey;
     
 }
 
-+ (instancetype)co_objectFromJSONString:(NSString *)jsonString {
-    NSObject *jsonCore = [[self.class alloc] init];
-    [jsonCore setValuesWithJSONString:jsonString];
-    return jsonCore;
-}
-
-+ (instancetype)co_objectFromDictionary:(NSDictionary *)dict {
-    if (dict && [dict isKindOfClass:[NSDictionary class]]) {
-        NSObject *jsonCore = [[self.class alloc] init];
-        [jsonCore setValuesWithDictionary:dict];
-        return jsonCore;
++ (instancetype)co_objectFromKeyValues:(id)keyValues {
+    if (keyValues == nil || [keyValues isKindOfClass:[NSNull class]]) {
+        return nil;
     }
-    return nil;
+    NSObject *jsonObject = [[self alloc] init];
+    if ([keyValues isKindOfClass:[NSString class]]) {
+        [jsonObject setValuesWithJSONString:keyValues];
+    }else if([keyValues isKindOfClass:[NSData class]]) {
+        NSError *error;
+        id obj = [NSJSONSerialization JSONObjectWithData:keyValues options:kNilOptions error:&error];
+
+        if (error) {
+#if DEBUG
+            NSLog(@"%@",error);
+#endif
+        }else {
+            [jsonObject setValuesWithDictionary:obj];
+        }
+    }else if([keyValues isKindOfClass:[NSDictionary class]]) {
+        [jsonObject setValuesWithDictionary:keyValues];
+    }else {
+        return nil;
+    }
+    return jsonObject;
 }
 
 + (NSArray *)co_arrayOfModelsFromDictionaries:(NSArray *)array {
     if (array && [array isKindOfClass:[NSArray class]]) {
         NSMutableArray *marr = [NSMutableArray arrayWithCapacity:array.count];
         [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSObject *jsonCore = [[self.class alloc] init];
+            NSObject *jsonCore = [[self alloc] init];
             [jsonCore setValuesWithDictionary:obj];
             [marr addObject:jsonCore];
         }];
@@ -155,7 +177,7 @@ static const char *kClassPropertiesKey;
                 }
             }else {
                 //自定义对象
-                id obj = [property.typeClass co_objectFromDictionary:value];
+                id obj = [property.typeClass co_objectFromKeyValues:value];
                 [self setValue:obj forKey:property.name];
             }
         }else {
@@ -216,9 +238,9 @@ static const char *kClassPropertiesKey;
     mdict = [NSMutableDictionary dictionary];
     
     NSScanner *scanner;
-    NSSet *ignoreSet = [self co_ignoreDictionary];
-    NSDictionary *keyMapping = [self co_keyMappingDictionary];
-    NSDictionary *typeMapping = [self co_typeMappingDictionary];
+    NSSet *ignoreSet = [self.class co_ignoreDictionary];
+    NSDictionary *keyMapping = [self.class co_keyMappingDictionary];
+    NSDictionary *typeMapping = [self.class co_typeMappingDictionary];
     for (unsigned int i = 0; i<outCount; i++) {
         objc_property_t property = properties[i];
         //属性名
@@ -280,28 +302,24 @@ static const char *kClassPropertiesKey;
     return mdict;
 }
 
-- (NSSet *)co_ignoreDictionary {
-    return nil;
-}
-
-- (NSDictionary *)co_keyMappingDictionary {
-    return nil;
-}
-
-- (NSDictionary *)co_typeMappingDictionary {
-    return nil;
-}
-
 - (NSDictionary *)co_toDictionary {
     NSDictionary<NSString *,JSONCoreProperty *> *dict = [self allProperties];
     NSMutableDictionary *mdict = [NSMutableDictionary dictionary];
     [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JSONCoreProperty * _Nonnull obj, BOOL * _Nonnull stop) {
+        void(^setValueBlock)(id) = ^(id value) {
+            if (value) {
+                [mdict setValue:value forKeyPath:obj.jsonKey];
+            }else {
+                [mdict setValue:[NSNull null] forKeyPath:obj.jsonKey];
+            }
+        };
         id value = [self valueForProperty:obj];
-        if (value) {
-            [mdict setValue:value forKeyPath:obj.jsonKey];
+        if ([obj.jsonKey rangeOfString:@"."].location == NSNotFound) {
+            setValueBlock(value);
         }else {
-            [mdict setValue:[NSNull null] forKeyPath:obj.jsonKey];
+            [mdict co_setValue:value forKeyPath:obj.jsonKey];
         }
+        
     }];
     return mdict;
 }
@@ -309,10 +327,30 @@ static const char *kClassPropertiesKey;
 - (NSString *)co_toJSONString {
     NSDictionary *dict =[self co_toDictionary];
     NSError *error;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:_prettyPrinted?NSJSONWritingPrettyPrinted:kNilOptions error:&error];
     if (!error) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
+    return nil;
+}
+
+@end
+
+@implementation NSObject (JSONCoreConfig)
+
++ (NSDictionary *)co_allowedPropertyNames {
+    return nil;
+}
+
++ (NSSet *)co_ignoreDictionary {
+    return nil;
+}
+
++ (NSDictionary *)co_keyMappingDictionary {
+    return nil;
+}
+
++ (NSDictionary *)co_typeMappingDictionary {
     return nil;
 }
 

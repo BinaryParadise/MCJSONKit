@@ -13,17 +13,50 @@
  */
 @interface NSObject (JSONCore)
 
-+ (instancetype)co_objectFromJSONString:(NSString *)jsonString;
-+ (instancetype)co_objectFromDictionary:(NSDictionary *)dict;
+/**
+ JSON数据是否格式化输出，默认为NO
+ */
+@property (class, nonatomic, assign) BOOL prettyPrinted;
+
+/**
+ 通过字典创建模型
+
+ @param keyValues 许可类型<NSData,NSDictionary,NSString>
+ @return 新创建模型对象
+ */
++ (instancetype)co_objectFromKeyValues:(id)keyValues;
+
+/**
+ 字段数组转模型数组
+ */
 + (NSArray *)co_arrayOfModelsFromDictionaries:(NSArray *)array;
 
+- (NSDictionary *)co_toDictionary;
+- (NSString *)co_toJSONString;
+
+@end
+
+/**
+ 关联配置
+ */
+@interface NSObject (JSONCoreConfig)
+
+/**
+ 允许的属性名
+ */
++ (NSDictionary *)co_allowedPropertyNames;
+
+/**
+ 忽略,不做处理的属性
+ */
++ (NSSet *)co_ignoreDictionary;
 
 /**
  key关联字段
  
  @return key:对象属性 value:keyPath
  */
-- (NSDictionary *)co_keyMappingDictionary;
++ (NSDictionary *)co_keyMappingDictionary;
 
 
 /**
@@ -31,15 +64,6 @@
  
  @return key:对象属性   value:类型class
  */
-- (NSDictionary *)co_typeMappingDictionary;
-
-
-/**
- 忽略,不做处理的属性
- */
-- (NSSet *)co_ignoreDictionary;
-
-- (NSDictionary *)co_toDictionary;
-- (NSString *)co_toJSONString;
++ (NSDictionary *)co_typeMappingDictionary;
 
 @end

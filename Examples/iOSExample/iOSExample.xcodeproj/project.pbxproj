@@ -18,6 +18,8 @@
 		774DF4F01E0D04C300621AC7 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DF4E31E0D04C300621AC7 /* NSObject+MJKeyValue.m */; };
 		774DF4F11E0D04C300621AC7 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DF4E51E0D04C300621AC7 /* NSObject+MJProperty.m */; };
 		774DF4F21E0D04C300621AC7 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DF4E71E0D04C300621AC7 /* NSString+MJExtension.m */; };
+		77756B421E0D6523006F5938 /* NSMutableDictionary+JSONCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 77756B411E0D6523006F5938 /* NSMutableDictionary+JSONCore.m */; };
+		77756B441E0DF052006F5938 /* public_timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = 77756B431E0DF052006F5938 /* public_timeline.json */; };
 		A92AA93C1E08B57600B4579F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA93B1E08B57600B4579F /* MainViewController.m */; };
 		A92AA94B1E08D16900B4579F /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A92AA93E1E08D16900B4579F /* libWeiboSDK.a */; };
 		A92AA94C1E08D16900B4579F /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A92AA9481E08D16900B4579F /* WeiboSDK.bundle */; };
@@ -33,7 +35,6 @@
 		A92AA9631E08D44A00B4579F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A92AA9621E08D44A00B4579F /* libz.tbd */; };
 		A92AA9651E08D45100B4579F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A92AA9641E08D45100B4579F /* libsqlite3.tbd */; };
 		A92AA9681E08E08000B4579F /* WeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA9671E08E08000B4579F /* WeiboRequest.m */; };
-		A92AA96E1E08E38B00B4579F /* JSONCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA96B1E08E38B00B4579F /* JSONCore.m */; };
 		A92AA96F1E08E38B00B4579F /* JSONCoreProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA96D1E08E38B00B4579F /* JSONCoreProperty.m */; };
 		A92AA9721E08E3CC00B4579F /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA9711E08E3CC00B4579F /* WeiboModel.m */; };
 		A92AA9761E08E3E500B4579F /* StatuseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA9751E08E3E500B4579F /* StatuseModel.m */; };
@@ -84,6 +85,9 @@
 		774DF4E51E0D04C300621AC7 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		774DF4E61E0D04C300621AC7 /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		774DF4E71E0D04C300621AC7 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		77756B401E0D6523006F5938 /* NSMutableDictionary+JSONCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+JSONCore.h"; sourceTree = "<group>"; };
+		77756B411E0D6523006F5938 /* NSMutableDictionary+JSONCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+JSONCore.m"; sourceTree = "<group>"; };
+		77756B431E0DF052006F5938 /* public_timeline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = public_timeline.json; sourceTree = "<group>"; };
 		A92AA93A1E08B57600B4579F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A92AA93B1E08B57600B4579F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A92AA93E1E08D16900B4579F /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
@@ -113,8 +117,6 @@
 		A92AA9641E08D45100B4579F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A92AA9661E08E08000B4579F /* WeiboRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboRequest.h; sourceTree = "<group>"; };
 		A92AA9671E08E08000B4579F /* WeiboRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboRequest.m; sourceTree = "<group>"; };
-		A92AA96A1E08E38B00B4579F /* JSONCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONCore.h; sourceTree = "<group>"; };
-		A92AA96B1E08E38B00B4579F /* JSONCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONCore.m; sourceTree = "<group>"; };
 		A92AA96C1E08E38B00B4579F /* JSONCoreProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONCoreProperty.h; sourceTree = "<group>"; };
 		A92AA96D1E08E38B00B4579F /* JSONCoreProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONCoreProperty.m; sourceTree = "<group>"; };
 		A92AA9701E08E3CC00B4579F /* WeiboModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboModel.h; sourceTree = "<group>"; };
@@ -255,12 +257,12 @@
 		A92AA9691E08E38B00B4579F /* JSONCore */ = {
 			isa = PBXGroup;
 			children = (
-				A92AA96A1E08E38B00B4579F /* JSONCore.h */,
-				A92AA96B1E08E38B00B4579F /* JSONCore.m */,
 				A92AA96C1E08E38B00B4579F /* JSONCoreProperty.h */,
 				A92AA96D1E08E38B00B4579F /* JSONCoreProperty.m */,
 				A92AA97A1E0A372000B4579F /* NSObject+JSONCore.h */,
 				A92AA97B1E0A372000B4579F /* NSObject+JSONCore.m */,
+				77756B401E0D6523006F5938 /* NSMutableDictionary+JSONCore.h */,
+				77756B411E0D6523006F5938 /* NSMutableDictionary+JSONCore.m */,
 			);
 			name = JSONCore;
 			path = ../../../JSONCore;
@@ -334,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F9A00F1E08B06C00E22FE7 /* main.m */,
+				77756B431E0DF052006F5938 /* public_timeline.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			files = (
 				A9F9A01E1E08B06C00E22FE7 /* LaunchScreen.storyboard in Resources */,
 				A9F9A01B1E08B06C00E22FE7 /* Assets.xcassets in Resources */,
+				77756B441E0DF052006F5938 /* public_timeline.json in Resources */,
 				A9F9A0191E08B06C00E22FE7 /* Main.storyboard in Resources */,
 				774DF4E81E0D04C300621AC7 /* Info.plist in Resources */,
 				A92AA94C1E08D16900B4579F /* WeiboSDK.bundle in Resources */,
@@ -477,7 +481,6 @@
 				774DF4F01E0D04C300621AC7 /* NSObject+MJKeyValue.m in Sources */,
 				A92AA9861E0B571500B4579F /* LoadingView.m in Sources */,
 				A92AA9791E08EEF400B4579F /* UserModel.m in Sources */,
-				A92AA96E1E08E38B00B4579F /* JSONCore.m in Sources */,
 				A92AA9721E08E3CC00B4579F /* WeiboModel.m in Sources */,
 				774DF4ED1E0D04C300621AC7 /* MJPropertyType.m in Sources */,
 				774DF4F11E0D04C300621AC7 /* NSObject+MJProperty.m in Sources */,
@@ -489,6 +492,7 @@
 				774DF4E91E0D04C300621AC7 /* MJExtensionConst.m in Sources */,
 				A9F9A0361E08B1C800E22FE7 /* HomeTimelineController.m in Sources */,
 				774DF4EE1E0D04C300621AC7 /* NSObject+MJClass.m in Sources */,
+				77756B421E0D6523006F5938 /* NSMutableDictionary+JSONCore.m in Sources */,
 				A92AA9501E08D24E00B4579F /* WeiboViewModel.m in Sources */,
 				A92AA96F1E08E38B00B4579F /* JSONCoreProperty.m in Sources */,
 				A92AA97F1E0A534C00B4579F /* UIViewExt.m in Sources */,

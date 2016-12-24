@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "StatuseModel.h"
 
 @interface iOSExampleTests : XCTestCase
 
@@ -31,8 +32,17 @@
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
+    NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"public_timeline.json" ofType:nil]];
+    NSArray *arr = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:nil];
+    __block int count;
     [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+        for (int i=0; i<100; i++) {
+            NSArray *result = [StatuseModel arrayOfModelsFromDictionaries:arr];
+            count++;
+        }
+        if (count == 1000) {
+            NSLog(@"%d",count);
+        }
     }];
 }
 

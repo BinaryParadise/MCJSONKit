@@ -4,14 +4,16 @@
 - 目前为测试版，可能还有很多问题，找工作中暂时没啥心情，也许会维护更新，学习研究才能进步。
 
 - 不改变目标对象的属性类型
-- null对应为nil
+- null值不做处理
 - 过滤类型不匹配的情况，例如`类型为NSArray，但是JSON数据为字符串的情况`
 - 使用时建议创建一个继承自JSONCore的基类，然后所有的Model基础这个基类，方便后续迁移
 - 待完善
 
 ## 更新记录
-### 2016-12-21
--   增加Category使用方式
+### 2016-12-24
+-   移除类继承的使用方式
+-   优化初始化方法
+-   修复JSON数据输出不能正确解析keyPath的问题,并增加是否格式化输出的开关
 
 ### 2016-12-08
 -	增加NSDate支持
@@ -42,26 +44,26 @@ String             | [`NSString`]
 Array              | [`NSArray`]
 Object             | [`NSDictionary`]
 
-## 基本用法：继承
+## 基本用法
 
-```objc
-导入JSONCore文件夹到你的项目，并引用：
-#import "JSONCore.h"
-[可选]为了降低代码侵入，首先创建继承自JSONCore的基类JSONCoreBase，迁移时修改此类即可
-```
-## 基本用法：Category无需继承
+```json
+    为了减少代码入侵可以创建一个封装JSONCore的基类,详见示例项目iOSExample->Weibo->Models->WeiboModel.h
+    其中也封装了MJExtension的实现方式，作为对比可以无缝切换
+``` 
+
 ```objc
 导入JSONCore文件夹到你的项目，并引用：
 #import "NSObject+JSONCore.h"
 ```
 
+JSONString -> Model【简单模型】
+
 ```json
 { "id": 10, "country": "Germany", "dialCode": 49, "isInEurope": true }
 ```
 
-- 创建需Model对象类CountryModel
 ```objc
-@interface CountryModel : JSONCoreBase
+@interface CountryModel : WeiboModel
 @property (nonatomic) NSInteger id;
 @property (nonatomic) NSString *country;
 @property (nonatomic) NSString *dialCode;
@@ -69,13 +71,11 @@ Object             | [`NSDictionary`]
 @end
 ```
 
-将JSON数据转换为Model对象
-
 ```objc
 CountryModel *country = [CountryModel objectFromJSONString:myJson];
 ```
 
-## 高级：映射
+JSONString -> Model【模型嵌套】
 
 ```json
 {
@@ -92,45 +92,50 @@ CountryModel *country = [CountryModel objectFromJSONString:myJson];
 			"name": "Product #2",
 			"price": 82.95
 		}
-	]
+	],
+    status:{
+        "code":1,
+        "msg":"订单已付款"
+    }
 }
 ```
+
 ```objc
-@interface ProductModel : JSONCoreBase
+@interface ProductModel : WeiboModel
 @property (nonatomic) NSInteger productId;
 @property (nonatomic) NSString *name;
 @property (nonatomic) float price;
 @end
 
-@interface OrderModel : JSONCoreBase
-@property (nonatomic) NSInteger orderId;
-@property (nonatomic) float totalPrice;
-@property (nonatomic) NSArray *products;
-@end
-
-```
-
-### key嵌套映射
-```objc
 @implementation ProductModel
 
-- (NSDictionary *)keyMappingDictionary {
+//模型中的属性名和字典中的key不同
++ (NSDictionary *)keyMappingDictionary {
     return @{@"productId":@"id"};
 }
 
+@interface OrderModel : WeiboModel
+@property (nonatomic) NSInteger orderId;
+@property (nonatomic) float totalPrice;
+@property (nonatomic, assign) int status;
+@property (nonatomic) NSArray *products;
 @end
-```
-### Model嵌套
-```objc
+
 @implementation OrderModel
 
-- (NSDictionary *)typeMappingDictionary {
+//key多级映射
++ (NSDictionary *)keyMappingDictionary {
+    return @{@"status":@"status.code"};
+} 
+
+//模型中有个数组属性，数组元素映射为其他模型
++ (NSDictionary *)typeMappingDictionary {
     return @{@"products":[ProductModel class]};
 }
 
-@end
 ```
+
 # TODO
 - [ ] 复杂JSON解析测试
-- [ ] 解析速度对比分析
+- [x] 解析速度对比分析
 - [ ] 全面覆盖测试，找出BUG

@@ -13,29 +13,34 @@
 
 @implementation WeiboModel
 
-#pragma mark - JSONCore
++ (void)load {
+    [self setPrettyPrinted:YES];
+}
 
-/*
-+ (instancetype)objectFromJSONString:(NSString *)jsonString {
-    return [self.class co_objectFromJSONString:jsonString];
+#pragma mark - 封装-JSONCore
+
++ (instancetype)jsonObjectFromData:(id)data {
+    return [self co_objectFromKeyValues:data];
 }
-+ (instancetype)objectFromDictionary:(NSDictionary *)dict {
-    return [self.class co_objectFromDictionary:dict];
-}
+
 + (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array {
-    return [self.class co_arrayOfModelsFromDictionaries:array];
+    return [self co_arrayOfModelsFromDictionaries:array];
 }
 
-- (NSDictionary *)keyMappingDictionary {
-    return [self co_keyMappingDictionary];
++ (NSArray *)allowedPropertyNames {
+    return nil;
 }
 
-- (NSDictionary *)typeMappingDictionary {
-    return [self co_typeMappingDictionary];
++ (NSDictionary *)keyMappingDictionary {
+    return nil;
 }
 
-- (NSSet *)ignoreDictionary {
-    return [self co_ignoreDictionary];
++ (NSDictionary *)typeMappingDictionary {
+    return nil;
+}
+
++ (NSSet *)ignoreSet {
+    return nil;
 }
 
 - (NSDictionary *)toDictionary {
@@ -44,34 +49,38 @@
 
 - (NSString *)toJSONString {
     return [self co_toJSONString];
-}*/
-
-#pragma mark - MJExtension
-
-+ (void)load {
-    //忽略属性
-    [self.class mj_setupIgnoredPropertyNames:^NSArray *{
-        return [self.class ignoreSet].allObjects;
-    }];
-    //属性名对应JSON中的key
-    [self.class mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return [self.class keyMappingDictionary];
-    }];
-    //数组中需要转换的模型类
-    [self.class mj_setupObjectClassInArray:^NSDictionary *{
-        return [self.class typeMappingDictionary];
-    }];
 }
 
-+ (instancetype)objectFromJSONString:(NSString *)jsonString {
-    id obj = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-    return [self.class mj_objectWithKeyValues:obj];
+#pragma mark JSONCoreConfig
+
++ (NSDictionary *)co_allowedPropertyNames {
+    return nil;
 }
-+ (instancetype)objectFromDictionary:(NSDictionary *)dict {
-    return [self.class mj_objectWithKeyValues:dict];
+
++ (NSDictionary *)co_keyMappingDictionary {
+    return [self keyMappingDictionary];
 }
+
++ (NSDictionary *)co_typeMappingDictionary {
+    return [self typeMappingDictionary];
+}
+
++ (NSSet *)co_ignoreDictionary {
+    return [self ignoreSet];
+}
+
+#pragma mark - 封装-MJExtension
+/*
++ (instancetype)jsonObjectFromData:(id)data {
+    return [self mj_objectWithKeyValues:data];
+}
+
 + (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array {
-    return [self.class mj_objectArrayWithKeyValuesArray:array];
+    return [self mj_objectArrayWithKeyValuesArray:array];
+}
+
++ (NSArray *)allowedPropertyNames {
+    return nil;
 }
 
 + (NSDictionary *)keyMappingDictionary {
@@ -94,5 +103,20 @@
     return [self mj_JSONString];
 }
 
++ (NSArray *)mj_ignoredPropertyNames {
+    return [self ignoreSet].allObjects;
+}
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return [self keyMappingDictionary];
+}
+
++ (NSDictionary *)mj_objectClassInArray {
+    return [self typeMappingDictionary];
+}
+
++ (NSArray *)mj_allowedPropertyNames {
+    return [self allowedPropertyNames];
+}*/
 
 @end

@@ -10,9 +10,21 @@
 
 @interface WeiboModel : NSObject
 
-+ (instancetype)objectFromJSONString:(NSString *)jsonString;
-+ (instancetype)objectFromDictionary:(NSDictionary *)dict;
+
+/**
+ 通过字典创建模型
+ 
+ @param data 许可类型<NSData,NSDictionary,NSString>
+ @return 新创建模型对象
+ 
+ */
++ (instancetype)jsonObjectFromData:(id)data;
 + (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array;
+
+/**
+ 允许的属性名
+ */
++ (NSArray *)allowedPropertyNames;
 
 /**
  key关联字段

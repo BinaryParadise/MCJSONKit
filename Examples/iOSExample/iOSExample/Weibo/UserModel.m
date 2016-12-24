@@ -10,11 +10,11 @@
 
 @implementation UserModel
 
-- (NSDictionary *)co_keyMappingDictionary {
++ (NSDictionary *)keyMappingDictionary {
     return @{@"uid":@"id",@"desc":@"description"};
 }
 
-- (NSSet *)ignoreDictionary {
++ (NSSet *)ignoreDictionary {
     return [NSSet setWithObject:@"verified_type"];
 }
 

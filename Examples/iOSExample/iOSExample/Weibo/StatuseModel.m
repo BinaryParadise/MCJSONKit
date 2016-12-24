@@ -10,9 +10,15 @@
 
 @implementation StatuseModel
 
-- (NSDictionary *)co_keyMappingDictionary {
-    return @{@"wid":@"id",@"visible":@"visible.type"};
++ (NSDictionary *)keyMappingDictionary {
+    return @{@"wid":@"id",
+             @"visible":@"visible.type",
+             @"listid":@"visible.list_id"};
 }
+
+/*+ (NSArray *)allowedPropertyNames {
+    return @[@"visible",@"listid"];
+}*/
 
 - (void)setCreated_at:(NSString *)created_at {
     NSDateFormatter *dateFmt = [NSDateFormatter new];
