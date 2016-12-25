@@ -1,12 +1,14 @@
 # JSONCore
+-	A fast, convenient and nonintrusive conversion between JSON and model.
+-	转换速度快、使用简单方便的字典转模型框架
+
 ## 水平有限，欢迎各位大牛批评指教
-- 一直是拿来主义用的第三方库，总是发现一些不灵活或者不足、不适用的地方，所以自己心血来潮写一个轻量的JSON对象转换库。
-- 目前为测试版，可能还有很多问题，找工作中暂时没啥心情，也许会维护更新，学习研究才能进步。
+- 一直是拿来主义用的第三方库，总是发现一些不灵活或者不足、不适用的地方，所以自己心血来潮写一个轻量的JSON对象转换库.
+- 目前为测试版，可能还有很多问题，会持续更新优化.
 
 - 不改变目标对象的属性类型
 - null值不做处理
 - 过滤类型不匹配的情况，例如`类型为NSArray，但是JSON数据为字符串的情况`
-- 使用时建议创建一个继承自JSONCore的基类，然后所有的Model基础这个基类，方便后续迁移
 - 待完善
 
 ## 更新记录
@@ -44,26 +46,139 @@ String             | [`NSString`]
 Array              | [`NSArray`]
 Object             | [`NSDictionary`]
 
-## 基本用法
+## 如何使用
 
-```json
-    为了减少代码入侵可以创建一个封装JSONCore的基类,详见示例项目iOSExample->Weibo->Models->WeiboModel.h
-    其中也封装了MJExtension的实现方式，作为对比可以无缝切换
-``` 
-
+### 导入JSONCore文件夹到你的项目
 ```objc
-导入JSONCore文件夹到你的项目，并引用：
 #import "NSObject+JSONCore.h"
 ```
+# Examples【示例】
 
-JSONString -> Model【简单模型】
+### 创建基础模型YourBaseModel并封装【推荐】
+```ruby
+为了减少代码入侵，方便以后灵活迁移，可按以下方法封装
+示例：iOSExample->Weibo->Models->WeiboModel.h（包含MJExtension的实现方式作为对比）
+```
+
+```objc
+//示例基础模型
+@interface YourBaseModel : NSObject
+
+/**
+ 通过字典创建模型
+ 
+ @param data 许可类型<NSData,NSDictionary,NSString>
+ @return 新创建模型对象
+ 
+ */
++ (instancetype)jsonObjectFromData:(id)data;
++ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array;
+
+/**
+ 允许的属性名
+ */
++ (NSArray *)allowedPropertyNames;
+
+/**
+ key关联字段
+ 
+ @return key:对象属性 value:keyPath
+ */
++ (NSDictionary *)keyMappingDictionary;
+
+/**
+ 类型关联字典
+ 
+ @return key:对象属性   value:类型class
+ */
++ (NSDictionary *)typeMappingDictionary;
+
+/**
+ 忽略,不做处理的属性
+ */
++ (NSSet *)ignoreSet;
+
+- (NSDictionary *)toDictionary;
+- (NSString *)toJSONString;
+
+@end
+
+#import "YourBaseModel.h"
+
+#import "NSObject+JSONCore.h"
+#import "MJExtension.h"
+
+@implementation YourBaseModel
+
++ (void)load {
+	 //格式化输出JSON数据
+    [self setPrettyPrinted:YES];
+}
+
+#pragma mark - 封装JSONCore
+
++ (instancetype)jsonObjectFromData:(id)data {
+    return [self co_objectFromKeyValues:data];
+}
+
++ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array {
+    return [self co_arrayOfModelsFromDictionaries:array];
+}
+
++ (NSArray *)allowedPropertyNames {
+    return nil;
+}
+
++ (NSDictionary *)keyMappingDictionary {
+    return nil;
+}
+
++ (NSDictionary *)typeMappingDictionary {
+    return nil;
+}
+
++ (NSSet *)ignoreSet {
+    return nil;
+}
+
+- (NSDictionary *)toDictionary {
+    return [self co_toDictionary];
+}
+
+- (NSString *)toJSONString {
+    return [self co_toJSONString];
+}
+
+#pragma mark JSONCoreConfig
+
++ (NSDictionary *)co_allowedPropertyNames {
+    return nil;
+}
+
++ (NSDictionary *)co_keyMappingDictionary {
+    return [self keyMappingDictionary];
+}
+
++ (NSDictionary *)co_typeMappingDictionary {
+    return [self typeMappingDictionary];
+}
+
++ (NSSet *)co_ignoreDictionary {
+    return [self ignoreSet];
+}
+
+@end
+
+```
+
+### JSONString -> Model【简单模型】
 
 ```json
 { "id": 10, "country": "Germany", "dialCode": 49, "isInEurope": true }
 ```
 
 ```objc
-@interface CountryModel : WeiboModel
+@interface CountryModel : YourBaseModel
 @property (nonatomic) NSInteger id;
 @property (nonatomic) NSString *country;
 @property (nonatomic) NSString *dialCode;
@@ -72,10 +187,10 @@ JSONString -> Model【简单模型】
 ```
 
 ```objc
-CountryModel *country = [CountryModel objectFromJSONString:myJson];
+CountryModel *country = [CountryModel jsonObjectFromData:jsonString];
 ```
 
-JSONString -> Model【模型嵌套】
+## JSONString -> Model【模型嵌套】
 
 ```json
 {
@@ -93,7 +208,7 @@ JSONString -> Model【模型嵌套】
 			"price": 82.95
 		}
 	],
-    status:{
+    "status":{
         "code":1,
         "msg":"订单已付款"
     }
@@ -101,41 +216,56 @@ JSONString -> Model【模型嵌套】
 ```
 
 ```objc
-@interface ProductModel : WeiboModel
+@interface ProductModel : YourBaseModel
 @property (nonatomic) NSInteger productId;
 @property (nonatomic) NSString *name;
 @property (nonatomic) float price;
 @end
 
-@implementation ProductModel
-
-//模型中的属性名和字典中的key不同
-+ (NSDictionary *)keyMappingDictionary {
-    return @{@"productId":@"id"};
-}
-
-@interface OrderModel : WeiboModel
+@interface OrderModel : YourBaseModel
 @property (nonatomic) NSInteger orderId;
 @property (nonatomic) float totalPrice;
 @property (nonatomic, assign) int status;
 @property (nonatomic) NSArray *products;
 @end
+```
+### Model name - JSON key mapping【属性和字典的key不同、多级映射】
 
+```objc
+@implementation ProductModel
++ (NSDictionary *)keyMappingDictionary {
+    return @{@"productID",@"id"};
+} 
+@end
+```
+
+```objc
 @implementation OrderModel
-
-//key多级映射
 + (NSDictionary *)keyMappingDictionary {
     return @{@"status":@"status.code"};
 } 
+@end
+```
 
+### Model contains model【模型中数组的元素也是模型】
+
+```objc
 //模型中有个数组属性，数组元素映射为其他模型
 + (NSDictionary *)typeMappingDictionary {
     return @{@"products":[ProductModel class]};
 }
-
 ```
 
+### 解析速度对比
+
+[测试数据](Examples/iOSExample/iOSExample/public_timeline.json)
+
+ 100次循环解析			| 平均耗时
+--------------------|--------------------
+`JSONCore`    		| 0.283s
+`MJExtension` 		| 0.998s
+
 # TODO
-- [ ] 复杂JSON解析测试
 - [x] 解析速度对比分析
+- [ ] 复杂JSON解析测试
 - [ ] 全面覆盖测试，找出BUG
