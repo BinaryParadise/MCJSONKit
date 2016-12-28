@@ -41,7 +41,6 @@
 }
 
 - (void)requestHomeTimeline:(void (^)())completion {
-    return;
     [WeiboRequest startRequestWithURL:@"https://api.weibo.com/2/statuses/public_timeline.json" completion:^(id obj) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:obj options:NSJSONReadingMutableContainers  error:nil];
        self.statuses = [StatuseModel arrayOfModelsFromDictionaries:dict[@"statuses"]];

@@ -47,6 +47,7 @@
 - (void)setHidden:(BOOL)hidden {
     if (hidden) {
         [_shapeLayer removeAllAnimations];
+        [_shapeLayer removeFromSuperlayer];
     }
     [super setHidden:hidden];
 }

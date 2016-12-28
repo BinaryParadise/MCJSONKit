@@ -43,10 +43,10 @@
 }
 
 - (void)hideLoading {
-    self.tableView.hidden = NO;
-    [self.tableView reloadData];
     LoadingView *loadView = [self.view viewWithTag:1000];
     loadView.hidden = YES;
+    self.tableView.hidden = NO;
+    [self.tableView reloadData];
 }
 
 - (void)fetchData:(FetchDataType)fetchType {
@@ -64,7 +64,7 @@
 }
 
 - (void)fetchDataFinished:(FetchDataType)fetchType {
-    [self hideLoading];
+    [self performSelectorOnMainThread:@selector(hideLoading) withObject:nil waitUntilDone:NO];
 }
 
 - (UITableView *)tableView {

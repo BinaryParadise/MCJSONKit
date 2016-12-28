@@ -1,0 +1,8 @@
+target 'iOSExample' do
+platform :ios, '7.0'
+
+project 'iOSExample/iOSExample.xcodeproj'
+
+pod "WeiboSDK", :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git"
+
+end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6445C3E9A768C6844103543B /* libPods-iOSExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A1D98A497DDD701351126F /* libPods-iOSExample.a */; };
 		774DF4E81E0D04C300621AC7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774DF4D21E0D04C300621AC7 /* Info.plist */; };
 		774DF4E91E0D04C300621AC7 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DF4D51E0D04C300621AC7 /* MJExtensionConst.m */; };
 		774DF4EA1E0D04C300621AC7 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DF4D71E0D04C300621AC7 /* MJFoundation.m */; };
@@ -21,8 +22,6 @@
 		77756B421E0D6523006F5938 /* NSMutableDictionary+JSONCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 77756B411E0D6523006F5938 /* NSMutableDictionary+JSONCore.m */; };
 		77756B441E0DF052006F5938 /* public_timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = 77756B431E0DF052006F5938 /* public_timeline.json */; };
 		A92AA93C1E08B57600B4579F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA93B1E08B57600B4579F /* MainViewController.m */; };
-		A92AA94B1E08D16900B4579F /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A92AA93E1E08D16900B4579F /* libWeiboSDK.a */; };
-		A92AA94C1E08D16900B4579F /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A92AA9481E08D16900B4579F /* WeiboSDK.bundle */; };
 		A92AA9501E08D24E00B4579F /* WeiboViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A92AA94F1E08D24E00B4579F /* WeiboViewModel.m */; };
 		A92AA9531E08D40E00B4579F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92AA9521E08D40E00B4579F /* QuartzCore.framework */; };
 		A92AA9551E08D41400B4579F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92AA9541E08D41400B4579F /* ImageIO.framework */; };
@@ -63,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20A1D98A497DDD701351126F /* libPods-iOSExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		774DF4D21E0D04C300621AC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774DF4D31E0D04C300621AC7 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		774DF4D41E0D04C300621AC7 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
@@ -88,21 +88,9 @@
 		77756B401E0D6523006F5938 /* NSMutableDictionary+JSONCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+JSONCore.h"; sourceTree = "<group>"; };
 		77756B411E0D6523006F5938 /* NSMutableDictionary+JSONCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+JSONCore.m"; sourceTree = "<group>"; };
 		77756B431E0DF052006F5938 /* public_timeline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = public_timeline.json; sourceTree = "<group>"; };
+		9AE364F48765B353E3F4DFB7 /* Pods-iOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExample.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-iOSExample/Pods-iOSExample.debug.xcconfig"; sourceTree = "<group>"; };
 		A92AA93A1E08B57600B4579F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A92AA93B1E08B57600B4579F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		A92AA93E1E08D16900B4579F /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
-		A92AA93F1E08D16900B4579F /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
-		A92AA9401E08D16900B4579F /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
-		A92AA9411E08D16900B4579F /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
-		A92AA9421E08D16900B4579F /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
-		A92AA9431E08D16900B4579F /* WBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpRequest.h; sourceTree = "<group>"; };
-		A92AA9441E08D16900B4579F /* WBSDKBasicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKBasicButton.h; sourceTree = "<group>"; };
-		A92AA9451E08D16900B4579F /* WBSDKCommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKCommentButton.h; sourceTree = "<group>"; };
-		A92AA9461E08D16900B4579F /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKRelationshipButton.h; sourceTree = "<group>"; };
-		A92AA9471E08D16900B4579F /* WeiboSDK+Statistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeiboSDK+Statistics.h"; sourceTree = "<group>"; };
-		A92AA9481E08D16900B4579F /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
-		A92AA9491E08D16900B4579F /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
-		A92AA94A1E08D16900B4579F /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		A92AA94E1E08D24E00B4579F /* WeiboViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboViewModel.h; sourceTree = "<group>"; };
 		A92AA94F1E08D24E00B4579F /* WeiboViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboViewModel.m; sourceTree = "<group>"; };
 		A92AA9521E08D40E00B4579F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -146,6 +134,7 @@
 		A9F9A02A1E08B06D00E22FE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9F9A0341E08B1C800E22FE7 /* HomeTimelineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTimelineController.h; sourceTree = "<group>"; };
 		A9F9A0351E08B1C800E22FE7 /* HomeTimelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineController.m; sourceTree = "<group>"; };
+		D8FFD1EE7AB802D9291C2CA2 /* Pods-iOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExample.release.xcconfig"; path = "../Pods/Target Support Files/Pods-iOSExample/Pods-iOSExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +152,7 @@
 				A92AA9571E08D41C00B4579F /* SystemConfiguration.framework in Frameworks */,
 				A92AA9551E08D41400B4579F /* ImageIO.framework in Frameworks */,
 				A92AA9531E08D40E00B4579F /* QuartzCore.framework in Frameworks */,
-				A92AA94B1E08D16900B4579F /* libWeiboSDK.a in Frameworks */,
+				6445C3E9A768C6844103543B /* libPods-iOSExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		087147D2743EC369F83E76FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AE364F48765B353E3F4DFB7 /* Pods-iOSExample.debug.xcconfig */,
+				D8FFD1EE7AB802D9291C2CA2 /* Pods-iOSExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		774DF4D11E0D04C300621AC7 /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,26 +204,6 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
-		A92AA93D1E08D16900B4579F /* libWeiboSDK */ = {
-			isa = PBXGroup;
-			children = (
-				A92AA93E1E08D16900B4579F /* libWeiboSDK.a */,
-				A92AA93F1E08D16900B4579F /* WBHttpRequest+WeiboGame.h */,
-				A92AA9401E08D16900B4579F /* WBHttpRequest+WeiboShare.h */,
-				A92AA9411E08D16900B4579F /* WBHttpRequest+WeiboToken.h */,
-				A92AA9421E08D16900B4579F /* WBHttpRequest+WeiboUser.h */,
-				A92AA9431E08D16900B4579F /* WBHttpRequest.h */,
-				A92AA9441E08D16900B4579F /* WBSDKBasicButton.h */,
-				A92AA9451E08D16900B4579F /* WBSDKCommentButton.h */,
-				A92AA9461E08D16900B4579F /* WBSDKRelationshipButton.h */,
-				A92AA9471E08D16900B4579F /* WeiboSDK+Statistics.h */,
-				A92AA9481E08D16900B4579F /* WeiboSDK.bundle */,
-				A92AA9491E08D16900B4579F /* WeiboSDK.h */,
-				A92AA94A1E08D16900B4579F /* WeiboUser.h */,
-			);
-			path = libWeiboSDK;
-			sourceTree = "<group>";
-		};
 		A92AA94D1E08D22F00B4579F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +228,7 @@
 				A92AA9561E08D41C00B4579F /* SystemConfiguration.framework */,
 				A92AA9541E08D41400B4579F /* ImageIO.framework */,
 				A92AA9521E08D40E00B4579F /* QuartzCore.framework */,
+				20A1D98A497DDD701351126F /* libPods-iOSExample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -299,6 +278,7 @@
 				A9F9A0271E08B06D00E22FE7 /* iOSExampleTests */,
 				A9F9A00C1E08B06C00E22FE7 /* Products */,
 				A92AA9511E08D40D00B4579F /* Frameworks */,
+				087147D2743EC369F83E76FE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -353,7 +333,6 @@
 		A9F9A0331E08B0C600E22FE7 /* Weibo */ = {
 			isa = PBXGroup;
 			children = (
-				A92AA93D1E08D16900B4579F /* libWeiboSDK */,
 				A9F9A0371E08B1CF00E22FE7 /* Controllers */,
 				A92AA9801E0A55A000B4579F /* Views */,
 				A92AA94D1E08D22F00B4579F /* ViewModel */,
@@ -378,9 +357,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9F9A02D1E08B06D00E22FE7 /* Build configuration list for PBXNativeTarget "iOSExample" */;
 			buildPhases = (
+				CEC6810C3EBF8ACAB1ECC3E3 /* [CP] Check Pods Manifest.lock */,
 				A9F9A0071E08B06C00E22FE7 /* Sources */,
 				A9F9A0081E08B06C00E22FE7 /* Frameworks */,
 				A9F9A0091E08B06C00E22FE7 /* Resources */,
+				C9E499A673B9D358296F5D22 /* [CP] Embed Pods Frameworks */,
+				D842616FFAB82BC9D10D7C88 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -459,7 +441,6 @@
 				77756B441E0DF052006F5938 /* public_timeline.json in Resources */,
 				A9F9A0191E08B06C00E22FE7 /* Main.storyboard in Resources */,
 				774DF4E81E0D04C300621AC7 /* Info.plist in Resources */,
-				A92AA94C1E08D16900B4579F /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +452,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9E499A673B9D358296F5D22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-iOSExample/Pods-iOSExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEC6810C3EBF8ACAB1ECC3E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D842616FFAB82BC9D10D7C88 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-iOSExample/Pods-iOSExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A9F9A0071E08B06C00E22FE7 /* Sources */ = {
@@ -584,7 +613,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -627,7 +656,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -637,16 +666,17 @@
 		};
 		A9F9A02E1E08B06D00E22FE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AE364F48765B353E3F4DFB7 /* Pods-iOSExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9V4T4T8D8H;
 				INFOPLIST_FILE = iOSExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/iOSExample/Weibo/libWeiboSDK",
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maintoco.iOSExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -654,16 +684,17 @@
 		};
 		A9F9A02F1E08B06D00E22FE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8FFD1EE7AB802D9291C2CA2 /* Pods-iOSExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9V4T4T8D8H;
 				INFOPLIST_FILE = iOSExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/iOSExample/Weibo/libWeiboSDK",
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maintoco.iOSExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
