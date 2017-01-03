@@ -8,9 +8,45 @@
 
 #import "LoadingView.h"
 
+@interface CircleLayer : CALayer
+
+@property (nonatomic, assign) CGFloat progress;
+
+@end
+
+@implementation CircleLayer
+
+- (void)drawInContext:(CGContextRef)ctx {
+    //半径
+    CGFloat radius = self.bounds.size.width/2;
+    CGFloat lineWith = 2.0;//线宽
+    CGContextSetLineWidth(ctx, lineWith);
+    CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 1.0);
+    CGContextSetRGBFillColor(ctx, 1, 1, 1, 1.0);
+    CGContextMoveToPoint(ctx, radius, 0);
+    //外圈
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius) radius:radius-lineWith/2 startAngle:-M_PI_2 endAngle:M_PI * 1.5 clockwise:YES];
+    CGContextAddPath(ctx, bezierPath.CGPath);
+    CGContextStrokePath(ctx);
+    //内圆
+    UIBezierPath *bezierPathIn = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius) radius:radius-lineWith-2 startAngle:-M_PI_2 endAngle:M_PI * 1.5 * self.progress clockwise:YES];
+    [bezierPathIn addLineToPoint:CGPointMake(radius, radius)];
+    CGContextAddPath(ctx, bezierPathIn.CGPath);
+    CGContextFillPath(ctx);
+}
+
++ (BOOL)needsDisplayForKey:(NSString *)key {
+    if ([key isEqualToString:@"progress"]) {
+        return YES;
+    }
+    return [super needsDisplayForKey:key];
+}
+
+@end
+
 @interface LoadingView () <CAAnimationDelegate>
 
-@property (nonatomic, retain) CAShapeLayer *shapeLayer;
+@property (nonatomic, retain) CircleLayer *circleLayer;
 
 @end
 
@@ -25,62 +61,43 @@
     return self;
 }
 
-- (void)initView {
-
-    CircleLayer *shapeLayer = [CircleLayer layer];
-    shapeLayer.frame = self.bounds;
-    shapeLayer.start = 0;
-    [self.layer addSublayer:shapeLayer];
+- (void)setProgress:(CGFloat)progress {
+    progress = MIN(progress, 1);
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"progress"];
+    animation.duration = 5.0 * fabs(progress-_progress);
+    animation.fromValue = @(_progress);
+    animation.toValue = @(progress);
+    animation.removedOnCompletion = YES;
+    animation.fillMode = kCAFillModeForwards;
+    animation.delegate = self;
+    [self.circleLayer addAnimation:animation forKey:@"progressAni"];
     
-    CABasicAnimation * ani = [CABasicAnimation animationWithKeyPath:@"start"];
-    ani.duration = 1.5;
-    ani.fromValue = @(0);
-    ani.toValue = @(M_PI * 2);
-    ani.removedOnCompletion = NO;
-    ani.repeatCount = 100;
-    ani.fillMode = kCAFillModeForwards;
-    ani.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    ani.delegate = self;
-    [shapeLayer addAnimation:ani forKey:@"progressAni"];
+    _progress = progress;
+}
+
+- (CircleLayer *)circleLayer {
+    if (_circleLayer == nil) {
+        _circleLayer = [CircleLayer layer];
+        _circleLayer.frame = self.bounds;
+        _circleLayer.contentsScale = [UIScreen mainScreen].scale;
+        [self.layer addSublayer:_circleLayer];
+    }
+    return _circleLayer;
+}
+
+- (void)initView {
+    self.progress = 0;
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    self.circleLayer.progress = self.progress;
 }
 
 - (void)setHidden:(BOOL)hidden {
     if (hidden) {
-        [_shapeLayer removeAllAnimations];
-        [_shapeLayer removeFromSuperlayer];
+        [self.circleLayer removeAllAnimations];
     }
     [super setHidden:hidden];
-}
-
-@end
-
-@interface CircleLayer ()
-
-
-@end
-
-@implementation CircleLayer
-
-- (void)drawInContext:(CGContextRef)ctx {
-    
-    CGFloat radius = self.bounds.size.width/2;
-    
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path addArcWithCenter:CGPointMake(radius, radius) radius:radius-3 startAngle:self.start endAngle:self.start+M_PI *2 * 0.65 clockwise:YES];
-    path.lineJoinStyle = kCGLineJoinRound;
-    path.lineCapStyle = kCGLineCapRound;
-    path.lineWidth = 2.0;
-    CGContextSetRGBStrokeColor(ctx, 0.6, 0.6, 0.6, 0.9);//笔颜色
-    CGContextSetLineWidth(ctx, 2.0);//线条宽度
-    CGContextAddPath(ctx, path.CGPath);
-    CGContextStrokePath(ctx);
-}
-
-+ (BOOL)needsDisplayForKey:(NSString *)key {
-    if ([key isEqualToString:@"start"]) {
-        return YES;
-    }
-    return [super needsDisplayForKey:key];
 }
 
 @end

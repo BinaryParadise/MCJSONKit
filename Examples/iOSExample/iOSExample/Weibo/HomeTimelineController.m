@@ -27,8 +27,7 @@
     
     
     self.title = @"消息";
-    self.view.backgroundColor = [UIColor whiteColor];
-
+    
     _viewModel = [WeiboViewModel new];
     [self.view addSubview:self.tableView];
     
@@ -40,9 +39,19 @@
     loadingView.tag = 1000;
     [self.view addSubview:loadingView];
     self.tableView.hidden = YES;
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        loadingView.progress += 0.1;
+        if (loadingView.progress >= 1.0) {
+            [timer invalidate];
+            [self hideLoading];
+        }
+    }];
+    [timer fire];
 }
 
 - (void)hideLoading {
+    _tableView.backgroundColor = [UIColor whiteColor];
     LoadingView *loadView = [self.view viewWithTag:1000];
     loadView.hidden = YES;
     self.tableView.hidden = NO;
@@ -64,7 +73,7 @@
 }
 
 - (void)fetchDataFinished:(FetchDataType)fetchType {
-    [self performSelectorOnMainThread:@selector(hideLoading) withObject:nil waitUntilDone:NO];
+    //[self performSelectorOnMainThread:@selector(hideLoading) withObject:nil waitUntilDone:NO];
 }
 
 - (UITableView *)tableView {
@@ -73,6 +82,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.backgroundColor = [UIColor colorWithRed:51 green:51 blue:51 alpha:0.3];
     }
     return _tableView;
 }

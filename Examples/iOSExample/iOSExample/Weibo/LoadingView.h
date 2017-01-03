@@ -14,10 +14,6 @@
  */
 @interface LoadingView : UIView
 
-@end
-
-@interface CircleLayer : CALayer
-
-@property (nonatomic, assign) CGFloat start;
+@property (nonatomic,assign) CGFloat progress;
 
 @end
