@@ -10,6 +10,7 @@
 #import "WeiboViewModel.h"
 #import "WeiboContentCell.h"
 #import "LoadingView.h"
+#import "MWPhotoBrowser.h"
 
 @interface HomeTimelineController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -28,6 +29,7 @@
     
     self.title = @"消息";
     
+    self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     _viewModel = [WeiboViewModel new];
     [self.view addSubview:self.tableView];
     
@@ -35,19 +37,22 @@
 }
 
 - (void)showLoading {
-    LoadingView *loadingView = [[LoadingView alloc] initWithFrame:CGRectMake((self.view.width-50)/2, (self.view.height-49-50)/2, 50, 50)];
+    LoadingView *loadingView = [[LoadingView alloc] initWithFrame:CGRectMake((self.view.width-50)/2, (self.view.height-49-50)/2, 60, 60)];
     loadingView.tag = 1000;
     [self.view addSubview:loadingView];
     self.tableView.hidden = YES;
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        loadingView.progress += 0.1;
-        if (loadingView.progress >= 1.0) {
-            [timer invalidate];
-            [self hideLoading];
-        }
-    }];
-    [timer fire];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(scheduledTimer:) userInfo:nil repeats:YES];
+    timer.fireDate = [NSDate distantPast];
+}
+
+- (void)scheduledTimer:(NSTimer *)timer {
+    LoadingView *loadingView = [self.view viewWithTag:1000];
+    loadingView.progress += 0.1;
+    if (loadingView.progress >= 1.0) {
+        [timer invalidate];
+        [self hideLoading];
+    }
 }
 
 - (void)hideLoading {
@@ -56,6 +61,17 @@
     loadView.hidden = YES;
     self.tableView.hidden = NO;
     [self.tableView reloadData];
+    
+    NSMutableArray *marr = [NSMutableArray array];
+    [_viewModel.statuses enumerateObjectsUsingBlock:^(StatuseModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.original_pic) {
+            MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:obj.original_pic]];
+            [marr addObject:photo];
+        }
+    }];
+    
+    MWPhotoBrowser *photoBrowser = [[MWPhotoBrowser alloc] initWithPhotos:marr];
+    [self.navigationController pushViewController:photoBrowser animated:YES];
 }
 
 - (void)fetchData:(FetchDataType)fetchType {
@@ -82,7 +98,6 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor colorWithRed:51 green:51 blue:51 alpha:0.3];
     }
     return _tableView;
 }

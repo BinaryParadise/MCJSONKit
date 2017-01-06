@@ -49,6 +49,10 @@
 		A9F9A01E1E08B06C00E22FE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F9A01C1E08B06C00E22FE7 /* LaunchScreen.storyboard */; };
 		A9F9A0291E08B06D00E22FE7 /* iOSExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F9A0281E08B06D00E22FE7 /* iOSExampleTests.m */; };
 		A9F9A0361E08B1C800E22FE7 /* HomeTimelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F9A0351E08B1C800E22FE7 /* HomeTimelineController.m */; };
+		D22FB32C1E1CF743001194A3 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB32B1E1CF743001194A3 /* AssetsLibrary.framework */; };
+		D22FB32E1E1CF74E001194A3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB32D1E1CF74E001194A3 /* MediaPlayer.framework */; };
+		D22FB3301E1CF75D001194A3 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB32F1E1CF75D001194A3 /* Photos.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D22FB3341E1CFCB6001194A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB3331E1CFCB6001194A3 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +138,10 @@
 		A9F9A02A1E08B06D00E22FE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9F9A0341E08B1C800E22FE7 /* HomeTimelineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTimelineController.h; sourceTree = "<group>"; };
 		A9F9A0351E08B1C800E22FE7 /* HomeTimelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineController.m; sourceTree = "<group>"; };
+		D22FB32B1E1CF743001194A3 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		D22FB32D1E1CF74E001194A3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D22FB32F1E1CF75D001194A3 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		D22FB3331E1CFCB6001194A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8FFD1EE7AB802D9291C2CA2 /* Pods-iOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExample.release.xcconfig"; path = "../Pods/Target Support Files/Pods-iOSExample/Pods-iOSExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +150,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22FB3341E1CFCB6001194A3 /* Foundation.framework in Frameworks */,
+				D22FB3301E1CF75D001194A3 /* Photos.framework in Frameworks */,
+				D22FB32E1E1CF74E001194A3 /* MediaPlayer.framework in Frameworks */,
+				D22FB32C1E1CF743001194A3 /* AssetsLibrary.framework in Frameworks */,
 				A92AA9651E08D45100B4579F /* libsqlite3.tbd in Frameworks */,
 				A92AA9631E08D44A00B4579F /* libz.tbd in Frameworks */,
 				A92AA9611E08D44400B4579F /* CoreGraphics.framework in Frameworks */,
@@ -218,6 +230,10 @@
 		A92AA9511E08D40D00B4579F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D22FB3331E1CFCB6001194A3 /* Foundation.framework */,
+				D22FB32F1E1CF75D001194A3 /* Photos.framework */,
+				D22FB32D1E1CF74E001194A3 /* MediaPlayer.framework */,
+				D22FB32B1E1CF743001194A3 /* AssetsLibrary.framework */,
 				A92AA9641E08D45100B4579F /* libsqlite3.tbd */,
 				A92AA9621E08D44A00B4579F /* libz.tbd */,
 				A92AA9601E08D44400B4579F /* CoreGraphics.framework */,
@@ -481,7 +497,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D842616FFAB82BC9D10D7C88 /* [CP] Copy Pods Resources */ = {

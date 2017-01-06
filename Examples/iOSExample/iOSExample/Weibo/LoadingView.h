@@ -14,6 +14,9 @@
  */
 @interface LoadingView : UIView
 
+/**
+ 当前进度
+ */
 @property (nonatomic,assign) CGFloat progress;
 
 @end
