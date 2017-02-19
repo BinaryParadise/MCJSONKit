@@ -40,8 +40,8 @@
     return NO;
 }
 
-- (void)requestHomeTimeline:(void (^)())completion {
-    [WeiboRequest startRequestWithURL:@"https://api.weibo.com/2/statuses/public_timeline.json" completion:^(id obj) {
+- (void)requestFriendsTimeline:(void (^)())completion {
+    [WeiboRequest startRequestWithURL:@"https://api.weibo.com/2/statuses/friends_timeline.json" completion:^(id obj) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:obj options:NSJSONReadingMutableContainers  error:nil];
        self.statuses = [StatuseModel arrayOfModelsFromDictionaries:dict[@"statuses"]];
         NSLog(@"%@",self.statuses.firstObject.toJSONString);

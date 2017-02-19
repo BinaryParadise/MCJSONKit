@@ -10,8 +10,12 @@
 #import "UIViewExt.h"
 #import "StatuseModel.h"
 
+#define kInsets 12.0    //距离屏幕间距
+
 @interface WeiboContentCell : UITableViewCell
 
 @property (nonatomic, retain) StatuseModel *statuse;
+
++ (CGFloat)getCellHeithWithObject:(StatuseModel *)statuse;
 
 @end

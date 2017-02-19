@@ -52,7 +52,7 @@
 /**
  用户头像地址（中图），50×50像素
  */
-@property (nonatomic, assign) NSString *profile_image_url;
+@property (nonatomic, copy) NSString *profile_image_url;
 /**
  用户的微博统一URL地址
  */
