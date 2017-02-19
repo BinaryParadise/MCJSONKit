@@ -29,7 +29,7 @@
     
     self.title = @"消息";
     
-    self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    self.view.backgroundColor = HEXCOLOR(0xf2f2f2);
     _viewModel = [WeiboViewModel new];
     [self.view addSubview:self.tableView];
     
@@ -37,32 +37,17 @@
 }
 
 - (void)showLoading {
-    LoadingView *loadingView = [[LoadingView alloc] initWithFrame:CGRectMake((self.view.width-50)/2, (self.view.height-49-50)/2, 60, 60)];
-    loadingView.tag = 1000;
-    [self.view addSubview:loadingView];
     self.tableView.hidden = YES;
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(scheduledTimer:) userInfo:nil repeats:YES];
-    timer.fireDate = [NSDate distantPast];
-}
-
-- (void)scheduledTimer:(NSTimer *)timer {
-    LoadingView *loadingView = [self.view viewWithTag:1000];
-    loadingView.progress += 0.1;
-    if (loadingView.progress >= 1.0) {
-        [timer invalidate];
-        [self hideLoading];
-    }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
 }
 
 - (void)hideLoading {
-    _tableView.backgroundColor = [UIColor whiteColor];
-    LoadingView *loadView = [self.view viewWithTag:1000];
-    loadView.hidden = YES;
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     self.tableView.hidden = NO;
     [self.tableView reloadData];
     
-    NSMutableArray *marr = [NSMutableArray array];
+    /*NSMutableArray *marr = [NSMutableArray array];
     [_viewModel.statuses enumerateObjectsUsingBlock:^(StatuseModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.original_pic) {
             MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:obj.original_pic]];
@@ -71,7 +56,7 @@
     }];
     
     MWPhotoBrowser *photoBrowser = [[MWPhotoBrowser alloc] initWithPhotos:marr];
-    [self.navigationController pushViewController:photoBrowser animated:YES];
+    [self.navigationController pushViewController:photoBrowser animated:YES];*/
 }
 
 - (void)fetchData:(FetchDataType)fetchType {
@@ -82,19 +67,20 @@
     }
     
     if([_viewModel ssoAuthorizeRequest]) {
-        [_viewModel requestHomeTimeline:^{
+        [_viewModel requestFriendsTimeline:^{
             [ws fetchDataFinished:fetchType];
         }];
     }
 }
 
 - (void)fetchDataFinished:(FetchDataType)fetchType {
-    //[self performSelectorOnMainThread:@selector(hideLoading) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(hideLoading) withObject:nil waitUntilDone:NO];
 }
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView.backgroundColor = [UIColor clearColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -102,8 +88,12 @@
     return _tableView;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _viewModel.statuses.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -111,12 +101,22 @@
     if (cell == nil) {
         cell = [[WeiboContentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"weiboCell"];
     }
-    cell.statuse = _viewModel.statuses[indexPath.row];
+    cell.statuse = _viewModel.statuses[indexPath.section];
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, kInsets)];
+    headerView.backgroundColor = self.view.backgroundColor;
+    return nil;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100.0;
+    return [WeiboContentCell getCellHeithWithObject:_viewModel.statuses[indexPath.section]];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return kInsets;
 }
 
 - (void)didReceiveMemoryWarning {

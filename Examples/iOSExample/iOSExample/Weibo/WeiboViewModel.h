@@ -19,8 +19,8 @@
 - (BOOL)ssoAuthorizeRequest;
 
 /**
- 获取当前登录用户及其所关注（授权）用户的最新微博
+ 获取当前登录用户及其所关注用户的最新微博
  */
-- (void)requestHomeTimeline:(void (^)())completion;
+- (void)requestFriendsTimeline:(void (^)())completion;
 
 @end

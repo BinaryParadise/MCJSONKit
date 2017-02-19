@@ -5,6 +5,14 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
+
+#define ScreenWidth [UIScreen mainScreen].applicationFrame.size.width
+#define ScreenHeight [UIScreen mainScreen].applicationFrame.size.height
+
+#define HEXCOLOR(hexColor) \
+    [UIColor colorWithRed:((float)((hexColor & 0xFF0000) >> 16))/255.0 green:((float)((hexColor & 0xFF00) >> 8))/255.0 blue:((float)(hexColor & 0xFF))/255.0 alpha:1.0]
 
 CGPoint CGRectGetCenter(CGRect rect);
 CGRect  CGRectMoveToCenter(CGRect rect, CGPoint center);
