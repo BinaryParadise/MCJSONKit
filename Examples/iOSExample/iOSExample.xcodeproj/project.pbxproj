@@ -53,6 +53,10 @@
 		D22FB32E1E1CF74E001194A3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB32D1E1CF74E001194A3 /* MediaPlayer.framework */; };
 		D22FB3301E1CF75D001194A3 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB32F1E1CF75D001194A3 /* Photos.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D22FB3341E1CFCB6001194A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB3331E1CFCB6001194A3 /* Foundation.framework */; };
+		EF4EE0151E5DCA1300E4565A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4EE0131E5DCA1300E4565A /* ProfileViewController.m */; };
+		EF4EE0161E5DCA1300E4565A /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4EE0141E5DCA1300E4565A /* ProfileViewController.xib */; };
+		EF4EE01A1E5DCB6100E4565A /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4EE0181E5DCB6100E4565A /* ProfileTableViewCell.m */; };
+		EF4EE01B1E5DCB6100E4565A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4EE0191E5DCB6100E4565A /* ProfileTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +147,12 @@
 		D22FB32F1E1CF75D001194A3 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		D22FB3331E1CFCB6001194A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8FFD1EE7AB802D9291C2CA2 /* Pods-iOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExample.release.xcconfig"; path = "../Pods/Target Support Files/Pods-iOSExample/Pods-iOSExample.release.xcconfig"; sourceTree = "<group>"; };
+		EF4EE0121E5DCA1300E4565A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		EF4EE0131E5DCA1300E4565A /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		EF4EE0141E5DCA1300E4565A /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		EF4EE0171E5DCB6100E4565A /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
+		EF4EE0181E5DCB6100E4565A /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
+		EF4EE0191E5DCB6100E4565A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +293,9 @@
 				A92AA9821E0A55C100B4579F /* WeiboContentCell.m */,
 				A92AA9841E0B571500B4579F /* LoadingView.h */,
 				A92AA9851E0B571500B4579F /* LoadingView.m */,
+				EF4EE0171E5DCB6100E4565A /* ProfileTableViewCell.h */,
+				EF4EE0181E5DCB6100E4565A /* ProfileTableViewCell.m */,
+				EF4EE0191E5DCB6100E4565A /* ProfileTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -362,6 +375,9 @@
 			children = (
 				A9F9A0341E08B1C800E22FE7 /* HomeTimelineController.h */,
 				A9F9A0351E08B1C800E22FE7 /* HomeTimelineController.m */,
+				EF4EE0121E5DCA1300E4565A /* ProfileViewController.h */,
+				EF4EE0131E5DCA1300E4565A /* ProfileViewController.m */,
+				EF4EE0141E5DCA1300E4565A /* ProfileViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -452,8 +468,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4EE0161E5DCA1300E4565A /* ProfileViewController.xib in Resources */,
 				A9F9A01E1E08B06C00E22FE7 /* LaunchScreen.storyboard in Resources */,
 				A9F9A01B1E08B06C00E22FE7 /* Assets.xcassets in Resources */,
+				EF4EE01B1E5DCB6100E4565A /* ProfileTableViewCell.xib in Resources */,
 				77756B441E0DF052006F5938 /* public_timeline.json in Resources */,
 				A9F9A0191E08B06C00E22FE7 /* Main.storyboard in Resources */,
 				774DF4E81E0D04C300621AC7 /* Info.plist in Resources */,
@@ -544,7 +562,9 @@
 				774DF4EB1E0D04C300621AC7 /* MJProperty.m in Sources */,
 				A92AA9761E08E3E500B4579F /* StatuseModel.m in Sources */,
 				A92AA9681E08E08000B4579F /* WeiboRequest.m in Sources */,
+				EF4EE0151E5DCA1300E4565A /* ProfileViewController.m in Sources */,
 				A92AA93C1E08B57600B4579F /* MainViewController.m in Sources */,
+				EF4EE01A1E5DCB6100E4565A /* ProfileTableViewCell.m in Sources */,
 				774DF4F21E0D04C300621AC7 /* NSString+MJExtension.m in Sources */,
 				774DF4EA1E0D04C300621AC7 /* MJFoundation.m in Sources */,
 			);
