@@ -26,8 +26,8 @@
 }
 
 - (void)addItem:(id)sender {
-    [marr addObject:[NSString stringWithFormat:@"row-%zd",marr.count]];
-    [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:marr.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    [marr insertObject:[NSString stringWithFormat:@"row-%zd",marr.count] atIndex:0];
+    [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 - (IBAction)removeItem:(id)sender {

@@ -233,71 +233,84 @@ static BOOL _prettyPrinted;
     if (mdict) {
         return mdict;
     }
-    unsigned int outCount;
-    objc_property_t *properties = class_copyPropertyList(self.class, &outCount);
     mdict = [NSMutableDictionary dictionary];
     
-    NSScanner *scanner;
-    NSSet *ignoreSet = [self.class co_ignoreDictionary];
-    NSDictionary *keyMapping = [self.class co_keyMappingDictionary];
-    NSDictionary *typeMapping = [self.class co_typeMappingDictionary];
-    for (unsigned int i = 0; i<outCount; i++) {
-        objc_property_t property = properties[i];
-        //属性名
-        const char *propertyName = property_getName(property);
-        if ([ignoreSet containsObject:[NSString stringWithUTF8String:propertyName]]) {
-            continue;
-        }
+    void(^fetchProperties)(Class) = ^(Class cls) {
+        unsigned int outCount;
+        objc_property_t *properties = class_copyPropertyList(cls, &outCount);
         
-        //特性
-        const char *attrs = property_getAttributes(property);
-        NSString* propertyAttributes = @(attrs);
-        NSArray<NSString *> *attributeItems = [propertyAttributes componentsSeparatedByString:@","];
-        
-        //忽略只读属性
-        if ([attributeItems containsObject:@"R"]) {
-            continue;
-        }
-        
-        //忽略long double(C类型)
-        if ([attributeItems.firstObject isEqualToString:@"TD"]) {
-            continue;
-        }
-        
-        NSString *typeStr = attributeItems.firstObject;
-        JSONCoreProperty *coprop = [JSONCoreProperty new];
-        coprop.name = [NSString stringWithUTF8String:propertyName];
-        
-        if (keyMapping && [keyMapping.allKeys containsObject:coprop.name]) {
-            coprop.jsonKey = keyMapping[coprop.name];
-        }else {
-            coprop.jsonKey = coprop.name;
-        }
-        
-        if ([allowedPrimitiveTypes.allKeys containsObject:typeStr]) {
-            coprop.type = [allowedPrimitiveTypes[typeStr][0] intValue];
-            coprop.keyPath = allowedPrimitiveTypes[typeStr][1];
-        }else {
-            scanner = [NSScanner scannerWithString:propertyAttributes];
-            [scanner scanUpToString:@"T" intoString:nil];
-            [scanner scanString:@"T" intoString:nil];
-            NSString *typeCls;
-            if ([scanner scanString:@"@\"" intoString:&typeCls]) {
-                [scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"\"<"]
-                                        intoString:&typeCls];
-                coprop.typeClass = NSClassFromString(typeCls);
-                coprop.isMutable = [typeCls rangeOfString:@"Mutable"].location!=NSNotFound;
-                coprop.type = JSONCorePropertyTypeObject;
-                //NSLog(@"%s - %@",propertyName,propertyAttributes);
+        NSScanner *scanner;
+        NSSet *ignoreSet = [cls co_ignoreDictionary];
+        NSDictionary *keyMapping = [cls co_keyMappingDictionary];
+        NSDictionary *typeMapping = [cls co_typeMappingDictionary];
+        for (unsigned int i = 0; i<outCount; i++) {
+            objc_property_t property = properties[i];
+            //属性名
+            const char *propertyName = property_getName(property);
+            if ([ignoreSet containsObject:[NSString stringWithUTF8String:propertyName]]) {
+                continue;
             }
             
-            if (typeMapping && [typeMapping.allKeys containsObject:coprop.name]) {
-                coprop.itemClass = typeMapping[coprop.name];
+            //特性
+            const char *attrs = property_getAttributes(property);
+            NSString* propertyAttributes = @(attrs);
+            NSArray<NSString *> *attributeItems = [propertyAttributes componentsSeparatedByString:@","];
+            
+            //忽略只读属性
+            if ([attributeItems containsObject:@"R"]) {
+                continue;
             }
+            
+            //忽略long double(C类型)
+            if ([attributeItems.firstObject isEqualToString:@"TD"]) {
+                continue;
+            }
+            
+            NSString *typeStr = attributeItems.firstObject;
+            JSONCoreProperty *coprop = [JSONCoreProperty new];
+            coprop.name = [NSString stringWithUTF8String:propertyName];
+            
+            if (keyMapping && [keyMapping.allKeys containsObject:coprop.name]) {
+                coprop.jsonKey = keyMapping[coprop.name];
+            }else {
+                coprop.jsonKey = coprop.name;
+            }
+            
+            if ([allowedPrimitiveTypes.allKeys containsObject:typeStr]) {
+                coprop.type = [allowedPrimitiveTypes[typeStr][0] intValue];
+                coprop.keyPath = allowedPrimitiveTypes[typeStr][1];
+            }else {
+                scanner = [NSScanner scannerWithString:propertyAttributes];
+                [scanner scanUpToString:@"T" intoString:nil];
+                [scanner scanString:@"T" intoString:nil];
+                NSString *typeCls;
+                if ([scanner scanString:@"@\"" intoString:&typeCls]) {
+                    [scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"\"<"]
+                                            intoString:&typeCls];
+                    coprop.typeClass = NSClassFromString(typeCls);
+                    coprop.isMutable = [typeCls rangeOfString:@"Mutable"].location!=NSNotFound;
+                    coprop.type = JSONCorePropertyTypeObject;
+                    //NSLog(@"%s - %@",propertyName,propertyAttributes);
+                }
+                
+                if (typeMapping && [typeMapping.allKeys containsObject:coprop.name]) {
+                    coprop.itemClass = typeMapping[coprop.name];
+                }
+            }
+            
+            [mdict setObject:coprop forKey:coprop.name.lowercaseString];
         }
-        
-        [mdict setObject:coprop forKey:coprop.name.lowercaseString];
+    };
+    
+    if (![self isMemberOfClass:[NSObject class]]) {
+        Class cls = self.class;
+        fetchProperties(cls);
+        while (cls.superclass != [NSObject class]) {
+            cls = cls.superclass;
+            fetchProperties(cls);
+        }
     }
+    
     objc_setAssociatedObject(self.class, &kClassPropertiesKey, mdict, OBJC_ASSOCIATION_RETAIN);
     return mdict;
 }

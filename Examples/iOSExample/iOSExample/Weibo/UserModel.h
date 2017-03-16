@@ -6,29 +6,12 @@
 //  Copyright © 2016年 maintoco. All rights reserved.
 //
 
-#import "WeiboModel.h"
+#import "WBUser.h"
 
 @class StatuseModel;
 
-@interface UserModel : WeiboModel
+@interface UserModel : WBUser
 
-/**
- 用户UID
- */
-@property (nonatomic, assign) long uid;
-
-/**
- 字符串型的用户UID
- */
-@property (nonatomic, copy) NSString *idstr;
-/**
- 用户昵称
- */
-@property (nonatomic, copy) NSString *screen_name;
-/**
- 友好显示名称
- */
-@property (nonatomic, copy) NSString *name;
 /**
  用户所在省级ID
  */
@@ -50,10 +33,6 @@
  */
 @property (nonatomic, copy) NSString *url;
 /**
- 用户头像地址（中图），50×50像素
- */
-@property (nonatomic, copy) NSString *profile_image_url;
-/**
  用户的微博统一URL地址
  */
 @property (nonatomic, copy) NSString *profile_url;
@@ -61,10 +40,6 @@
  用户的个性化域名
  */
 @property (nonatomic, copy) NSString *domain;
-/**
- 用户的微号
- */
-@property (nonatomic, copy) NSString *weihao;
 /**
  性别，m：男、f：女、n：未知
  */
