@@ -48,6 +48,11 @@ Object             | [`NSDictionary`]
 
 ## 如何使用
 
+### 使用Cocoapods
+```objc
+pod "JSONCore", :git => "https://github.com/kbonana/JSONCore.git"
+```
+
 ### 导入JSONCore文件夹到你的项目
 ```objc
 #import "NSObject+JSONCore.h"

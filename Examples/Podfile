@@ -4,6 +4,7 @@ project 'iOSExample/iOSExample.xcodeproj'
 
 pod "MWPhotoBrowser"
 pod "WeiboSDK", :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git"
+#pod "JSONCore", :git => "https://github.com/kbonana/JSONCore.git", :branch => 'develop'
 
 target 'iOSExample' do
 
