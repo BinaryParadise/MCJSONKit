@@ -18,6 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    LogInfo(@"提示信息");
+    LogWarm(@"警告信息");
+    LogError(@"错误信息");
     return YES;
 }
 

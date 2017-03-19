@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSObject.h"
 
-@interface WeiboModel : NSObject
+@interface WeiboModel : JSObject
 
 
 /**

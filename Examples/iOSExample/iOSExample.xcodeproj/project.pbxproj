@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2446FAE51E7B2DFD00E46A7D /* WBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2446FAE41E7B2DFD00E46A7D /* WBUser.m */; };
+		24D296111E7E806500F84C23 /* JSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D296101E7E806500F84C23 /* JSObject.m */; };
 		6445C3E9A768C6844103543B /* libPods-iOSExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A1D98A497DDD701351126F /* libPods-iOSExample.a */; };
 		774DF4E81E0D04C300621AC7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774DF4D21E0D04C300621AC7 /* Info.plist */; };
 		774DF4E91E0D04C300621AC7 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DF4D51E0D04C300621AC7 /* MJExtensionConst.m */; };
@@ -75,6 +76,8 @@
 		2446FAE31E7B2DFD00E46A7D /* WBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUser.h; sourceTree = "<group>"; };
 		2446FAE41E7B2DFD00E46A7D /* WBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUser.m; sourceTree = "<group>"; };
 		2446FAE61E7B2E9E00E46A7D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		24D2960F1E7E806500F84C23 /* JSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObject.h; sourceTree = "<group>"; };
+		24D296101E7E806500F84C23 /* JSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSObject.m; sourceTree = "<group>"; };
 		774DF4D21E0D04C300621AC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774DF4D31E0D04C300621AC7 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		774DF4D41E0D04C300621AC7 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 			children = (
 				A92AA97D1E0A534C00B4579F /* UIViewExt.h */,
 				A92AA97E1E0A534C00B4579F /* UIViewExt.m */,
+				24D2960F1E7E806500F84C23 /* JSObject.h */,
+				24D296101E7E806500F84C23 /* JSObject.m */,
 				774DF4D11E0D04C300621AC7 /* MJExtension */,
 				A92AA9691E08E38B00B4579F /* JSONCore */,
 				A9F9A0331E08B0C600E22FE7 /* Weibo */,
@@ -561,6 +566,7 @@
 				A9F9A0101E08B06C00E22FE7 /* main.m in Sources */,
 				774DF4EC1E0D04C300621AC7 /* MJPropertyKey.m in Sources */,
 				774DF4E91E0D04C300621AC7 /* MJExtensionConst.m in Sources */,
+				24D296111E7E806500F84C23 /* JSObject.m in Sources */,
 				A9F9A0361E08B1C800E22FE7 /* HomeTimelineController.m in Sources */,
 				774DF4EE1E0D04C300621AC7 /* NSObject+MJClass.m in Sources */,
 				77756B421E0D6523006F5938 /* NSMutableDictionary+JSONCore.m in Sources */,

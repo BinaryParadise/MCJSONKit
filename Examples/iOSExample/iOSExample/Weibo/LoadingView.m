@@ -108,7 +108,6 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     self.circleLayer.progress = self.progress;
-    NSLog(@"%d",flag);
 }
 
 - (void)setHidden:(BOOL)hidden {

@@ -86,7 +86,6 @@
 }
 
 - (void)testHexColor {
-    NSLog(@"%d",0xD5);
 }
 
 @end

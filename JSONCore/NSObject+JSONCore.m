@@ -75,7 +75,7 @@ static BOOL _prettyPrinted;
 
         if (error) {
 #if DEBUG
-            NSLog(@"%@",error);
+            LogError(@"%@",error);
 #endif
         }else {
             [jsonObject setValuesWithDictionary:obj];

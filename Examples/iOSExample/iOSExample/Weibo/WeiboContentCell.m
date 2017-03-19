@@ -180,7 +180,6 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
     CGFloat contentHeight = [statuse.text boundingRectWithSize:CGSizeMake(ScreenWidth-kInsets, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSParagraphStyleAttributeName:paragraphStyle} context:nil].size.height;
-    NSLog(@"%f",contentHeight);
     return cellHeight+contentHeight;
 }
 
