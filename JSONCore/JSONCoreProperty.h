@@ -6,6 +6,11 @@
 //  Copyright © 2016年 maintoco. All rights reserved.
 //
 
+/*
+ Version: 0.0.2
+ Date: 2017-03-19
+ */
+
 #import <Foundation/Foundation.h>
 
 /**
