@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "HomeTimelineController.h"
+#import "ProfileViewController.h"
 
 @interface MainViewController ()
 
@@ -21,17 +22,17 @@
     
     self.tabBar.backgroundImage = [UIImage imageNamed:@"tabbar_backgroud"];
     self.tabBar.tintColor = [UIColor grayColor];
-    NSArray *tabbarItems = @[@[@"首页",@"tabbar_home"],
+    NSArray<NSArray *> *tabbarItems = @[@[@"首页",@"tabbar_home",[HomeTimelineController class]],
                              @[@"消息",@"tabbar_message_center"],
                              @[@"发现",@"tabbar_discover"],
-                             @[@"我",@"tabbar_profile"]];
+                             @[@"我",@"tabbar_profile",[ProfileViewController class]]];
     NSMutableArray *marr = [NSMutableArray array];
     for (int i=0; i<4; i++) {
         UIViewController *viewController;
-        if (i == 0) {
-           viewController = [[UINavigationController alloc] initWithRootViewController:[HomeTimelineController new]];
+        if (tabbarItems[i].count > 2) {
+           viewController = [[UINavigationController alloc] initWithRootViewController:[tabbarItems[i][2] new]];
         }else {
-            viewController = [UINavigationController new];
+            viewController = [[UINavigationController alloc] initWithRootViewController:[UIViewController new]];
         }
         viewController.tabBarItem.title = tabbarItems[i][0];
         NSString *imgName = tabbarItems[i][1];

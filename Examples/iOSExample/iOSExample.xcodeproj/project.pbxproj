@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2446FAE51E7B2DFD00E46A7D /* WBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2446FAE41E7B2DFD00E46A7D /* WBUser.m */; };
+		24D296111E7E806500F84C23 /* JSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D296101E7E806500F84C23 /* JSObject.m */; };
 		6445C3E9A768C6844103543B /* libPods-iOSExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A1D98A497DDD701351126F /* libPods-iOSExample.a */; };
 		774DF4E81E0D04C300621AC7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774DF4D21E0D04C300621AC7 /* Info.plist */; };
 		774DF4E91E0D04C300621AC7 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 774DF4D51E0D04C300621AC7 /* MJExtensionConst.m */; };
@@ -53,6 +55,10 @@
 		D22FB32E1E1CF74E001194A3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB32D1E1CF74E001194A3 /* MediaPlayer.framework */; };
 		D22FB3301E1CF75D001194A3 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB32F1E1CF75D001194A3 /* Photos.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D22FB3341E1CFCB6001194A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22FB3331E1CFCB6001194A3 /* Foundation.framework */; };
+		EF4EE0151E5DCA1300E4565A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4EE0131E5DCA1300E4565A /* ProfileViewController.m */; };
+		EF4EE0161E5DCA1300E4565A /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4EE0141E5DCA1300E4565A /* ProfileViewController.xib */; };
+		EF4EE01A1E5DCB6100E4565A /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4EE0181E5DCB6100E4565A /* ProfileTableViewCell.m */; };
+		EF4EE01B1E5DCB6100E4565A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4EE0191E5DCB6100E4565A /* ProfileTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +73,11 @@
 
 /* Begin PBXFileReference section */
 		20A1D98A497DDD701351126F /* libPods-iOSExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2446FAE31E7B2DFD00E46A7D /* WBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUser.h; sourceTree = "<group>"; };
+		2446FAE41E7B2DFD00E46A7D /* WBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUser.m; sourceTree = "<group>"; };
+		2446FAE61E7B2E9E00E46A7D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		24D2960F1E7E806500F84C23 /* JSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObject.h; sourceTree = "<group>"; };
+		24D296101E7E806500F84C23 /* JSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSObject.m; sourceTree = "<group>"; };
 		774DF4D21E0D04C300621AC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		774DF4D31E0D04C300621AC7 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		774DF4D41E0D04C300621AC7 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
@@ -143,6 +154,12 @@
 		D22FB32F1E1CF75D001194A3 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		D22FB3331E1CFCB6001194A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8FFD1EE7AB802D9291C2CA2 /* Pods-iOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSExample.release.xcconfig"; path = "../Pods/Target Support Files/Pods-iOSExample/Pods-iOSExample.release.xcconfig"; sourceTree = "<group>"; };
+		EF4EE0121E5DCA1300E4565A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		EF4EE0131E5DCA1300E4565A /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		EF4EE0141E5DCA1300E4565A /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		EF4EE0171E5DCB6100E4565A /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
+		EF4EE0181E5DCB6100E4565A /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
+		EF4EE0191E5DCB6100E4565A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,12 +283,14 @@
 		A92AA9731E08E3D100B4579F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2446FAE31E7B2DFD00E46A7D /* WBUser.h */,
+				2446FAE41E7B2DFD00E46A7D /* WBUser.m */,
+				A92AA9771E08EEF400B4579F /* UserModel.h */,
+				A92AA9781E08EEF400B4579F /* UserModel.m */,
 				A92AA9701E08E3CC00B4579F /* WeiboModel.h */,
 				A92AA9711E08E3CC00B4579F /* WeiboModel.m */,
 				A92AA9741E08E3E500B4579F /* StatuseModel.h */,
 				A92AA9751E08E3E500B4579F /* StatuseModel.m */,
-				A92AA9771E08EEF400B4579F /* UserModel.h */,
-				A92AA9781E08EEF400B4579F /* UserModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -283,6 +302,9 @@
 				A92AA9821E0A55C100B4579F /* WeiboContentCell.m */,
 				A92AA9841E0B571500B4579F /* LoadingView.h */,
 				A92AA9851E0B571500B4579F /* LoadingView.m */,
+				EF4EE0171E5DCB6100E4565A /* ProfileTableViewCell.h */,
+				EF4EE0181E5DCB6100E4565A /* ProfileTableViewCell.m */,
+				EF4EE0191E5DCB6100E4565A /* ProfileTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -312,6 +334,8 @@
 			children = (
 				A92AA97D1E0A534C00B4579F /* UIViewExt.h */,
 				A92AA97E1E0A534C00B4579F /* UIViewExt.m */,
+				24D2960F1E7E806500F84C23 /* JSObject.h */,
+				24D296101E7E806500F84C23 /* JSObject.m */,
 				774DF4D11E0D04C300621AC7 /* MJExtension */,
 				A92AA9691E08E38B00B4579F /* JSONCore */,
 				A9F9A0331E08B0C600E22FE7 /* Weibo */,
@@ -333,6 +357,7 @@
 			children = (
 				A9F9A00F1E08B06C00E22FE7 /* main.m */,
 				77756B431E0DF052006F5938 /* public_timeline.json */,
+				2446FAE61E7B2E9E00E46A7D /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -362,6 +387,9 @@
 			children = (
 				A9F9A0341E08B1C800E22FE7 /* HomeTimelineController.h */,
 				A9F9A0351E08B1C800E22FE7 /* HomeTimelineController.m */,
+				EF4EE0121E5DCA1300E4565A /* ProfileViewController.h */,
+				EF4EE0131E5DCA1300E4565A /* ProfileViewController.m */,
+				EF4EE0141E5DCA1300E4565A /* ProfileViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -452,8 +480,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4EE0161E5DCA1300E4565A /* ProfileViewController.xib in Resources */,
 				A9F9A01E1E08B06C00E22FE7 /* LaunchScreen.storyboard in Resources */,
 				A9F9A01B1E08B06C00E22FE7 /* Assets.xcassets in Resources */,
+				EF4EE01B1E5DCB6100E4565A /* ProfileTableViewCell.xib in Resources */,
 				77756B441E0DF052006F5938 /* public_timeline.json in Resources */,
 				A9F9A0191E08B06C00E22FE7 /* Main.storyboard in Resources */,
 				774DF4E81E0D04C300621AC7 /* Info.plist in Resources */,
@@ -497,7 +527,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D842616FFAB82BC9D10D7C88 /* [CP] Copy Pods Resources */ = {
@@ -529,12 +559,14 @@
 				A92AA9721E08E3CC00B4579F /* WeiboModel.m in Sources */,
 				774DF4ED1E0D04C300621AC7 /* MJPropertyType.m in Sources */,
 				774DF4F11E0D04C300621AC7 /* NSObject+MJProperty.m in Sources */,
+				2446FAE51E7B2DFD00E46A7D /* WBUser.m in Sources */,
 				774DF4EF1E0D04C300621AC7 /* NSObject+MJCoding.m in Sources */,
 				A92AA9831E0A55C100B4579F /* WeiboContentCell.m in Sources */,
 				A9F9A0131E08B06C00E22FE7 /* AppDelegate.m in Sources */,
 				A9F9A0101E08B06C00E22FE7 /* main.m in Sources */,
 				774DF4EC1E0D04C300621AC7 /* MJPropertyKey.m in Sources */,
 				774DF4E91E0D04C300621AC7 /* MJExtensionConst.m in Sources */,
+				24D296111E7E806500F84C23 /* JSObject.m in Sources */,
 				A9F9A0361E08B1C800E22FE7 /* HomeTimelineController.m in Sources */,
 				774DF4EE1E0D04C300621AC7 /* NSObject+MJClass.m in Sources */,
 				77756B421E0D6523006F5938 /* NSMutableDictionary+JSONCore.m in Sources */,
@@ -544,7 +576,9 @@
 				774DF4EB1E0D04C300621AC7 /* MJProperty.m in Sources */,
 				A92AA9761E08E3E500B4579F /* StatuseModel.m in Sources */,
 				A92AA9681E08E08000B4579F /* WeiboRequest.m in Sources */,
+				EF4EE0151E5DCA1300E4565A /* ProfileViewController.m in Sources */,
 				A92AA93C1E08B57600B4579F /* MainViewController.m in Sources */,
+				EF4EE01A1E5DCB6100E4565A /* ProfileTableViewCell.m in Sources */,
 				774DF4F21E0D04C300621AC7 /* NSString+MJExtension.m in Sources */,
 				774DF4EA1E0D04C300621AC7 /* MJFoundation.m in Sources */,
 			);
@@ -686,6 +720,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9V4T4T8D8H;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${SRCROOT}/iOSExample/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = iOSExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -702,6 +738,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9V4T4T8D8H;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${SRCROOT}/iOSExample/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = iOSExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

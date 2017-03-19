@@ -11,7 +11,6 @@
 
 @interface StatuseModel : WeiboModel
 
-@property (nonatomic, retain) NSString *created_at;
 @property (nonatomic, assign) long wid;
 @property (nonatomic, assign) long mid;
 @property (nonatomic, copy) NSString *idstr;

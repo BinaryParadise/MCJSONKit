@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  iOSExample
+//
+//  Created by bonana on 2017/3/17.
+//  Copyright © 2017年 maintoco. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <Foundation/Foundation.h>
+
+//For XcodeColors Settings
+#if DEBUG
+#define XCODE_COLORS_ESCAPE @"\033["
+
+#define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
+#define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
+#define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
+
+#define LogInfo(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg85,85,75;%s+%d " frmt XCODE_COLORS_RESET),__func__,__LINE__, ##__VA_ARGS__)
+#define LogWarm(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg209,57,168;%s+%d " frmt XCODE_COLORS_RESET),__func__,__LINE__, ##__VA_ARGS__)
+#define LogError(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg255,0,0;%s+%d " frmt XCODE_COLORS_RESET),__func__,__LINE__, ##__VA_ARGS__)
+#else
+#define LogInfo(frmt, ...)
+#define LogWarm(frmt, ...)
+#define LogError(frmt, ...)
+#define NSLog(...)
+#endif
+
+#endif /* PrefixHeader_pch */
