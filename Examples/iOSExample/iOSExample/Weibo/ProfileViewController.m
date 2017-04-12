@@ -22,11 +22,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [_tableView registerNib:[UINib nibWithNibName:@"ProfileTableViewCell" bundle:nil] forCellReuseIdentifier:@"profilecell"];
-    marr = [NSMutableArray arrayWithObject:@"row-0"];
+    marr = [NSMutableArray arrayWithObject:[NSMutableString stringWithFormat:@"row-0"]];
 }
 
 - (void)addItem:(id)sender {
-    [marr insertObject:[NSString stringWithFormat:@"row-%zd",marr.count] atIndex:0];
+    [marr insertObject:[NSMutableString stringWithFormat:@"row-%zd",marr.count] atIndex:0];
     [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
@@ -41,12 +41,14 @@
 
 - (IBAction)updateItem:(id)sender {
     NSIndexPath *indexPath = [_tableView indexPathForCell:[sender superview].superview];
+    
+    NSMutableString *removedObj = [marr objectAtIndex:indexPath.row];
+    [removedObj appendString:@"更新"];
+    [_tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [_tableView beginUpdates];
-    id removedObj = [marr objectAtIndex:indexPath.row];
     [marr removeObjectAtIndex:indexPath.row];
-    [_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     [marr insertObject:removedObj atIndex:0];
-    [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    [_tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0] toIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [_tableView endUpdates];
 }
 
