@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    LogWarm(@"%@",NSHomeDirectory());
+    LogWarn(@"%@",NSHomeDirectory());
     
     
     self.title = @"消息";
