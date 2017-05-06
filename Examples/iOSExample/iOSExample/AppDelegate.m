@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WeiboSDK.h"
+#import "SimpleModel.h"
 
 @interface AppDelegate () <WeiboSDKDelegate>
 
@@ -22,6 +23,11 @@
     LogInfo(@"提示信息");
     LogWarn(@"警告信息");
     LogError(@"错误信息");
+    
+    /*NSData *jsonData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"simple.json" ofType:nil]];
+    
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:nil];
+    NSArray *arr = [SimpleModel arrayOfModelsFromDictionaries:jsonArray];*/
     return YES;
 }
 

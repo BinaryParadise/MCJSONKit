@@ -7,32 +7,11 @@
 //
 
 /*
- Version: 0.0.2
- Date: 2017-03-19
+ Version: 0.1.0
+ Date: 2017-05-19
  */
 
 #import <Foundation/Foundation.h>
-
-/**
- 属性类型
- */
-typedef enum : int {
-    JSONCorePropertyTypeObject = -1,
-    JSONCorePropertyTypeChar = 0,
-    JSONCorePropertyTypeUChar = 1,
-    JSONCorePropertyTypeShort = 2,
-    JSONCorePropertyTypeUShort = 3,
-    JSONCorePropertyTypeInt = 4,
-    JSONCorePropertyTypeUInt = 5,
-    JSONCorePropertyTypeLong = 6,
-    JSONCorePropertyTypeLongLong = 7,
-    JSONCorePropertyTypeULong = 8,
-    JSONCorePropertyTypeULongLong = 9,
-    JSONCorePropertyTypeFloat = 10,
-    JSONCorePropertyTypeDouble = 11,
-    JSONCorePropertyTypeCBool = 12
-} JSONCorePropertyType;
-
 
 /**
  封装类的属性
@@ -50,16 +29,6 @@ typedef enum : int {
 @property (nonatomic, copy) NSString *jsonKey;
 
 /**
- 属性类型
- */
-@property (nonatomic, assign) JSONCorePropertyType type;
-
-/**
- NSNumber对应值的KeyPath
- */
-@property (nonatomic, copy) NSString *keyPath;
-
-/**
  对象类型<Class>
  */
 @property (nonatomic, assign) Class typeClass;
@@ -70,7 +39,7 @@ typedef enum : int {
 @property (nonatomic, assign) Class itemClass;
 
 /**
- 是否可变对象
+ 是否可变对象<NSMutableArray, NSMutableDictionary, NSMutableSet>
  */
 @property (nonatomic, assign) BOOL isMutable;
 

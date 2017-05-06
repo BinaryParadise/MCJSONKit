@@ -20,7 +20,7 @@
  
  */
 + (instancetype)jsonObjectFromData:(id)data;
-+ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array;
++ (NSArray *)arrayOfModelsFromKeyValues:(id)keyValues;
 
 /**
  允许的属性名
