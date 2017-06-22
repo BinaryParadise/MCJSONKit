@@ -13,7 +13,7 @@
 #import <objc/runtime.h>
 
 static NSArray *allowedJSONTypes;//允许的对象类型
-static NSDictionary *allowedPrimitiveTypes;//允许的基础类型
+//static NSSet *allowedPrimitiveTypes;//允许的基本数据类型
 static const char *kClassPropertiesKey;
 static BOOL _prettyPrinted;
 
@@ -43,19 +43,9 @@ static BOOL _prettyPrinted;
                                  [NSSet class],
                                  [NSMutableSet class]];
             
-            allowedPrimitiveTypes = @{@"Tc":@[@"0",@"charValue"],
-                                      @"TC":@[@"1",@"unsignedCharValue"],
-                                      @"Ts":@[@"2",@"shortValue"],
-                                      @"TS":@[@"3",@"unsignedShortValue"],
-                                      @"Ti":@[@"4",@"intValue"],
-                                      @"TI":@[@"5",@"unsignedIntValue"],
-                                      @"Tl":@[@"6",@"longValue"],
-                                      @"TL":@[@"7",@"unsignedLongValue"],
-                                      @"Tq":@[@"8",@"longLongValue"],
-                                      @"TQ":@[@"9",@"unsignedLongLongValue"],
-                                      @"Tf":@[@"10",@"floatValue"],
-                                      @"Td":@[@"11",@"doubleValue"],
-                                      @"TB":@[@"12",@"boolValue"]};
+            /*allowedPrimitiveTypes = [NSSet setWithObjects:@"Tc", @"TC", @"Ts", @"TS", @"Ti",
+                                      @"TI", @"Tl", @"TL", @"Tq", @"TQ",
+                                      @"Tf", @"Td", @"TD", @"TB", nil];*/
         }
         
     });
@@ -88,17 +78,28 @@ static BOOL _prettyPrinted;
     return jsonObject;
 }
 
-+ (NSArray *)co_arrayOfModelsFromDictionaries:(NSArray *)array {
-    if (array && [array isKindOfClass:[NSArray class]]) {
-        NSMutableArray *marr = [NSMutableArray arrayWithCapacity:array.count];
-        [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSObject *jsonCore = [[self alloc] init];
-            [jsonCore setValuesWithDictionary:obj];
-            [marr addObject:jsonCore];
-        }];
-        return [marr copy];
++ (NSArray *)co_arrayOfModelsFromKeyValues:(id)keyValues {
+    if (!keyValues || [keyValues isKindOfClass:[NSNull class]]) {
+        return nil;
     }
-    return nil;
+    NSArray *array;
+    if ([keyValues isKindOfClass:[NSArray class]]) {
+        array = keyValues;
+    }else if ([keyValues isKindOfClass:[NSString class]]) {
+        array = [NSJSONSerialization JSONObjectWithData:[keyValues dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    }else if ([keyValues isKindOfClass:[NSData class]]) {
+        array = [NSJSONSerialization JSONObjectWithData:keyValues options:kNilOptions error:nil];
+    }
+    if (!array) {
+        return nil;
+    }
+    NSMutableArray *marr = [NSMutableArray arrayWithCapacity:array.count];
+    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSObject *jsonCore = [[self alloc] init];
+        [jsonCore setValuesWithDictionary:obj];
+        [marr addObject:jsonCore];
+    }];
+    return [marr copy];
 }
 
 - (void)setValuesWithJSONString:(NSString *)jsonString {
@@ -128,17 +129,17 @@ static BOOL _prettyPrinted;
  设置属性值
  */
 - (void)setValue:(id)value forProperty:(JSONCoreProperty *)property {
-    if (property) {
-        if (property.type == JSONCorePropertyTypeObject) {
+    if (value && property) {
+        if (property.typeClass) {
             if ([value isKindOfClass:[NSNull class]]) {
                 return;
             }
             if ([allowedJSONTypes containsObject:property.typeClass]) {
-                //系统默认对象
+                //系统内置对象
                 if ([value isKindOfClass:property.typeClass]) {
                     if (property.itemClass) {
                         //自定义对象数组
-                        id obj = [property.itemClass co_arrayOfModelsFromDictionaries:value];
+                        id obj = [property.itemClass co_arrayOfModelsFromKeyValues:value];
                         [self setValue:obj forKey:property.name];
                     }else {
                         id newValue = value;
@@ -181,12 +182,7 @@ static BOOL _prettyPrinted;
                 [self setValue:obj forKey:property.name];
             }
         }else {
-            NSNumber *number = value;
-            if ([number isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
-                if ([value respondsToSelector:NSSelectorFromString(property.keyPath)]) {
-                    [self setValue:[number valueForKey:property.keyPath] forKey:property.name];
-                }
-            }
+            [self setValue:value forKey:property.name];
         }
     }
 }
@@ -194,7 +190,7 @@ static BOOL _prettyPrinted;
 - (id)valueForProperty:(JSONCoreProperty *)property {
     if (property) {
         id value = [self valueForKey:property.name];
-        if (property.type == JSONCorePropertyTypeObject) {
+        if (property.typeClass) {
             if ([allowedJSONTypes containsObject:property.typeClass]) {
                 //系统默认对象
                 if ([value isKindOfClass:property.typeClass]) {
@@ -245,7 +241,7 @@ static BOOL _prettyPrinted;
         NSDictionary *typeMapping = [cls co_typeMappingDictionary];
         for (unsigned int i = 0; i<outCount; i++) {
             objc_property_t property = properties[i];
-            //属性名
+            //属性名称
             const char *propertyName = property_getName(property);
             if ([ignoreSet containsObject:[NSString stringWithUTF8String:propertyName]]) {
                 continue;
@@ -256,46 +252,56 @@ static BOOL _prettyPrinted;
             NSString* propertyAttributes = @(attrs);
             NSArray<NSString *> *attributeItems = [propertyAttributes componentsSeparatedByString:@","];
             
-            //忽略只读属性
+            //忽略readonly属性
             if ([attributeItems containsObject:@"R"]) {
                 continue;
             }
             
-            //忽略long double(C类型)
+            //忽略long double(C类型,Objective-C不支持，等价于double类型)
             if ([attributeItems.firstObject isEqualToString:@"TD"]) {
                 continue;
             }
             
+            //类型说明
             NSString *typeStr = attributeItems.firstObject;
             JSONCoreProperty *coprop = [JSONCoreProperty new];
             coprop.name = [NSString stringWithUTF8String:propertyName];
             
+            //自定义映射
             if (keyMapping && [keyMapping.allKeys containsObject:coprop.name]) {
                 coprop.jsonKey = keyMapping[coprop.name];
             }else {
                 coprop.jsonKey = coprop.name;
             }
             
-            if ([allowedPrimitiveTypes.allKeys containsObject:typeStr]) {
-                coprop.type = [allowedPrimitiveTypes[typeStr][0] intValue];
-                coprop.keyPath = allowedPrimitiveTypes[typeStr][1];
-            }else {
+            if ([propertyAttributes hasPrefix:@"T@"]) {
+                /*
+                 对象的类型说明
+                 //系统类型
+                 T@"NSNumber",&,N,V_propertyName
+                 T@"NSDate",&,N,V_propertyName
+                 T@"NSString",C,N,V_propertyName
+                 T@"NSDictionary",&,N,V_propertyName
+                 T@"NSString",C,N,V_propertyName
+                 //自定义对象
+                 T@"CustomObject",&,N,V_propertyName
+                 */
                 scanner = [NSScanner scannerWithString:propertyAttributes];
-                [scanner scanUpToString:@"T" intoString:nil];
-                [scanner scanString:@"T" intoString:nil];
                 NSString *typeCls;
-                if ([scanner scanString:@"@\"" intoString:&typeCls]) {
+                if ([scanner scanString:@"T@\"" intoString:&typeCls]) {
                     [scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"\"<"]
                                             intoString:&typeCls];
                     coprop.typeClass = NSClassFromString(typeCls);
                     coprop.isMutable = [typeCls rangeOfString:@"Mutable"].location!=NSNotFound;
-                    coprop.type = JSONCorePropertyTypeObject;
                     //NSLog(@"%s - %@",propertyName,propertyAttributes);
                 }
-                
-                if (typeMapping && [typeMapping.allKeys containsObject:coprop.name]) {
-                    coprop.itemClass = typeMapping[coprop.name];
-                }
+            }else {
+                //基本类型
+                //NSLog(@"%@",propertyAttributes);
+            }
+            
+            if (typeMapping && [typeMapping.allKeys containsObject:coprop.name]) {
+                coprop.itemClass = typeMapping[coprop.name];
             }
             
             [mdict setObject:coprop forKey:coprop.name.lowercaseString];

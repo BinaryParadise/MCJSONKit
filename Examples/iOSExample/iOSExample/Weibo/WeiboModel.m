@@ -23,8 +23,8 @@
     return [self co_objectFromKeyValues:data];
 }
 
-+ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array {
-    return [self co_arrayOfModelsFromDictionaries:array];
++ (NSArray *)arrayOfModelsFromKeyValues:(id)keyValues {
+    return [self co_arrayOfModelsFromKeyValues:keyValues];
 }
 
 + (NSArray *)allowedPropertyNames {

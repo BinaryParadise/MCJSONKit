@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2446FAE51E7B2DFD00E46A7D /* WBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2446FAE41E7B2DFD00E46A7D /* WBUser.m */; };
+		248F29531EBDBEC70029852E /* SimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 248F29521EBDBEC70029852E /* SimpleModel.m */; };
+		248F29541EBDBFD60029852E /* simple.json in Resources */ = {isa = PBXBuildFile; fileRef = 248F294F1EBDBE8E0029852E /* simple.json */; };
+		248F29551EBDD5450029852E /* SimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 248F29521EBDBEC70029852E /* SimpleModel.m */; };
 		24D296111E7E806500F84C23 /* JSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D296101E7E806500F84C23 /* JSObject.m */; };
 		6445C3E9A768C6844103543B /* libPods-iOSExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A1D98A497DDD701351126F /* libPods-iOSExample.a */; };
 		774DF4E81E0D04C300621AC7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 774DF4D21E0D04C300621AC7 /* Info.plist */; };
@@ -76,6 +79,9 @@
 		2446FAE31E7B2DFD00E46A7D /* WBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUser.h; sourceTree = "<group>"; };
 		2446FAE41E7B2DFD00E46A7D /* WBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUser.m; sourceTree = "<group>"; };
 		2446FAE61E7B2E9E00E46A7D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		248F294F1EBDBE8E0029852E /* simple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple.json; sourceTree = "<group>"; };
+		248F29511EBDBEC70029852E /* SimpleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleModel.h; sourceTree = "<group>"; };
+		248F29521EBDBEC70029852E /* SimpleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModel.m; sourceTree = "<group>"; };
 		24D2960F1E7E806500F84C23 /* JSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSObject.h; sourceTree = "<group>"; };
 		24D296101E7E806500F84C23 /* JSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSObject.m; sourceTree = "<group>"; };
 		774DF4D21E0D04C300621AC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -365,8 +371,11 @@
 		A9F9A0271E08B06D00E22FE7 /* iOSExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				248F294F1EBDBE8E0029852E /* simple.json */,
 				A9F9A0281E08B06D00E22FE7 /* iOSExampleTests.m */,
 				A9F9A02A1E08B06D00E22FE7 /* Info.plist */,
+				248F29511EBDBEC70029852E /* SimpleModel.h */,
+				248F29521EBDBEC70029852E /* SimpleModel.m */,
 			);
 			path = iOSExampleTests;
 			sourceTree = "<group>";
@@ -485,6 +494,7 @@
 				A9F9A01B1E08B06C00E22FE7 /* Assets.xcassets in Resources */,
 				EF4EE01B1E5DCB6100E4565A /* ProfileTableViewCell.xib in Resources */,
 				77756B441E0DF052006F5938 /* public_timeline.json in Resources */,
+				248F29541EBDBFD60029852E /* simple.json in Resources */,
 				A9F9A0191E08B06C00E22FE7 /* Main.storyboard in Resources */,
 				774DF4E81E0D04C300621AC7 /* Info.plist in Resources */,
 			);
@@ -569,6 +579,7 @@
 				24D296111E7E806500F84C23 /* JSObject.m in Sources */,
 				A9F9A0361E08B1C800E22FE7 /* HomeTimelineController.m in Sources */,
 				774DF4EE1E0D04C300621AC7 /* NSObject+MJClass.m in Sources */,
+				248F29551EBDD5450029852E /* SimpleModel.m in Sources */,
 				77756B421E0D6523006F5938 /* NSMutableDictionary+JSONCore.m in Sources */,
 				A92AA9501E08D24E00B4579F /* WeiboViewModel.m in Sources */,
 				A92AA96F1E08E38B00B4579F /* JSONCoreProperty.m in Sources */,
@@ -589,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F9A0291E08B06D00E22FE7 /* iOSExampleTests.m in Sources */,
+				248F29531EBDBEC70029852E /* SimpleModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,7 +675,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -706,7 +718,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

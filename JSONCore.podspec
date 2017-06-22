@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "bonana" => "rmacbookpro@163.com" }
   s.social_media_url   = "http://weibo.com/fenglaijun"
-  s.source       = { :git => "https://github.com/kbonana/JSONCore.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/kbonana/JSONCore.git" }
   s.source_files  = "JSONCore"
   s.requires_arc = true
 end

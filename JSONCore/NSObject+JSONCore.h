@@ -27,9 +27,10 @@
 + (instancetype)co_objectFromKeyValues:(id)keyValues;
 
 /**
- 字段数组转模型数组
+ 通过字典数组来创建一个模型数组
+ @param keyValues 许可类型<NSData,NSArray,NSString>
  */
-+ (NSArray *)co_arrayOfModelsFromDictionaries:(NSArray *)array;
++ (NSArray *)co_arrayOfModelsFromKeyValues:(id)keyValues;
 
 - (NSDictionary *)co_toDictionary;
 - (NSString *)co_toJSONString;
