@@ -2,13 +2,13 @@
 //  NSMutableDictionary+JSONCore.m
 //  iOSExample
 //
-//  Created by maintoco on 16/12/23.
-//  Copyright © 2016年 maintoco. All rights reserved.
+//  Created by mylcode on 16/12/23.
+//  Copyright © 2016年 mylcode. All rights reserved.
 //
 
-#import "NSMutableDictionary+JSONCore.h"
+#import "NSDictionary+MCJSONKit.h"
 
-@implementation NSMutableDictionary (JSONCore)
+@implementation NSMutableDictionary (MCJSONKit)
 
 - (void)co_setValue:(id)value forKeyPath:(NSString *)keyPath {
     __block NSMutableDictionary *mdict = self;

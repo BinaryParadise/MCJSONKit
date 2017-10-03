@@ -11,7 +11,7 @@
 /**
  JSON解析类别
  */
-@interface NSObject (JSONCore)
+@interface NSObject (MCJSONKit)
 
 /**
  JSON数据是否格式化输出，默认为NO
@@ -33,7 +33,7 @@
 + (NSArray *)co_arrayOfModelsFromKeyValues:(id)keyValues;
 
 - (NSDictionary *)co_toDictionary;
-- (NSString *)co_toJSONString;
+- (NSString *)mc_JSONString;
 
 @end
 

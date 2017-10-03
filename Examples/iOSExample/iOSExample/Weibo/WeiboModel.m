@@ -7,9 +7,9 @@
 //
 
 #import "WeiboModel.h"
-
-#import "NSObject+JSONCore.h"
 #import "MJExtension.h"
+
+@import MCJSONKit;
 
 @implementation WeiboModel
 
@@ -48,7 +48,7 @@
 }
 
 - (NSString *)toJSONString {
-    return [self co_toJSONString];
+    return [self mc_JSONString];
 }
 
 #pragma mark JSONCoreConfig
