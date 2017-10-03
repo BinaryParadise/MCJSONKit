@@ -1,4 +1,4 @@
-# JSONCore
+# MCJSONKit
 -	A fast, convenient and nonintrusive conversion between JSON and model.
 -	转换速度快、使用简单方便的字典转模型框架
 
@@ -12,6 +12,10 @@
 - 待完善
 
 ## 更新记录
+### 2017-10-03
+-	统一前缀标识为MC
+-	更新readme文件
+
 ### 2016-12-24
 -   移除类继承的使用方式
 -   优化初始化方法
@@ -50,12 +54,12 @@ Object             | [`NSDictionary`]
 
 ### 使用Cocoapods
 ```objc
-pod "JSONCore", :git => "https://github.com/kbonana/JSONCore.git"
+pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
 ```
 
-### 导入JSONCore文件夹到你的项目
+### 或者导入MJJSONKit文件夹到你的项目
 ```objc
-#import "NSObject+JSONCore.h"
+#import "MCJSONKit.h"
 ```
 # Examples【示例】
 
@@ -110,7 +114,7 @@ pod "JSONCore", :git => "https://github.com/kbonana/JSONCore.git"
 
 #import "YourBaseModel.h"
 
-#import "NSObject+JSONCore.h"
+#import "NSObject+MCJSONKit.h"
 #import "MJExtension.h"
 
 @implementation YourBaseModel
@@ -120,7 +124,7 @@ pod "JSONCore", :git => "https://github.com/kbonana/JSONCore.git"
     [self setPrettyPrinted:YES];
 }
 
-#pragma mark - 封装JSONCore
+#pragma mark - 封装MCJSONKit
 
 + (instancetype)jsonObjectFromData:(id)data {
     return [self co_objectFromKeyValues:data];
@@ -151,10 +155,10 @@ pod "JSONCore", :git => "https://github.com/kbonana/JSONCore.git"
 }
 
 - (NSString *)toJSONString {
-    return [self co_toJSONString];
+    return [self mj_JSONString];
 }
 
-#pragma mark JSONCoreConfig
+#pragma mark MCJSONKitConfig
 
 + (NSDictionary *)co_allowedPropertyNames {
     return nil;
@@ -267,7 +271,7 @@ CountryModel *country = [CountryModel jsonObjectFromData:jsonString];
 
  100次循环解析			| 平均耗时
 --------------------|--------------------
-`JSONCore`    		| 0.283s
+`MCJSONKit`    		| 0.283s
 `MJExtension` 		| 0.998s
 
 # TODO
