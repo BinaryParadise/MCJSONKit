@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableDictionary (JSONCore)
-
+@interface NSMutableDictionary (MCJSONKit)
 
 /**
- 通过键的路径设置值,系统的setValue:forKeyPath方法没有上级节点时不能生效
+ 通过keyPath设置值,系统的setValue:forKeyPath方法没有上级节点时不能生效
 
  @param value 值
  @param keyPath 路的径

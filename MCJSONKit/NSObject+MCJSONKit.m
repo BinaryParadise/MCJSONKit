@@ -6,9 +6,9 @@
 //  Copyright © 2016年 maintoco. All rights reserved.
 //
 
-#import "NSObject+JSONCore.h"
-#import "JSONCoreProperty.h"
-#import "NSMutableDictionary+JSONCore.h"
+#import "NSObject+MCJSONKit.h"
+#import "MCJSONKitProperty.h"
+#import "NSDictionary+MCJSONKit.h"
 
 #import <objc/runtime.h>
 
@@ -17,7 +17,7 @@ static NSArray *allowedJSONTypes;//允许的对象类型
 static const char *kClassPropertiesKey;
 static BOOL _prettyPrinted;
 
-@implementation NSObject (JSONCore)
+@implementation NSObject (MCJSONKit)
 
 + (BOOL)prettyPrinted {
     return _prettyPrinted;
@@ -322,6 +322,9 @@ static BOOL _prettyPrinted;
 }
 
 - (NSDictionary *)co_toDictionary {
+    if ([self isKindOfClass:[NSDictionary class]] || [self isKindOfClass:[NSArray class]]) {
+        return (id)self;
+    }
     NSDictionary<NSString *,JSONCoreProperty *> *dict = [self allProperties];
     NSMutableDictionary *mdict = [NSMutableDictionary dictionary];
     [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JSONCoreProperty * _Nonnull obj, BOOL * _Nonnull stop) {
@@ -343,8 +346,8 @@ static BOOL _prettyPrinted;
     return mdict;
 }
 
-- (NSString *)co_toJSONString {
-    NSDictionary *dict =[self co_toDictionary];
+- (NSString *)mc_JSONString {
+    NSDictionary *dict = [self co_toDictionary];
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:_prettyPrinted?NSJSONWritingPrettyPrinted:kNilOptions error:&error];
     if (!error) {
