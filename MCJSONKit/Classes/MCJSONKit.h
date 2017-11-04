@@ -6,8 +6,6 @@
 //  Copyright © 2017年 mylcode. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 //! Project version number for MCJSONKit.
 FOUNDATION_EXPORT double MCJSONKitVersionNumber;
 

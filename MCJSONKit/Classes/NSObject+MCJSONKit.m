@@ -263,7 +263,6 @@ static BOOL _prettyPrinted;
             }
             
             //类型说明
-            NSString *typeStr = attributeItems.firstObject;
             JSONCoreProperty *coprop = [JSONCoreProperty new];
             coprop.name = [NSString stringWithUTF8String:propertyName];
             
