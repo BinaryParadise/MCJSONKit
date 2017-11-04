@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'MCJSONKit_Example' do
+  pod 'MCJSONKit', :path => '../'
+  pod 'MWPhotoBrowser'
+  pod 'Weibo_SDK'
+  pod 'MJExtension'
+
+  target 'MCJSONKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

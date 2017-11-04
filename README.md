@@ -1,8 +1,30 @@
 # MCJSONKit
--	A fast, convenient and nonintrusive conversion between JSON and model.
--	转换速度快、使用简单方便的字典转模型框架
 
-## 水平有限，欢迎各位大牛批评指教
+[![CI Status](http://img.shields.io/travis/mylcode/MCJSONKit.svg?style=flat)](https://travis-ci.org/mylcode/MCJSONKit)
+[![Version](https://img.shields.io/cocoapods/v/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
+[![License](https://img.shields.io/cocoapods/l/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
+[![Platform](https://img.shields.io/cocoapods/p/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
+
+- A fast, convenient and nonintrusive conversion between JSON and model.
+- 转换速度快、使用简单方便的字典转模型框架
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+MCJSONKit is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+source 'git@github.com:mylcode/Specs.git'
+pod 'MCJSONKit'
+```
+
+## 水平有限，不定期更新
 - 一直是拿来主义用的第三方库，总是发现一些不灵活或者不足、不适用的地方，所以自己心血来潮写一个轻量的JSON对象转换库.
 - 目前为测试版，可能还有很多问题，会持续更新优化.
 
@@ -278,3 +300,8 @@ CountryModel *country = [CountryModel jsonObjectFromData:jsonString];
 - [x] 解析速度对比分析
 - [ ] 复杂JSON解析测试
 - [ ] 全面覆盖测试，找出BUG
+
+## License
+
+MCJSONKit is available under the MIT license. See the LICENSE file for more info.
+ 
