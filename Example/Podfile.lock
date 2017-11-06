@@ -20,7 +20,7 @@ PODS:
 
 DEPENDENCIES:
   - MCJSONKit (from `../`)
-  - MCUIKit (from `../../MCUIKit/`)
+  - MCUIKit
   - MJExtension
   - MWPhotoBrowser
   - Weibo_SDK
@@ -28,8 +28,6 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   MCJSONKit:
     :path: ../
-  MCUIKit:
-    :path: ../../MCUIKit/
 
 SPEC CHECKSUMS:
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
@@ -41,6 +39,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   Weibo_SDK: 652ca78c2f7147a5de5e75e7cbea89838a81772a
 
-PODFILE CHECKSUM: e73fd012487ebb8c0148af386baf50809ed9b99e
+PODFILE CHECKSUM: 04b6c5363315247ed162675c1972e89e481543ea
 
 COCOAPODS: 1.3.1

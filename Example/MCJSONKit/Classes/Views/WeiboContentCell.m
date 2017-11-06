@@ -178,8 +178,8 @@
     CGFloat cellHeight = kInsets+40+kInsets+kInsets+0.5+30+0.5;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
-    CGFloat contentHeight = [statuse.text boundingRectWithSize:CGSizeMake(ScreenWidth-kInsets, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSParagraphStyleAttributeName:paragraphStyle} context:nil].size.height;
-    return cellHeight+contentHeight;
+    CGFloat contentHeight = [statuse.text boundingRectWithSize:CGSizeMake(ScreenWidth-kInsets*2, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSParagraphStyleAttributeName:paragraphStyle} context:nil].size.height;
+    return cellHeight+MIN(contentHeight, 100);
 }
 
 @end
