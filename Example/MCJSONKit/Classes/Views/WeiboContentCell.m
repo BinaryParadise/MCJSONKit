@@ -110,7 +110,6 @@
     _lblContent = [[UILabel alloc] initWithFrame:CGRectMake(kInsets, _headImageView.bottom+kInsets, ScreenWidth-kInsets*2, 0)];
     _lblContent.font = [UIFont systemFontOfSize:16];
     _lblContent.numberOfLines = 5;
-    _lblContent.lineBreakMode = NSLineBreakByCharWrapping;
     [self.contentView addSubview:_lblContent];
     
     _lblReposts = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth/3, 30)];

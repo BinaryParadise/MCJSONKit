@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIViewExt.h"
+#import "MCView.h"
 
 /**
  加载试图
  */
-@interface LoadingView : UIView
+@interface LoadingView : MCView
 
 /**
  当前进度

@@ -33,7 +33,6 @@
 		C599F3DE1FAD93CF00D19382 /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C01FAD902D00D19382 /* WeiboModel.m */; };
 		C599F3DF1FAD93D300D19382 /* StatuseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C31FAD902D00D19382 /* StatuseModel.m */; };
 		C599F3E01FAD93D800D19382 /* WeiboViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3D01FAD90A900D19382 /* WeiboViewModel.m */; };
-		C599F3E61FAD9E6C00D19382 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3E51FAD9E6C00D19382 /* UIViewExt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,8 +90,6 @@
 		C599F3D11FAD90A900D19382 /* WeiboViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboViewModel.h; sourceTree = "<group>"; };
 		C599F3D31FAD923B00D19382 /* HomeTimelineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineController.m; sourceTree = "<group>"; };
 		C599F3D41FAD923B00D19382 /* HomeTimelineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTimelineController.h; sourceTree = "<group>"; };
-		C599F3E41FAD9E6B00D19382 /* UIViewExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
-		C599F3E51FAD9E6C00D19382 /* UIViewExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		D5B912EE3065C14B8A80CAB6 /* Pods_MCJSONKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCJSONKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1AEBAA5FD906C82235EAAE5 /* Pods_MCJSONKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCJSONKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BB5D2C14E6D372E0B9ECCD /* Pods-MCJSONKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,8 +253,6 @@
 		C599F3CD1FAD902D00D19382 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C599F3E41FAD9E6B00D19382 /* UIViewExt.h */,
-				C599F3E51FAD9E6C00D19382 /* UIViewExt.m */,
 				C599F3BD1FAD902D00D19382 /* WeiboRequest.h */,
 				C599F3C51FAD902D00D19382 /* WeiboRequest.m */,
 				C599F3C71FAD902D00D19382 /* LoadingView.h */,
@@ -338,7 +333,7 @@
 			attributes = {
 				CLASSPREFIX = MC;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = mylcode;
+				ORGANIZATIONNAME = "MC-Studio";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -415,6 +410,7 @@
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MCJSONKit/MCJSONKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MCUIKit/MCUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -424,6 +420,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCJSONKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -515,7 +512,6 @@
 				C599F3DB1FAD93C600D19382 /* WeiboContentCell.m in Sources */,
 				C599F3E01FAD93D800D19382 /* WeiboViewModel.m in Sources */,
 				C599F3D51FAD929700D19382 /* HomeTimelineController.m in Sources */,
-				C599F3E61FAD9E6C00D19382 /* UIViewExt.m in Sources */,
 				C599F3DC1FAD93CA00D19382 /* UserModel.m in Sources */,
 				C599F3DD1FAD93CD00D19382 /* WBUser.m in Sources */,
 				C599F3DF1FAD93D300D19382 /* StatuseModel.m in Sources */,
