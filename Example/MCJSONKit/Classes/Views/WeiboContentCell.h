@@ -2,13 +2,15 @@
 //  WeiboContentCell.h
 //  iOSExample
 //
-//  Created by maintoco on 16/12/21.
-//  Copyright © 2016年 maintoco. All rights reserved.
+//  Created by mylcode on 16/12/21.
+//  Copyright © 2016年 MC-Studio. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "UIViewExt.h"
+#import "MCView.h"
 #import "StatuseModel.h"
+#import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
 
 #define kInsets 12.0    //距离屏幕间距
 

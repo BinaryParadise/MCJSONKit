@@ -110,7 +110,6 @@
     _lblContent = [[UILabel alloc] initWithFrame:CGRectMake(kInsets, _headImageView.bottom+kInsets, ScreenWidth-kInsets*2, 0)];
     _lblContent.font = [UIFont systemFontOfSize:16];
     _lblContent.numberOfLines = 5;
-    _lblContent.lineBreakMode = NSLineBreakByCharWrapping;
     [self.contentView addSubview:_lblContent];
     
     _lblReposts = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth/3, 30)];
@@ -179,8 +178,8 @@
     CGFloat cellHeight = kInsets+40+kInsets+kInsets+0.5+30+0.5;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
-    CGFloat contentHeight = [statuse.text boundingRectWithSize:CGSizeMake(ScreenWidth-kInsets, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSParagraphStyleAttributeName:paragraphStyle} context:nil].size.height;
-    return cellHeight+contentHeight;
+    CGFloat contentHeight = [statuse.text boundingRectWithSize:CGSizeMake(ScreenWidth-kInsets*2, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSParagraphStyleAttributeName:paragraphStyle} context:nil].size.height;
+    return cellHeight+MIN(contentHeight, 100);
 }
 
 @end

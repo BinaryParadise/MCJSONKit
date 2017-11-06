@@ -5,6 +5,7 @@ target 'MCJSONKit_Example' do
   pod 'MWPhotoBrowser'
   pod 'Weibo_SDK'
   pod 'MJExtension'
+  pod 'MCUIKit'
 
   target 'MCJSONKit_Tests' do
     inherit! :search_paths
