@@ -14,4 +14,5 @@ DESC
   s.source       = { :git => 'https://github.com/mylcode/MCJSONKit.git', :tag => s.version.to_s }
   s.source_files = "MCJSONKit/Classes/**/*"
   s.requires_arc = true
+  s.dependency "MCLogger", "~> 0.1.3"
 end
