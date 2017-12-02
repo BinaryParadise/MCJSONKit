@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MCJSONKit"
-  s.version      = "0.1.5"
+  s.version      = "0.1.6"
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.9'
   s.summary      = "A fast and convenient conversion between JSON and model"
@@ -14,4 +14,5 @@ DESC
   s.source       = { :git => 'https://github.com/mylcode/MCJSONKit.git', :tag => s.version.to_s }
   s.source_files = "MCJSONKit/Classes/**/*"
   s.requires_arc = true
+  s.dependency  "MCLogger"
 end
