@@ -53,7 +53,7 @@
 }
 
 - (NSDictionary *)toDictionary {
-    return [self co_toDictionary];
+    return [self mc_toDictionary];
 }
 
 - (NSString *)toJSONString {
