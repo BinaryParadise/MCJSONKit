@@ -198,7 +198,7 @@ static BOOL _prettyPrinted;
                         //自定义对象数组
                         NSMutableArray *marr = [NSMutableArray array];
                         [value enumerateObjectsUsingBlock:^(NSObject *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                            [marr addObject:[obj co_toDictionary]];
+                            [marr addObject:[obj mc_toDictionary]];
                         }];
                         return [marr copy];
                     }else if ([value isKindOfClass:[NSDate class]]) {
@@ -211,7 +211,7 @@ static BOOL _prettyPrinted;
             }else {
                 //自定义对象
                 if ([value isKindOfClass:[NSObject class]]) {
-                    return [value co_toDictionary];
+                    return [value mc_toDictionary];
                 }
             }
         }else {
@@ -320,10 +320,12 @@ static BOOL _prettyPrinted;
     return mdict;
 }
 
-- (NSDictionary *)co_toDictionary {
-    if ([self isKindOfClass:[NSDictionary class]] || [self isKindOfClass:[NSArray class]]) {
-        return (id)self;
+- (NSDictionary *)mc_toDictionary {
+    id jsonObj = [self _jsonObjectWithData:self];
+    if (jsonObj) {
+        return jsonObj;
     }
+    
     NSDictionary<NSString *,JSONCoreProperty *> *dict = [self allProperties];
     NSMutableDictionary *mdict = [NSMutableDictionary dictionary];
     [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JSONCoreProperty * _Nonnull obj, BOOL * _Nonnull stop) {
@@ -346,11 +348,27 @@ static BOOL _prettyPrinted;
 }
 
 - (NSString *)mc_JSONString {
-    NSDictionary *dict = [self co_toDictionary];
+    NSDictionary *dict = [self mc_toDictionary];
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:_prettyPrinted?NSJSONWritingPrettyPrinted:kNilOptions error:&error];
     if (!error) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    return nil;
+}
+
+#pragma mark - JSONObject
+
+/**
+ @param data NSString or NSData
+ */
+- (id)_jsonObjectWithData:(id)data {
+    if ([data isKindOfClass:[NSDictionary class]] || [data isKindOfClass:[NSArray class]]) {
+        return (id)self;
+    } else if ([data isKindOfClass:[NSString class]]) {
+        return [self _jsonObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]];
+    } else if ([data isKindOfClass:[NSData class]]) {
+        return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     }
     return nil;
 }

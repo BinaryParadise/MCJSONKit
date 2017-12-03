@@ -32,7 +32,7 @@
  */
 + (NSArray *)co_arrayOfModelsFromKeyValues:(id)keyValues;
 
-- (NSDictionary *)co_toDictionary;
+- (NSDictionary *)mc_toDictionary;
 - (NSString *)mc_JSONString;
 
 @end

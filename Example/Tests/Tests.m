@@ -7,6 +7,7 @@
 //
 
 @import XCTest;
+@import MCJSONKit;
 
 @interface Tests : XCTestCase
 
@@ -26,9 +27,15 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testString
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSDictionary *dict = [@"{\"name\":\"iPhone\"}" mc_toDictionary];
+    XCTAssertNotNil(dict, @"NSString to dictionary faield.");
+}
+
+- (void)testData {
+    NSDictionary *dict = [[@"{\"name\":\"iPhone\"}" dataUsingEncoding:NSUTF8StringEncoding] mc_toDictionary];
+    XCTAssertNotNil(dict, @"NSString to dictionary faield.");
 }
 
 @end

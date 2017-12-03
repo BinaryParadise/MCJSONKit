@@ -24,14 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    LogWarn(@"%@",NSHomeDirectory());
+    MCLogDebug(@"%@",NSHomeDirectory());
     
     
     self.title = @"消息";
     
     self.view.backgroundColor = HEXCOLOR(0xf2f2f2);
     _viewModel = [WeiboViewModel new];
-    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.tableView];    
     
     [self fetchData:FetchDataTypeFirst];
 }
