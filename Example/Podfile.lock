@@ -8,8 +8,8 @@ PODS:
   - DACircularProgress (2.3.1)
   - MBProgressHUD (0.9.2)
   - MCJSONKit (0.1.8):
-    - MCLogger (~> 0.2.0)
-  - MCLogger (0.2.0):
+    - MCLogger (~> 0.2.1)
+  - MCLogger (0.2.1):
     - CocoaLumberjack (~> 3.3.0)
   - MCUIKit/Category (0.2.2)
   - MCUIKit/UIKit (0.2.2):
@@ -39,8 +39,8 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 3c8c74683302f9012bb168e1c4b7ae3c0b558431
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MCJSONKit: c56b2d29fa33f37a68d50dac484e8512f7e05586
-  MCLogger: c83a598fb4e843a2b686e935314af6cf7e61f822
+  MCJSONKit: 427b9211663b9a260692288eca1cb8d646178f0d
+  MCLogger: a3783567e5262e3dadf3f868846c973b2c04bd4e
   MCUIKit: 77baf76b028ed17c2dd1a88100110ca0f3db0eea
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
