@@ -8,7 +8,7 @@
 
 #import "WeiboContentCell.h"
 
-#define BNColorSeparate HEXCOLOR(0xeaeaea)
+#define BNColorSeparate MCHexColor(0xeaeaea)
 
 @interface WeiboContentCell ()
 
@@ -64,7 +64,7 @@
     if (!_lblName) {
         _lblName = [[UILabel alloc] initWithFrame:CGRectMake(_headImageView.right+8, kInsets, self.width-(_headImageView.right+8+kInsets), 20)];
         _lblName.font = [UIFont systemFontOfSize:15.0];
-        _lblName.textColor = HEXCOLOR(0xeb7350);
+        _lblName.textColor = MCHexColor(0xeb7350);
         [self.contentView addSubview:_lblName];
     }
     return _lblName;

@@ -29,7 +29,7 @@
     
     self.title = @"消息";
     
-    self.view.backgroundColor = HEXCOLOR(0xf2f2f2);
+    self.view.backgroundColor = MCHexColor(0xf2f2f2);
     _viewModel = [WeiboViewModel new];
     [self.view addSubview:self.tableView];    
     

@@ -1,11 +1,12 @@
-use_frameworks!
+platform :ios, '8.0'
+#use_frameworks!
 
 target 'MCJSONKit_Example' do
   pod 'MCJSONKit', :path => '../'
   pod 'MWPhotoBrowser'
   pod 'Weibo_SDK'
   pod 'MJExtension'
-  pod 'MCUIKit'
+  pod 'MCUIKit/UIKit'
 
   target 'MCJSONKit_Tests' do
     inherit! :search_paths
