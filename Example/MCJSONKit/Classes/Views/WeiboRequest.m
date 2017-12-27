@@ -18,6 +18,7 @@
             completion(data);
         }
     }];
+    MCLogInfo(@"开始请求微博数据");
     [dataTask resume];
 }
 

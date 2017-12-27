@@ -9,7 +9,7 @@
 #import "WeiboModel.h"
 #import "MJExtension.h"
 
-@import MCJSONKit;
+#import <MCJSONKit/MCJSONKit.h>
 
 @implementation WeiboModel
 

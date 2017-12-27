@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09CA1D63819349D3A4D59DAA /* libPods-MCJSONKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,8 +23,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		A03DD612EFEFCF64AB541213 /* Pods_MCJSONKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AEBAA5FD906C82235EAAE5 /* Pods_MCJSONKit_Example.framework */; };
-		AC79D731746978F32C57ED54 /* Pods_MCJSONKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B912EE3065C14B8A80CAB6 /* Pods_MCJSONKit_Tests.framework */; };
+		C0B20416D9A80E49B8F4ED42 /* libPods-MCJSONKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */; };
 		C599F3D51FAD929700D19382 /* HomeTimelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3D31FAD923B00D19382 /* HomeTimelineController.m */; };
 		C599F3D91FAD93C100D19382 /* WeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C51FAD902D00D19382 /* WeiboRequest.m */; };
 		C599F3DA1FAD93C300D19382 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3BE1FAD902D00D19382 /* LoadingView.m */; };
@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCJSONKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D90BEEF760ECD471BB9AB3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MCJSONKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCJSONKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,8 +91,7 @@
 		C599F3D11FAD90A900D19382 /* WeiboViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboViewModel.h; sourceTree = "<group>"; };
 		C599F3D31FAD923B00D19382 /* HomeTimelineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineController.m; sourceTree = "<group>"; };
 		C599F3D41FAD923B00D19382 /* HomeTimelineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTimelineController.h; sourceTree = "<group>"; };
-		D5B912EE3065C14B8A80CAB6 /* Pods_MCJSONKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCJSONKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1AEBAA5FD906C82235EAAE5 /* Pods_MCJSONKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCJSONKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCJSONKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BB5D2C14E6D372E0B9ECCD /* Pods-MCJSONKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FBBF959A9D0B72C5EC1D5E5D /* MCJSONKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MCJSONKit.podspec; path = ../MCJSONKit.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +104,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				A03DD612EFEFCF64AB541213 /* Pods_MCJSONKit_Example.framework in Frameworks */,
+				09CA1D63819349D3A4D59DAA /* libPods-MCJSONKit_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				AC79D731746978F32C57ED54 /* Pods_MCJSONKit_Tests.framework in Frameworks */,
+				C0B20416D9A80E49B8F4ED42 /* libPods-MCJSONKit_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,8 +150,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				F1AEBAA5FD906C82235EAAE5 /* Pods_MCJSONKit_Example.framework */,
-				D5B912EE3065C14B8A80CAB6 /* Pods_MCJSONKit_Tests.framework */,
+				F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */,
+				24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -407,9 +407,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MCJSONKit/MCJSONKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MCLogger/MCLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/MCUIKit/MCUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
@@ -417,9 +419,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCJSONKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
@@ -485,6 +489,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle,
 				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -644,6 +649,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCJSONKit/MCJSONKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = "MCJSONKit/MCJSONKit-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mylcode.MCJSONKit-Example";
@@ -659,6 +668,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCJSONKit/MCJSONKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = "MCJSONKit/MCJSONKit-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.mylcode.MCJSONKit-Example";

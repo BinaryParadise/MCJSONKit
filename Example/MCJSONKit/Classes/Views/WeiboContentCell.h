@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MCView.h"
+#import <MCUIKit/MCView.h>
 #import "StatuseModel.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
