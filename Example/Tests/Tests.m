@@ -38,5 +38,10 @@
     XCTAssertNotNil(dict, @"NSString to dictionary faield.");
 }
 
+- (void)testDictionary {
+    NSDictionary *dict = [@"{\"name\":\"iPhone\"}" mc_toDictionary];
+    XCTAssertNotNil(dict, @"NSString to dictionary faield.");
+}
+
 @end
 
