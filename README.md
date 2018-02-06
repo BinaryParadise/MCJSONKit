@@ -34,6 +34,9 @@ pod 'MCJSONKit'
 - 待完善
 
 ## 更新记录
+### 2018-2-6
+- 统一方法的前缀MC
+
 ### 2017-10-03
 -	统一前缀标识为MC
 -	更新readme文件
@@ -146,14 +149,14 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
     [self setPrettyPrinted:YES];
 }
 
-#pragma mark - 封装MCJSONKit
+#pragma mark - JSONKit
 
 + (instancetype)jsonObjectFromData:(id)data {
-    return [self co_objectFromKeyValues:data];
+    return [self mc_objectFromKeyValues:data];
 }
 
-+ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array {
-    return [self co_arrayOfModelsFromDictionaries:array];
++ (NSArray *)arrayOfModelsFromKeyValues:(id)keyValues {
+    return [self mc_arrayOfModelsFromKeyValues:keyValues];
 }
 
 + (NSArray *)allowedPropertyNames {
@@ -173,28 +176,28 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
 }
 
 - (NSDictionary *)toDictionary {
-    return [self co_toDictionary];
+    return [self mc_toDictionary];
 }
 
 - (NSString *)toJSONString {
-    return [self mj_JSONString];
+    return [self mc_JSONString];
 }
 
-#pragma mark MCJSONKitConfig
+#pragma mark JSONKitConfig
 
-+ (NSDictionary *)co_allowedPropertyNames {
++ (NSDictionary *)mc_allowedPropertyNames {
     return nil;
 }
 
-+ (NSDictionary *)co_keyMappingDictionary {
++ (NSDictionary *)mc_keyMappingDictionary {
     return [self keyMappingDictionary];
 }
 
-+ (NSDictionary *)co_typeMappingDictionary {
++ (NSDictionary *)mc_typeMappingDictionary {
     return [self typeMappingDictionary];
 }
 
-+ (NSSet *)co_ignoreDictionary {
++ (NSSet *)mc_ignoreDictionary {
     return [self ignoreSet];
 }
 

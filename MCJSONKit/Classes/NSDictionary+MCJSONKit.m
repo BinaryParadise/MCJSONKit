@@ -10,7 +10,7 @@
 
 @implementation NSMutableDictionary (MCJSONKit)
 
-- (void)co_setValue:(id)value forKeyPath:(NSString *)keyPath {
+- (void)mc_setValue:(id)value forKeyPath:(NSString *)keyPath {
     __block NSMutableDictionary *mdict = self;
     NSArray<NSString *> *allKeys = [keyPath componentsSeparatedByString:@"."];
     [allKeys enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
