@@ -29,11 +29,11 @@
 #pragma mark - 封装-JSONCore
 
 + (instancetype)jsonObjectFromData:(id)data {
-    return [self co_objectFromKeyValues:data];
+    return [self mc_objectFromKeyValues:data];
 }
 
 + (NSArray *)arrayOfModelsFromKeyValues:(id)keyValues {
-    return [self co_arrayOfModelsFromKeyValues:keyValues];
+    return [self mc_arrayOfModelsFromKeyValues:keyValues];
 }
 
 + (NSArray *)allowedPropertyNames {
@@ -62,19 +62,19 @@
 
 #pragma mark JSONCoreConfig
 
-+ (NSDictionary *)co_allowedPropertyNames {
++ (NSDictionary *)mc_allowedPropertyNames {
     return nil;
 }
 
-+ (NSDictionary *)co_keyMappingDictionary {
++ (NSDictionary *)mc_keyMappingDictionary {
     return [self keyMappingDictionary];
 }
 
-+ (NSDictionary *)co_typeMappingDictionary {
++ (NSDictionary *)mc_typeMappingDictionary {
     return [self typeMappingDictionary];
 }
 
-+ (NSSet *)co_ignoreDictionary {
++ (NSSet *)mc_ignoreDictionary {
     return [self ignoreSet];
 }
 

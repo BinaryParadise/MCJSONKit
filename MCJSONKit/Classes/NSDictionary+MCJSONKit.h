@@ -16,6 +16,6 @@
  @param value 值
  @param keyPath 路的径
  */
-- (void)co_setValue:(id)value forKeyPath:(NSString *)keyPath;
+- (void)mc_setValue:(id)value forKeyPath:(NSString *)keyPath;
 
 @end

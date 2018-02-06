@@ -52,7 +52,7 @@ static BOOL _prettyPrinted;
     
 }
 
-+ (instancetype)co_objectFromKeyValues:(id)keyValues {
++ (instancetype)mc_objectFromKeyValues:(id)keyValues {
     if (keyValues == nil || [keyValues isKindOfClass:[NSNull class]]) {
         return nil;
     }
@@ -78,7 +78,7 @@ static BOOL _prettyPrinted;
     return jsonObject;
 }
 
-+ (NSArray *)co_arrayOfModelsFromKeyValues:(id)keyValues {
++ (NSArray *)mc_arrayOfModelsFromKeyValues:(id)keyValues {
     if (!keyValues || [keyValues isKindOfClass:[NSNull class]]) {
         return nil;
     }
@@ -139,7 +139,7 @@ static BOOL _prettyPrinted;
                 if ([value isKindOfClass:property.typeClass]) {
                     if (property.itemClass) {
                         //自定义对象数组
-                        id obj = [property.itemClass co_arrayOfModelsFromKeyValues:value];
+                        id obj = [property.itemClass mc_arrayOfModelsFromKeyValues:value];
                         [self setValue:obj forKey:property.name];
                     }else {
                         id newValue = value;
@@ -178,7 +178,7 @@ static BOOL _prettyPrinted;
                 }
             }else {
                 //自定义对象
-                id obj = [property.typeClass co_objectFromKeyValues:value];
+                id obj = [property.typeClass mc_objectFromKeyValues:value];
                 [self setValue:obj forKey:property.name];
             }
         }else {
@@ -236,9 +236,9 @@ static BOOL _prettyPrinted;
         objc_property_t *properties = class_copyPropertyList(cls, &outCount);
         
         NSScanner *scanner;
-        NSSet *ignoreSet = [cls co_ignoreDictionary];
-        NSDictionary *keyMapping = [cls co_keyMappingDictionary];
-        NSDictionary *typeMapping = [cls co_typeMappingDictionary];
+        NSSet *ignoreSet = [cls mc_ignoreDictionary];
+        NSDictionary *keyMapping = [cls mc_keyMappingDictionary];
+        NSDictionary *typeMapping = [cls mc_typeMappingDictionary];
         for (unsigned int i = 0; i<outCount; i++) {
             objc_property_t property = properties[i];
             //属性名称
@@ -340,7 +340,7 @@ static BOOL _prettyPrinted;
         if ([obj.jsonKey rangeOfString:@"."].location == NSNotFound) {
             setValueBlock(value);
         }else {
-            [mdict co_setValue:value forKeyPath:obj.jsonKey];
+            [mdict mc_setValue:value forKeyPath:obj.jsonKey];
         }
         
     }];
@@ -377,19 +377,19 @@ static BOOL _prettyPrinted;
 
 @implementation NSObject (JSONCoreConfig)
 
-+ (NSDictionary *)co_allowedPropertyNames {
++ (NSDictionary *)mc_allowedPropertyNames {
     return nil;
 }
 
-+ (NSSet *)co_ignoreDictionary {
++ (NSSet *)mc_ignoreDictionary {
     return nil;
 }
 
-+ (NSDictionary *)co_keyMappingDictionary {
++ (NSDictionary *)mc_keyMappingDictionary {
     return nil;
 }
 
-+ (NSDictionary *)co_typeMappingDictionary {
++ (NSDictionary *)mc_typeMappingDictionary {
     return nil;
 }
 

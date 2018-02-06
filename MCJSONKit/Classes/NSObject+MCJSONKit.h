@@ -24,13 +24,13 @@
  @param keyValues 许可类型<NSData,NSDictionary,NSString>
  @return 新创建模型对象
  */
-+ (instancetype)co_objectFromKeyValues:(id)keyValues;
++ (instancetype)mc_objectFromKeyValues:(id)keyValues;
 
 /**
  通过字典数组来创建一个模型数组
  @param keyValues 许可类型<NSData,NSArray,NSString>
  */
-+ (NSArray *)co_arrayOfModelsFromKeyValues:(id)keyValues;
++ (NSArray *)mc_arrayOfModelsFromKeyValues:(id)keyValues;
 
 - (NSDictionary *)mc_toDictionary;
 - (NSString *)mc_JSONString;
@@ -45,19 +45,19 @@
 /**
  允许的属性名
  */
-+ (NSDictionary *)co_allowedPropertyNames;
++ (NSDictionary *)mc_allowedPropertyNames;
 
 /**
  忽略,不做处理的属性
  */
-+ (NSSet *)co_ignoreDictionary;
++ (NSSet *)mc_ignoreDictionary;
 
 /**
  key关联字段
  
  @return key:对象属性 value:keyPath
  */
-+ (NSDictionary *)co_keyMappingDictionary;
++ (NSDictionary *)mc_keyMappingDictionary;
 
 
 /**
@@ -65,6 +65,6 @@
  
  @return key:对象属性   value:类型class
  */
-+ (NSDictionary *)co_typeMappingDictionary;
++ (NSDictionary *)mc_typeMappingDictionary;
 
 @end
