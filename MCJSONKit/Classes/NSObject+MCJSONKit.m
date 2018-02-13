@@ -129,11 +129,12 @@ static BOOL _prettyPrinted;
  设置属性值
  */
 - (void)setValue:(id)value forProperty:(JSONCoreProperty *)property {
+    if ([value isKindOfClass:[NSNull class]]) {
+        //NSNull不做处理
+        return;
+    }
     if (value && property) {
         if (property.typeClass) {
-            if ([value isKindOfClass:[NSNull class]]) {
-                return;
-            }
             if ([allowedJSONTypes containsObject:property.typeClass]) {
                 //系统内置对象
                 if ([value isKindOfClass:property.typeClass]) {
