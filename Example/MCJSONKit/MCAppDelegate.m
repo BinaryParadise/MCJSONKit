@@ -8,6 +8,8 @@
 
 #import "MCAppDelegate.h"
 #import "WeiboSDK.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface MCAppDelegate () <WeiboSDKDelegate>
     
@@ -18,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Fabric with:@[[Crashlytics class]]];
     return YES;
 }
 
