@@ -322,6 +322,7 @@ static BOOL _prettyPrinted;
 }
 
 - (NSDictionary *)mc_toDictionary {
+    NSAssert(![self isKindOfClass:[NSArray class]], @"Can't convert NSArray to NSDictionary");
     id jsonObj = [self _jsonObjectWithData:self];
     if (jsonObj) {
         return jsonObj;
