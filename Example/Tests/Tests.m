@@ -7,7 +7,7 @@
 //
 
 @import XCTest;
-@import MCJSONKit;
+#import <MCJSONKit/MCJSONKit.h>
 
 @interface Tests : XCTestCase
 
