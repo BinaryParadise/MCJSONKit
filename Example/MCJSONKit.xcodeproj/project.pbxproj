@@ -294,7 +294,6 @@
 				6003F588195388D20070C39A /* Resources */,
 				3A7ACA29F558382CAC1E79C0 /* [CP] Embed Pods Frameworks */,
 				C05893B7ED17E0A89999727A /* [CP] Copy Pods Resources */,
-				C5FB55B2204A5D3000AA0111 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -502,19 +501,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5FB55B2204A5D3000AA0111 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 14578109328661b51e70e36e3a70bb3065ba66bb 928a659fa5286f52f4343a1c8f630dfef8bcf7cc375159e5d56262432da9d4fc";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -669,7 +655,7 @@
 				);
 				INFOPLIST_FILE = "MCJSONKit/MCJSONKit-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mylcode.MCJSONKit-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = org.mcstuido.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -688,7 +674,7 @@
 				);
 				INFOPLIST_FILE = "MCJSONKit/MCJSONKit-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.mylcode.MCJSONKit-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = org.mcstuido.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

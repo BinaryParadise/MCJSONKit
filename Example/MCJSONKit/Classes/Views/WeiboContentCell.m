@@ -54,7 +54,7 @@
         //_headImageView.contentMode = UIViewContentModeScaleAspectFill;
         _headImageView.clipsToBounds = YES;
         _headImageView.layer.masksToBounds = YES;
-        _headImageView.layer.cornerRadius = _headImageView.height/2;
+        _headImageView.layer.cornerRadius = _headImageView.mcHeight/2;
         [self.contentView addSubview:_headImageView];
     }
     return _headImageView;
@@ -62,7 +62,7 @@
 
 - (UILabel *)lblName {
     if (!_lblName) {
-        _lblName = [[UILabel alloc] initWithFrame:CGRectMake(_headImageView.right+8, kInsets, self.width-(_headImageView.right+8+kInsets), 20)];
+        _lblName = [[UILabel alloc] initWithFrame:CGRectMake(_headImageView.mcRight+8, kInsets, self.mcWidth-(_headImageView.mcRight+8+kInsets), 20)];
         _lblName.font = [UIFont systemFontOfSize:15.0];
         _lblName.textColor = MCHexColor(0xeb7350);
         [self.contentView addSubview:_lblName];
@@ -72,7 +72,7 @@
 
 - (UILabel *)lblTime {
     if (!_lblTime) {
-        _lblTime = [[UILabel alloc] initWithFrame:CGRectMake(_lblName.left, _lblName.bottom+4, 0, 20)];
+        _lblTime = [[UILabel alloc] initWithFrame:CGRectMake(_lblName.mcLeft, _lblName.mcBottom+4, 0, 20)];
         _lblTime.textColor = [UIColor lightGrayColor];
         _lblTime.font = [UIFont systemFontOfSize:12];
         [self.contentView addSubview:_lblTime];
@@ -92,7 +92,7 @@
 
 - (UIView *)separateView {
     if (_separateView == nil) {
-        _separateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        _separateView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MCScreenWidth, 0.5)];
         _separateView.backgroundColor = BNColorSeparate;
         [self.contentView addSubview:_separateView];
     }
@@ -103,25 +103,25 @@
     self.headImageView.hidden = NO;
     self.backgroundColor = [UIColor whiteColor];
     
-    UIView *separateLineTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+    UIView *separateLineTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MCScreenWidth, 0.5)];
     separateLineTop.backgroundColor = BNColorSeparate;
     [self.contentView addSubview:separateLineTop];
     
-    _lblContent = [[UILabel alloc] initWithFrame:CGRectMake(kInsets, _headImageView.bottom+kInsets, ScreenWidth-kInsets*2, 0)];
+    _lblContent = [[UILabel alloc] initWithFrame:CGRectMake(kInsets, _headImageView.mcBottom+kInsets, MCScreenWidth-kInsets*2, 0)];
     _lblContent.font = [UIFont systemFontOfSize:16];
     _lblContent.numberOfLines = 5;
     [self.contentView addSubview:_lblContent];
     
-    _lblReposts = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth/3, 30)];
+    _lblReposts = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, MCScreenWidth/3, 30)];
     _lblReposts.textColor = [UIColor lightGrayColor];
     _lblReposts.textAlignment = NSTextAlignmentCenter;
     _lblReposts.font = [UIFont systemFontOfSize:13];
-    UIView *separateLine0 = [[UIView alloc] initWithFrame:CGRectMake(_lblReposts.width-0.5, 7, 0.5, 16)];
+    UIView *separateLine0 = [[UIView alloc] initWithFrame:CGRectMake(_lblReposts.mcWidth-0.5, 7, 0.5, 16)];
     separateLine0.backgroundColor = BNColorSeparate;
     [_lblReposts addSubview:separateLine0];
     [self.contentView addSubview:_lblReposts];
     
-    _lblComments = [[UILabel alloc] initWithFrame:CGRectMake(_lblReposts.right, 0, ScreenWidth/3, 30)];
+    _lblComments = [[UILabel alloc] initWithFrame:CGRectMake(_lblReposts.mcRight, 0, MCScreenWidth/3, 30)];
     _lblComments.textColor = [UIColor lightGrayColor];
     _lblComments.textAlignment = NSTextAlignmentCenter;
     _lblComments.font = [UIFont systemFontOfSize:13];
@@ -130,13 +130,13 @@
     [_lblComments addSubview:separateLine1];
     [self.contentView addSubview:_lblComments];
     
-    _lblAttitudes = [[UILabel alloc] initWithFrame:CGRectMake(_lblComments.right, 0, ScreenWidth/3, 30)];
+    _lblAttitudes = [[UILabel alloc] initWithFrame:CGRectMake(_lblComments.mcRight, 0, MCScreenWidth/3, 30)];
     _lblAttitudes.textColor = [UIColor lightGrayColor];
     _lblAttitudes.textAlignment = NSTextAlignmentCenter;
     _lblAttitudes.font = [UIFont systemFontOfSize:13];
     [self.contentView addSubview:_lblAttitudes];
     
-    _separateLineBottom = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+    _separateLineBottom = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MCScreenWidth, 0.5)];
     _separateLineBottom.backgroundColor = BNColorSeparate;
     [self.contentView addSubview:_separateLineBottom];
 }
@@ -156,29 +156,29 @@
     source = [source stringByReplacingOccurrencesOfString:@"</a>" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0,source.length)];
     self.lblSource.text = [@"来自" stringByAppendingString:source];
     [self.lblSource sizeToFit];
-    self.lblSource.left = _lblTime.right+4;
+    self.lblSource.mcLeft = _lblTime.mcRight+4;
     
     self.lblContent.text = _statuse.text;
-    self.lblContent.height = [_lblContent sizeThatFits:CGSizeMake(_lblContent.width, MAXFLOAT)].height;
+    self.lblContent.mcHeight = [_lblContent sizeThatFits:CGSizeMake(_lblContent.mcWidth, MAXFLOAT)].height;
     
-    self.separateView.top = self.lblContent.bottom+kInsets;
+    self.separateView.mcTop = self.lblContent.mcBottom+kInsets;
     
-    _lblReposts.top = _separateView.bottom;
-    _lblComments.top = _separateView.bottom;
-    _lblAttitudes.top = _separateView.bottom;
+    _lblReposts.mcTop = _separateView.mcBottom;
+    _lblComments.mcTop = _separateView.mcBottom;
+    _lblAttitudes.mcTop = _separateView.mcBottom;
     
     _lblReposts.text = [NSString stringWithFormat:@"%d",_statuse.reposts_count];
     _lblComments.text = [NSString stringWithFormat:@"%d",_statuse.comments_count];
     _lblAttitudes.text = [NSString stringWithFormat:@"%d",_statuse.attitudes_count];
     
-    _separateLineBottom.top = self.height-0.5;
+    _separateLineBottom.mcTop = self.mcHeight-0.5;
 }
 
 + (CGFloat)getCellHeithWithObject:(StatuseModel *)statuse {
     CGFloat cellHeight = kInsets+40+kInsets+kInsets+0.5+30+0.5;
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
-    CGFloat contentHeight = [statuse.text boundingRectWithSize:CGSizeMake(ScreenWidth-kInsets*2, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSParagraphStyleAttributeName:paragraphStyle} context:nil].size.height;
+    CGFloat contentHeight = [statuse.text boundingRectWithSize:CGSizeMake(MCScreenWidth-kInsets*2, MAXFLOAT) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16],NSParagraphStyleAttributeName:paragraphStyle} context:nil].size.height;
     return cellHeight+MIN(contentHeight, 100);
 }
 

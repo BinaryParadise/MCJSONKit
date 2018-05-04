@@ -7,7 +7,7 @@ target 'MCJSONKit_Example' do
   pod 'Weibo_SDK'
   pod 'MJExtension'
   pod 'MCUIKit/UIKit'
-  pod 'Crashlytics'
+  pod 'MCLogger'
 
   target 'MCJSONKit_Tests' do
     inherit! :search_paths
