@@ -6,7 +6,7 @@ target 'MCJSONKit_Example' do
   pod 'MWPhotoBrowser'
   pod 'Weibo_SDK'
   pod 'MJExtension'
-  pod 'MCUIKit/UIKit'
+  pod 'MCUIKit'
   pod 'MCLogger'
 
   target 'MCJSONKit_Tests' do
