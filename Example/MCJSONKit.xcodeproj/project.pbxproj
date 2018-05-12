@@ -33,6 +33,8 @@
 		C599F3DE1FAD93CF00D19382 /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C01FAD902D00D19382 /* WeiboModel.m */; };
 		C599F3DF1FAD93D300D19382 /* StatuseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C31FAD902D00D19382 /* StatuseModel.m */; };
 		C599F3E01FAD93D800D19382 /* WeiboViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3D01FAD90A900D19382 /* WeiboViewModel.m */; };
+		C5D2A9C120A70D5D008998BD /* friends_timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = C5D2A9BF20A70D5A008998BD /* friends_timeline.json */; };
+		C5D2A9C420A716EB008998BD /* WeiboResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D2A9C320A716EB008998BD /* WeiboResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,9 @@
 		C599F3D11FAD90A900D19382 /* WeiboViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboViewModel.h; sourceTree = "<group>"; };
 		C599F3D31FAD923B00D19382 /* HomeTimelineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineController.m; sourceTree = "<group>"; };
 		C599F3D41FAD923B00D19382 /* HomeTimelineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTimelineController.h; sourceTree = "<group>"; };
+		C5D2A9BF20A70D5A008998BD /* friends_timeline.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = friends_timeline.json; sourceTree = "<group>"; };
+		C5D2A9C220A716EB008998BD /* WeiboResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboResult.h; sourceTree = "<group>"; };
+		C5D2A9C320A716EB008998BD /* WeiboResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboResult.m; sourceTree = "<group>"; };
 		F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCJSONKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BB5D2C14E6D372E0B9ECCD /* Pods-MCJSONKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FBBF959A9D0B72C5EC1D5E5D /* MCJSONKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MCJSONKit.podspec; path = ../MCJSONKit.podspec; sourceTree = "<group>"; };
@@ -187,6 +192,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C5D2A9BF20A70D5A008998BD /* friends_timeline.json */,
 				6003F5BB195388D20070C39A /* Tests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -246,6 +252,8 @@
 				C599F3C01FAD902D00D19382 /* WeiboModel.m */,
 				C599F3CB1FAD902D00D19382 /* StatuseModel.h */,
 				C599F3C31FAD902D00D19382 /* StatuseModel.m */,
+				C5D2A9C220A716EB008998BD /* WeiboResult.h */,
+				C5D2A9C320A716EB008998BD /* WeiboResult.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -375,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5D2A9C120A70D5D008998BD /* friends_timeline.json in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +529,7 @@
 				C599F3DC1FAD93CA00D19382 /* UserModel.m in Sources */,
 				C599F3DD1FAD93CD00D19382 /* WBUser.m in Sources */,
 				C599F3DF1FAD93D300D19382 /* StatuseModel.m in Sources */,
+				C5D2A9C420A716EB008998BD /* WeiboResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +657,8 @@
 			baseConfigurationReference = 93190E7B99844BBF7607513E /* Pods-MCJSONKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCJSONKit/MCJSONKit-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -655,7 +667,7 @@
 				);
 				INFOPLIST_FILE = "MCJSONKit/MCJSONKit-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = org.mcstuido.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mcstuido.JSONKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -666,6 +678,8 @@
 			baseConfigurationReference = 918927202B39C27266615D47 /* Pods-MCJSONKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCJSONKit/MCJSONKit-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -674,7 +688,7 @@
 				);
 				INFOPLIST_FILE = "MCJSONKit/MCJSONKit-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = org.mcstuido.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = org.mcstuido.JSONKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -685,6 +699,7 @@
 			baseConfigurationReference = F6BB5D2C14E6D372E0B9ECCD /* Pods-MCJSONKit_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -709,6 +724,7 @@
 			baseConfigurationReference = 9ABBD34770007F25E1BFC826 /* Pods-MCJSONKit_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

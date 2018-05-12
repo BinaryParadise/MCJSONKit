@@ -58,7 +58,12 @@
     
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     if (response.requestUserInfo[@"SSO_From"]) {
-        [[NSUserDefaults standardUserDefaults] setObject:response.userInfo forKey:@"WeiboSSOUserInfo"];
+        NSDictionary *info = response.userInfo;
+        if ([info[@"error_code"] intValue] == 0) {
+            [[NSUserDefaults standardUserDefaults] setObject:response.userInfo forKey:@"WeiboSSOUserInfo"];
+        } else {
+            MCLogError(@"%@", info);
+        }
     }
 }
 

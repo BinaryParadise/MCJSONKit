@@ -1,6 +1,7 @@
 # MCJSONKit
 
 [![Build Status](https://travis-ci.org/MC-Studio/MCJSONKit.svg?branch=master)](https://travis-ci.org/MC-Studio/MCJSONKit)
+[![Coverage Status](https://coveralls.io/repos/github/MC-Studio/MCJSONKit/badge.svg?branch=master)](https://coveralls.io/github/MC-Studio/MCJSONKit)
 [![Version](https://img.shields.io/cocoapods/v/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
 [![License](https://img.shields.io/cocoapods/l/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
 [![Platform](https://img.shields.io/cocoapods/p/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
@@ -8,19 +9,21 @@
 - A fast, convenient and nonintrusive conversion between JSON and model.
 - 转换速度快、使用简单方便的字典转模型框架
 
+# 目录
+
+* [NSJSONReadingOptions & NSJSONWritingOptions](#jsonreadwriter)
+* [更新记录](#updatelog)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
-## Installation
+## 安装
 
 MCJSONKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-source 'git@github.com:mylcode/Specs.git'
 pod 'MCJSONKit'
 ```
 
@@ -33,7 +36,12 @@ pod 'MCJSONKit'
 - 过滤类型不匹配的情况，例如`类型为NSArray，但是JSON数据为字符串的情况`
 - 待完善
 
-## 更新记录
+## <span id='updatelog'>更新记录</span>
+
+### 2018-5-12
+- 增加单测，提升代码覆盖率
+- 修复Example授权失败的问题
+
 ### 2018-2-6
 - 统一方法的前缀MC
 
@@ -74,6 +82,21 @@ Number             | [`NSNumber`] or [`NSDate`]
 String             | [`NSString`]
 Array              | [`NSArray`]
 Object             | [`NSDictionary`]
+
+## <span id='jsonreadwriter'>NSJSONReadingOptions</span>
+
+```objc
+NSJSONReadingMutableContainers	// 返回可变容器，NSMutableDictionary或NSMutableArray
+NSJSONReadingMutableLeaves			// 不仅返回的最外层是可变的, 内部的子数值或字典也是可变对象
+NSJSONReadingAllowFragments		// 返回允许JSON字符串最外层既不是NSArray也不是NSDictionary，但必须是有效的JSON Fragment.可以是例如 "10"
+```
+
+## NSJSONWritingOptions
+
+```objc
+NSJSONWritingPrettyPrinted = (1UL << 0) //是将生成的json数据格式化输出，这样可读性高，不设置则输出的json字符串就是一整行。
+NSJSONWritingSortedKeys //输出的json字符串就是一整行
+```
 
 ## 如何使用
 
