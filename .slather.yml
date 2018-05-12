@@ -1,0 +1,7 @@
+workspace: Example/MCJSONKit.xcworkspace
+xcodeproj: Example/MCJSONKit.xcodeproj
+scheme: MCJSONKit-Example
+source_directory: MCJSONKit/Classes
+output_directory: ./DerivedData
+ignore:
+  - Example/*

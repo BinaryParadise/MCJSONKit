@@ -42,10 +42,6 @@ static BOOL _prettyPrinted;
                                  [NSMutableDictionary class],
                                  [NSSet class],
                                  [NSMutableSet class]];
-            
-            /*allowedPrimitiveTypes = [NSSet setWithObjects:@"Tc", @"TC", @"Ts", @"TS", @"Ti",
-                                      @"TI", @"Tl", @"TL", @"Tq", @"TQ",
-                                      @"Tf", @"Td", @"TD", @"TB", nil];*/
         }
         
     });
@@ -56,8 +52,9 @@ static BOOL _prettyPrinted;
     if (keyValues == nil || [keyValues isKindOfClass:[NSNull class]]) {
         return nil;
     }
-    NSObject *jsonObject = [[self alloc] init];
+    NSObject *jsonObject;
     if ([keyValues isKindOfClass:[NSString class]]) {
+        jsonObject = [[self alloc] init];
         [jsonObject setValuesWithJSONString:keyValues];
     }else if([keyValues isKindOfClass:[NSData class]]) {
         NSError *error;
@@ -68,12 +65,12 @@ static BOOL _prettyPrinted;
             NSLog(@"%@",error);
 #endif
         }else {
+            jsonObject = [[self alloc] init];
             [jsonObject setValuesWithDictionary:obj];
         }
     }else if([keyValues isKindOfClass:[NSDictionary class]]) {
+        jsonObject = [[self alloc] init];
         [jsonObject setValuesWithDictionary:keyValues];
-    }else {
-        return nil;
     }
     return jsonObject;
 }
@@ -352,7 +349,7 @@ static BOOL _prettyPrinted;
 - (NSString *)mc_JSONString {
     NSDictionary *dict = [self mc_toDictionary];
     NSError *error;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:_prettyPrinted?NSJSONWritingPrettyPrinted:kNilOptions error:&error];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:[self.class prettyPrinted]?NSJSONWritingPrettyPrinted:kNilOptions error:&error];
     if (!error) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }

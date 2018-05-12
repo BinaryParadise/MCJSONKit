@@ -11,7 +11,8 @@ target 'MCJSONKit_Example' do
 
   target 'MCJSONKit_Tests' do
     inherit! :search_paths
-
+    
+    pod 'Kiwi'
     
   end
 end
