@@ -14,6 +14,7 @@
 @implementation WeiboModel
 
 + (void)load {
+    //格式化输出JSON字符串，默认为NO
     [self setPrettyPrinted:YES];
 }
     
@@ -26,7 +27,9 @@
     _created_at = @(date.timeIntervalSince1970).stringValue;
 }
 
-#pragma mark - 封装-JSONCore
+#pragma mark - 二次封装JSONKit
+
+#if !MJExtensionEnable
 
 + (instancetype)jsonObjectFromData:(id)data {
     return [self mc_objectFromKeyValues:data];
@@ -36,7 +39,7 @@
     return [self mc_arrayOfModelsFromKeyValues:keyValues];
 }
 
-+ (NSArray *)allowedPropertyNames {
++ (NSSet *)allowedPropertyNames {
     return nil;
 }
 
@@ -62,8 +65,8 @@
 
 #pragma mark JSONCoreConfig
 
-+ (NSDictionary *)mc_allowedPropertyNames {
-    return nil;
++ (NSSet *)mc_allowedPropertiesSet {
+    return [self allowedPropertyNames];
 }
 
 + (NSDictionary *)mc_keyMappingDictionary {
@@ -74,21 +77,25 @@
     return [self typeMappingDictionary];
 }
 
-+ (NSSet *)mc_ignoreDictionary {
++ (NSSet *)mc_ignorePropertiesSet {
     return [self ignoreSet];
 }
 
+#endif
+
 #pragma mark - 封装-MJExtension
-/*
+
+#if MJExtensionEnable
+
 + (instancetype)jsonObjectFromData:(id)data {
     return [self mj_objectWithKeyValues:data];
 }
 
-+ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array {
-    return [self mj_objectArrayWithKeyValuesArray:array];
++ (NSArray *)arrayOfModelsFromKeyValues:(id)keyValues {
+    return [self mj_objectArrayWithKeyValuesArray:keyValues];
 }
 
-+ (NSArray *)allowedPropertyNames {
++ (NSSet *)allowedPropertyNames {
     return nil;
 }
 
@@ -125,7 +132,9 @@
 }
 
 + (NSArray *)mj_allowedPropertyNames {
-    return [self allowedPropertyNames];
-}*/
+    return [self allowedPropertyNames].allObjects;
+}
+
+#endif
 
 @end

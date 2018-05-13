@@ -18,27 +18,19 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## 安装
-
-MCJSONKit is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'MCJSONKit'
-```
-
 ## 水平有限，不定期更新
 - 一直是拿来主义用的第三方库，总是发现一些不灵活或者不足、不适用的地方，所以自己心血来潮写一个轻量的JSON对象转换库.
 - 目前为测试版，可能还有很多问题，会持续更新优化.
 
 - 不改变目标对象的属性类型
-- null值不做处理
+- null值不做处理,保持属性的默认值
 - 过滤类型不匹配的情况，例如`类型为NSArray，但是JSON数据为字符串的情况`
+- `代码覆盖率100`
 - 待完善
 
 ***
 
-JavaScript Object Notation, or [JSON][], is a lightweight, text-based, serialization format for structured data that is used by many web-based services and API's.  It is defined by [RFC 4627][].
+JavaScript Object Notation, or [JSON][], is a lightweight, text-based, serialization format for structured data that is used by many web-based services and API's.  It is defined by [RFC 4627](https://www.ietf.org/rfc/rfc4627.txt).
 
 JSON provides the following primitive types:
 
@@ -77,12 +69,19 @@ NSJSONWritingSortedKeys //输出的json字符串就是一整行
 
 ## 如何使用
 
-### 使用Cocoapods
-```objc
-pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
+MCJSONKit is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "MCJSONKit"
 ```
 
-### 或者导入MJJSONKit文件夹到你的项目
+```objc
+#import <MCJSONKit/MCJSONKit.h>
+```
+
+或者导入MJJSONKit文件夹到你的项目
+
 ```objc
 #import "MCJSONKit.h"
 ```
@@ -90,13 +89,15 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
 
 ### 创建基础模型YourBaseModel并封装【推荐】
 ```ruby
-为了减少代码入侵，方便以后灵活迁移，可按以下方法封装
+使用时再封装一层，方便以后迁移
 示例：iOSExample->Weibo->Models->WeiboModel.h（包含MJExtension的实现方式作为对比）
 ```
 
 ```objc
+#import <MCJSONKit/MCJSONKit.h>
+
 //示例基础模型
-@interface YourBaseModel : NSObject
+@interface YourBaseJSONModel : NSObject
 
 /**
  通过字典创建模型
@@ -106,12 +107,17 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
  
  */
 + (instancetype)jsonObjectFromData:(id)data;
-+ (NSArray *)arrayOfModelsFromDictionaries:(NSArray *)array;
++ (NSArray *)arrayOfModelsFromKeyValues:(id)keyValues;
 
 /**
- 允许的属性名
+ 允许的属性集合，配置后则ignoreSet失效
  */
-+ (NSArray *)allowedPropertyNames;
++ (NSSet *)allowedPropertyNames;
+
+/**
+ 忽略的属性集合
+ */
++ (NSSet *)ignoreSet;
 
 /**
  key关联字段
@@ -126,12 +132,6 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
  @return key:对象属性   value:类型class
  */
 + (NSDictionary *)typeMappingDictionary;
-
-/**
- 忽略,不做处理的属性
- */
-+ (NSSet *)ignoreSet;
-
 - (NSDictionary *)toDictionary;
 - (NSString *)toJSONString;
 
@@ -145,11 +145,20 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
 @implementation YourBaseModel
 
 + (void)load {
-	 //格式化输出JSON数据
+    //格式化输出JSON字符串，默认为NO
     [self setPrettyPrinted:YES];
 }
+    
+- (void)setCreated_at:(NSString *)created_at {
+    NSDateFormatter *dateFmt = [NSDateFormatter new];
+    dateFmt.dateFormat = @"EEE MMM d HH:mm:ss Z yyyy";
+    dateFmt.locale = [NSLocale localeWithLocaleIdentifier:@"en-US"];
+    
+    NSDate *date = [dateFmt dateFromString:created_at];
+    _created_at = @(date.timeIntervalSince1970).stringValue;
+}
 
-#pragma mark - JSONKit
+#pragma mark - 二次封装JSONKit
 
 + (instancetype)jsonObjectFromData:(id)data {
     return [self mc_objectFromKeyValues:data];
@@ -159,7 +168,7 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
     return [self mc_arrayOfModelsFromKeyValues:keyValues];
 }
 
-+ (NSArray *)allowedPropertyNames {
++ (NSSet *)allowedPropertyNames {
     return nil;
 }
 
@@ -183,10 +192,10 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
     return [self mc_JSONString];
 }
 
-#pragma mark JSONKitConfig
+#pragma mark JSONCoreConfig
 
-+ (NSDictionary *)mc_allowedPropertyNames {
-    return nil;
++ (NSSet *)mc_allowedPropertiesSet {
+    return [self allowedPropertyNames];
 }
 
 + (NSDictionary *)mc_keyMappingDictionary {
@@ -197,7 +206,7 @@ pod "MCJSONCore", :git => "https://github.com/mylcode/MCJSONKit.git"
     return [self typeMappingDictionary];
 }
 
-+ (NSSet *)mc_ignoreDictionary {
++ (NSSet *)mc_ignorePropertiesSet {
     return [self ignoreSet];
 }
 
@@ -260,7 +269,7 @@ CountryModel *country = [CountryModel jsonObjectFromData:jsonString];
 @property (nonatomic) NSInteger orderId;
 @property (nonatomic) float totalPrice;
 @property (nonatomic, assign) int status;
-@property (nonatomic) NSArray *products;
+@property (nonatomic) NSArray<ProductModel *> *products;
 @end
 ```
 ### Model name - JSON key mapping【属性和字典的key不同、多级映射】
@@ -281,7 +290,7 @@ CountryModel *country = [CountryModel jsonObjectFromData:jsonString];
 @end
 ```
 
-### Model contains model【模型中数组的元素也是模型】
+### Model contains array model【包含模型数组】
 
 ```objc
 //模型中有个数组属性，数组元素映射为其他模型
@@ -292,17 +301,17 @@ CountryModel *country = [CountryModel jsonObjectFromData:jsonString];
 
 ### 解析速度对比
 
-[测试数据](Examples/iOSExample/iOSExample/public_timeline.json)
+[mock数据](Example/Tests/mock/public_timeline.json)
 
  100次循环解析			| 平均耗时
 --------------------|--------------------
-`MCJSONKit`    		| 0.283s
-`MJExtension` 		| 0.998s
+`MCJSONKit`    		| 0.415s
+`MJExtension` 		| 0.626s
 
 # TODO
 - [x] 解析速度对比分析
-- [ ] 复杂JSON解析测试
-- [ ] 全面覆盖测试，找出BUG
+- [x] 复杂JSON解析测试
+- [x] 全面覆盖测试，找出BUG
 
 ## License
 

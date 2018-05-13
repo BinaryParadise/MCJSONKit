@@ -14,4 +14,20 @@
     return @{@"statuses": [StatuseModel class]};
 }
 
++ (NSSet *)ignoreSet {
+    return [NSSet setWithObjects:@"next_cursor", nil];
+}
+
+@end
+
+@implementation WeiboResult1
+
++ (NSSet *)allowedPropertyNames {
+    return [NSSet setWithObjects:@"statuses", @"updateTime", @"timeStr", @"max_id", nil];
+}
+
++ (NSSet *)ignoreSet {
+    return [NSSet setWithObjects:@"statuses", nil];
+}
+
 @end

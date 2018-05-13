@@ -20,10 +20,13 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6003F5BC195388D20070C39A /* MCTypeTransformTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* MCTypeTransformTest.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C0B20416D9A80E49B8F4ED42 /* libPods-MCJSONKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */; };
+		C55E4A9820A7DA3800DE037D /* MCNSObjectJSONkitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */; };
+		C55E4A9D20A7E17000DE037D /* mock in Resources */ = {isa = PBXBuildFile; fileRef = C55E4A9B20A7DD8500DE037D /* mock */; };
+		C55E4AA120A7FD9900DE037D /* MCPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4AA020A7FD9900DE037D /* MCPerformance.m */; };
 		C599F3D51FAD929700D19382 /* HomeTimelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3D31FAD923B00D19382 /* HomeTimelineController.m */; };
 		C599F3D91FAD93C100D19382 /* WeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C51FAD902D00D19382 /* WeiboRequest.m */; };
 		C599F3DA1FAD93C300D19382 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3BE1FAD902D00D19382 /* LoadingView.m */; };
@@ -33,7 +36,6 @@
 		C599F3DE1FAD93CF00D19382 /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C01FAD902D00D19382 /* WeiboModel.m */; };
 		C599F3DF1FAD93D300D19382 /* StatuseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C31FAD902D00D19382 /* StatuseModel.m */; };
 		C599F3E01FAD93D800D19382 /* WeiboViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3D01FAD90A900D19382 /* WeiboViewModel.m */; };
-		C5D2A9C120A70D5D008998BD /* friends_timeline.json in Resources */ = {isa = PBXBuildFile; fileRef = C5D2A9BF20A70D5A008998BD /* friends_timeline.json */; };
 		C5D2A9C420A716EB008998BD /* WeiboResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D2A9C320A716EB008998BD /* WeiboResult.m */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +69,7 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		6003F5BB195388D20070C39A /* MCTypeTransformTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCTypeTransformTest.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,9 @@
 		93190E7B99844BBF7607513E /* Pods-MCJSONKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9ABBD34770007F25E1BFC826 /* Pods-MCJSONKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B9C051CDCDC5724A854F4F8E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCNSObjectJSONkitTest.m; sourceTree = "<group>"; };
+		C55E4A9B20A7DD8500DE037D /* mock */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mock; sourceTree = "<group>"; };
+		C55E4AA020A7FD9900DE037D /* MCPerformance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCPerformance.m; sourceTree = "<group>"; };
 		C599F3BD1FAD902D00D19382 /* WeiboRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboRequest.h; sourceTree = "<group>"; };
 		C599F3BE1FAD902D00D19382 /* LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		C599F3BF1FAD902D00D19382 /* WBUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBUser.m; sourceTree = "<group>"; };
@@ -93,7 +98,6 @@
 		C599F3D11FAD90A900D19382 /* WeiboViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboViewModel.h; sourceTree = "<group>"; };
 		C599F3D31FAD923B00D19382 /* HomeTimelineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineController.m; sourceTree = "<group>"; };
 		C599F3D41FAD923B00D19382 /* HomeTimelineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTimelineController.h; sourceTree = "<group>"; };
-		C5D2A9BF20A70D5A008998BD /* friends_timeline.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = friends_timeline.json; sourceTree = "<group>"; };
 		C5D2A9C220A716EB008998BD /* WeiboResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboResult.h; sourceTree = "<group>"; };
 		C5D2A9C320A716EB008998BD /* WeiboResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboResult.m; sourceTree = "<group>"; };
 		F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCJSONKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,8 +196,10 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C5D2A9BF20A70D5A008998BD /* friends_timeline.json */,
-				6003F5BB195388D20070C39A /* Tests.m */,
+				C55E4A9B20A7DD8500DE037D /* mock */,
+				C55E4AA020A7FD9900DE037D /* MCPerformance.m */,
+				6003F5BB195388D20070C39A /* MCTypeTransformTest.m */,
+				C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -383,7 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5D2A9C120A70D5D008998BD /* friends_timeline.json in Resources */,
+				C55E4A9D20A7E17000DE037D /* mock in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,7 +543,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				C55E4AA120A7FD9900DE037D /* MCPerformance.m in Sources */,
+				C55E4A9820A7DA3800DE037D /* MCNSObjectJSONkitTest.m in Sources */,
+				6003F5BC195388D20070C39A /* MCTypeTransformTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +672,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					"MJExtensionEnable=0",
 				);
 				INFOPLIST_FILE = "MCJSONKit/MCJSONKit-Info.plist";
 				MODULE_NAME = ExampleApp;

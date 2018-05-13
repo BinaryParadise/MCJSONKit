@@ -43,14 +43,14 @@
 @interface NSObject (JSONCoreConfig)
 
 /**
- 允许的属性名
+ 允许的属性集合，重写后则mc_ignorePropertiesSet失效
  */
-+ (NSDictionary *)mc_allowedPropertyNames;
++ (NSSet *)mc_allowedPropertiesSet;
 
 /**
- 忽略,不做处理的属性
+ 忽略的属性集合
  */
-+ (NSSet *)mc_ignoreDictionary;
++ (NSSet *)mc_ignorePropertiesSet;
 
 /**
  key关联字段
