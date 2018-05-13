@@ -12,7 +12,7 @@
 # 目录
 
 * [NSJSONReadingOptions & NSJSONWritingOptions](#jsonreadwriter)
-* [更新记录](#updatelog)
+* [更新记录](CHANGELOG.md)
 
 ## Example
 
@@ -35,29 +35,6 @@ pod 'MCJSONKit'
 - null值不做处理
 - 过滤类型不匹配的情况，例如`类型为NSArray，但是JSON数据为字符串的情况`
 - 待完善
-
-## <span id='updatelog'>更新记录</span>
-
-### 2018-5-12
-- 增加单测，提升代码覆盖率
-- 修复Example授权失败的问题
-
-### 2018-2-6
-- 统一方法的前缀MC
-
-### 2017-10-03
--	统一前缀标识为MC
--	更新readme文件
-
-### 2016-12-24
--   移除类继承的使用方式
--   优化初始化方法
--   修复JSON数据输出不能正确解析keyPath的问题,并增加是否格式化输出的开关
-
-### 2016-12-08
--	增加NSDate支持
--	修复类型不匹配的问题例如：属性定义为NSString但是JSON数据为Number
-
 
 ***
 

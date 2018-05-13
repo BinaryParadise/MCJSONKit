@@ -6,7 +6,7 @@ env:
 before_install: gem install slather
 install: bundle install --without=documentation    
 script:
-#- pod repo update
+- pod repo update
 - pod install --project-directory=Example
 - xcodebuild clean test -enableCodeCoverage=YES -workspace Example/MCJSONKit.xcworkspace -scheme 'MCJSONKit-Example' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=latest' -configuration Debug | xcpretty -c
 
