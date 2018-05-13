@@ -40,10 +40,10 @@ describe(@"NSObject+MCJSONKit", ^{
         it(@"prettyPrinted", ^{
             WeiboResult.prettyPrinted = NO;
             NSString *stored = result.mc_JSONString;
-            [[theValue(stored.length) should] equal:@37122];
+            [[stored shouldNot] containString:@"\n"];
             WeiboResult.prettyPrinted = YES;
             stored = result.mc_JSONString;
-            [[theValue(stored.length) should] equal:@51783];
+            [[stored should] containString:@"\n"];
             
         });
         

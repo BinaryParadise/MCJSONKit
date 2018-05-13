@@ -26,6 +26,7 @@
 		C0B20416D9A80E49B8F4ED42 /* libPods-MCJSONKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */; };
 		C55E4A9820A7DA3800DE037D /* MCNSObjectJSONkitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */; };
 		C55E4A9D20A7E17000DE037D /* mock in Resources */ = {isa = PBXBuildFile; fileRef = C55E4A9B20A7DD8500DE037D /* mock */; };
+		C55E4AA120A7FD9900DE037D /* MCPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4AA020A7FD9900DE037D /* MCPerformance.m */; };
 		C599F3D51FAD929700D19382 /* HomeTimelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3D31FAD923B00D19382 /* HomeTimelineController.m */; };
 		C599F3D91FAD93C100D19382 /* WeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C51FAD902D00D19382 /* WeiboRequest.m */; };
 		C599F3DA1FAD93C300D19382 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3BE1FAD902D00D19382 /* LoadingView.m */; };
@@ -78,6 +79,7 @@
 		B9C051CDCDC5724A854F4F8E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCNSObjectJSONkitTest.m; sourceTree = "<group>"; };
 		C55E4A9B20A7DD8500DE037D /* mock */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mock; sourceTree = "<group>"; };
+		C55E4AA020A7FD9900DE037D /* MCPerformance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCPerformance.m; sourceTree = "<group>"; };
 		C599F3BD1FAD902D00D19382 /* WeiboRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboRequest.h; sourceTree = "<group>"; };
 		C599F3BE1FAD902D00D19382 /* LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		C599F3BF1FAD902D00D19382 /* WBUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBUser.m; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				C55E4A9B20A7DD8500DE037D /* mock */,
+				C55E4AA020A7FD9900DE037D /* MCPerformance.m */,
 				6003F5BB195388D20070C39A /* MCTypeTransformTest.m */,
 				C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
@@ -540,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55E4AA120A7FD9900DE037D /* MCPerformance.m in Sources */,
 				C55E4A9820A7DA3800DE037D /* MCNSObjectJSONkitTest.m in Sources */,
 				6003F5BC195388D20070C39A /* MCTypeTransformTest.m in Sources */,
 			);
@@ -668,6 +672,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
+					"MJExtensionEnable=0",
 				);
 				INFOPLIST_FILE = "MCJSONKit/MCJSONKit-Info.plist";
 				MODULE_NAME = ExampleApp;

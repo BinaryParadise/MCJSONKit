@@ -15,8 +15,6 @@
  */
 @property (nonatomic, copy) NSString *created_at;
 
-
-
 /**
  通过字典创建模型
  
@@ -28,9 +26,14 @@
 + (NSArray *)arrayOfModelsFromKeyValues:(id)keyValues;
 
 /**
- 允许的属性名
+ 允许的属性集合，配置后则ignoreSet失效
  */
 + (NSSet *)allowedPropertyNames;
+
+/**
+ 忽略的属性集合
+ */
++ (NSSet *)ignoreSet;
 
 /**
  key关联字段
@@ -39,20 +42,12 @@
  */
 + (NSDictionary *)keyMappingDictionary;
 
-
 /**
  类型关联字典
  
  @return key:对象属性   value:类型class
  */
 + (NSDictionary *)typeMappingDictionary;
-
-
-/**
- 忽略,不做处理的属性
- */
-+ (NSSet *)ignoreSet;
-
 - (NSDictionary *)toDictionary;
 - (NSString *)toJSONString;
 
