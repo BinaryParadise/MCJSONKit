@@ -1,14 +1,13 @@
 language: objective-c
 cache: cocoapods
-podfile: Example/Podfile
 env:
   global:
     secure: "YbKKTVwH+zwgE1r8Nmq1sDqy+zrq5D2g5Eh4/lhaFjGDz6EF5ndlA0Mi/jUahPj/Nb0a1FpK73hyQFkZw+OToylx/b1OMwLZhVND/zmcVEqnb77FXJ+HincqZ8DgE2CWj9k+3RfKFrAszfbEI7Wa6pY42d2xDQYG9vacJ9W2yP7PjZdjlFcXL6c3JaAOHvAl4nl3lpMn8MQTaz60lFF9r+5G1NgsgTDmeBVgoAC+yzQPYThWCegqGZni2gSro//Wo3pglNtFr3arWeFXIL81S7x9Fa8VjQQ0hlIhFlULARezhFEDMhNAx0BdtovBq/yAa4pknw0WWLlEWyGPXrJRalixUdE6/jjjI8J/YV4evF4bi6NNJqPJea+d/2C01ckmvdY0CVaLdYtbqOrkZbR72/Z+tXmzUPQ6Wy5SFboemkfeXBnb5332D3Z3SIS9ozmtUhJc0LbebYvZvxjjuNxCFEGacy6uBWMqwIKnbeSVIeCCYewTOWrl8Wk4Dblw9/X/WZB1FpX9SemYQ3BfCcb2uFHinkEc7UUZfndPcSplfoXMqEbOJTifCo9dc70dvgDcdpsbWWkM5FiUhO4Q1fo9p7z0DCrLghD9+vkd8UnXV50iJm/3c+MgqYXRsPH09xV0B0QhZgFrpANg6bWauvata/IottmQfotopyHpMD3cGC0="
 #before_install: gem install slather
-install: bundle exec pod install --without=documentation    
+install: bundle install --without=documentation    
 script:
 #- pod repo update
-#- pod install --project-directory=Example
+- pod install --project-directory=Example
 - xcodebuild clean test -enableCodeCoverage=YES -workspace Example/MCJSONKit.xcworkspace -scheme 'MCJSONKit-Example' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=latest' -configuration Debug | xcpretty -c
 
 after_success: slather
