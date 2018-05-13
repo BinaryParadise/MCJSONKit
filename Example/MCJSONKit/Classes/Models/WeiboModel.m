@@ -36,7 +36,7 @@
     return [self mc_arrayOfModelsFromKeyValues:keyValues];
 }
 
-+ (NSArray *)allowedPropertyNames {
++ (NSSet *)allowedPropertyNames {
     return nil;
 }
 
@@ -62,8 +62,8 @@
 
 #pragma mark JSONCoreConfig
 
-+ (NSDictionary *)mc_allowedPropertyNames {
-    return nil;
++ (NSSet *)mc_allowedPropertiesSet {
+    return [self allowedPropertyNames];
 }
 
 + (NSDictionary *)mc_keyMappingDictionary {
@@ -74,7 +74,7 @@
     return [self typeMappingDictionary];
 }
 
-+ (NSSet *)mc_ignoreDictionary {
++ (NSSet *)mc_ignorePropertiesSet {
     return [self ignoreSet];
 }
 

@@ -30,7 +30,7 @@
 /**
  允许的属性名
  */
-+ (NSArray *)allowedPropertyNames;
++ (NSSet *)allowedPropertyNames;
 
 /**
  key关联字段

@@ -3,5 +3,13 @@
 #ifdef __OBJC__
 
 #import <Kiwi/Kiwi.h>
+#import <MCJSONKit/MCJSONKit.h>
+#import <MCLogger/MCLogger.h>
+
+#define kFriendsTimelineFile1 @"mock/friends_timeline.json"
+#define kFriendsTimelineFile2 @"mock/friends_timeline_array.json"
+#define kJSONConfigFile @"mock/JSONConfig.json"
+
+#define JSONFileData(fileName) [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:self.class] pathForResource:fileName ofType:nil]]
 
 #endif

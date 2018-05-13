@@ -12,6 +12,12 @@
 
 #import <objc/runtime.h>
 
+#if DEBUG
+    #define JKLog(fmt, ...) NSLog((@"[MCJSONKit] " fmt), ##__VA_ARGS__);
+#else
+    #define JKLog(fmt, ...)
+#endif
+
 static NSArray *allowedJSONTypes;//允许的对象类型
 //static NSSet *allowedPrimitiveTypes;//允许的基本数据类型
 static const char *kClassPropertiesKey;
@@ -80,13 +86,17 @@ static BOOL _prettyPrinted;
         return nil;
     }
     NSArray *array;
+    NSError *error;
     if ([keyValues isKindOfClass:[NSArray class]]) {
         array = keyValues;
     }else if ([keyValues isKindOfClass:[NSString class]]) {
-        array = [NSJSONSerialization JSONObjectWithData:[keyValues dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+        array = [NSJSONSerialization JSONObjectWithData:[keyValues dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
     }else if ([keyValues isKindOfClass:[NSData class]]) {
-        array = [NSJSONSerialization JSONObjectWithData:keyValues options:kNilOptions error:nil];
+        array = [NSJSONSerialization JSONObjectWithData:keyValues options:kNilOptions error:&error];
     }
+#if DEBUG
+    JKLog(@"%@", error)
+#endif
     if (!array) {
         return nil;
     }
@@ -155,9 +165,9 @@ static BOOL _prettyPrinted;
                             [self setValue:[value stringValue] forKey:property.name];
                         }else if ([property.typeClass isSubclassOfClass:[NSDate class]]) {
                             //属性是NSDate，但是值类型为NSNumber
-                            double timeInterval = [value doubleValue];
+                            NSTimeInterval timeInterval = [value doubleValue];
                             if (timeInterval > 10000000000) {//时间戳为毫秒
-                                timeInterval = timeInterval/1000.0;
+                                timeInterval = floor(timeInterval/1000.0);
                             }
                             [self setValue:[NSDate dateWithTimeIntervalSince1970:timeInterval] forKey:property.name];
                         }
@@ -167,7 +177,7 @@ static BOOL _prettyPrinted;
                                 //属性是NSDate，但是值类型为NSString
                                 double timeInterval = [value doubleValue];
                                 if (timeInterval > 10000000000) {//时间戳为毫秒
-                                    timeInterval = timeInterval/1000.0;
+                                    timeInterval = floor(timeInterval/1000.0);
                                 }
                                 [self setValue:[NSDate dateWithTimeIntervalSince1970:timeInterval] forKey:property.name];
                             }
@@ -234,15 +244,24 @@ static BOOL _prettyPrinted;
         objc_property_t *properties = class_copyPropertyList(cls, &outCount);
         
         NSScanner *scanner;
-        NSSet *ignoreSet = [cls mc_ignoreDictionary];
+        NSSet *ignoreSet = [cls mc_ignorePropertiesSet];
         NSDictionary *keyMapping = [cls mc_keyMappingDictionary];
         NSDictionary *typeMapping = [cls mc_typeMappingDictionary];
+        NSSet *allowSet = [cls mc_allowedPropertiesSet];
         for (unsigned int i = 0; i<outCount; i++) {
             objc_property_t property = properties[i];
             //属性名称
-            const char *propertyName = property_getName(property);
-            if ([ignoreSet containsObject:[NSString stringWithUTF8String:propertyName]]) {
-                continue;
+            NSString *propertyName = [NSString stringWithUTF8String:property_getName(property)];
+            if (allowSet) {
+                if (![allowSet containsObject:propertyName]) {
+                    //未加入到允许集合则忽略
+                    continue;
+                }
+            } else {
+                if ([ignoreSet containsObject:propertyName]) {
+                    //忽略属性
+                    continue;
+                }
             }
             
             //特性
@@ -262,7 +281,7 @@ static BOOL _prettyPrinted;
             
             //类型说明
             JSONCoreProperty *coprop = [JSONCoreProperty new];
-            coprop.name = [NSString stringWithUTF8String:propertyName];
+            coprop.name = propertyName;
             
             //自定义映射
             if (keyMapping && [keyMapping.allKeys containsObject:coprop.name]) {
@@ -350,7 +369,7 @@ static BOOL _prettyPrinted;
     NSDictionary *dict = [self mc_toDictionary];
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:[self.class prettyPrinted]?NSJSONWritingPrettyPrinted:kNilOptions error:&error];
-    if (!error) {
+    if (!error && dict.count > 0) {
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
     return nil;
@@ -376,11 +395,11 @@ static BOOL _prettyPrinted;
 
 @implementation NSObject (JSONCoreConfig)
 
-+ (NSDictionary *)mc_allowedPropertyNames {
++ (NSSet *)mc_allowedPropertiesSet {
     return nil;
 }
 
-+ (NSSet *)mc_ignoreDictionary {
++ (NSSet *)mc_ignorePropertiesSet {
     return nil;
 }
 

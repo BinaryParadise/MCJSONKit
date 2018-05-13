@@ -19,13 +19,39 @@
 /**
  广告列表
  */
-@property (nonatomic, copy) NSArray *advertises;
+@property (nonatomic, strong) NSMutableArray *advertises;
+
+/**
+ since_id
+ */
+@property (nonatomic, assign) long since_id;
+@property (nonatomic, assign) long next_cursor;
+
+@property (nonatomic, assign) NSInteger uve_blank;
+
+@property (nonatomic, assign, readonly) BOOL hasvisible;
+
+@end
+
+@interface WeiboResult1 : WeiboModel
+
+/**
+ 最新状态
+ */
+@property (nonatomic, copy) NSArray<StatuseModel *> *statuses;
+
+/**
+ 广告列表
+ */
+@property (nonatomic, strong) NSMutableArray *advertises;
 
 /**
  since_id
  */
 @property (nonatomic, assign) long since_id;
 
-@property (nonatomic, assign) NSInteger uve_blank;
+@property (nonatomic, copy) NSDate *updateTime;
+@property (nonatomic, copy) NSDate *timeStr;
+@property (nonatomic, assign) long double max_id;
 
 @end
