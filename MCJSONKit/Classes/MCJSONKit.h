@@ -14,6 +14,7 @@ FOUNDATION_EXPORT const unsigned char MCJSONKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MCJSONKit/PublicHeader.h>
 
+#import <MCJSONKit/MCJSONKitDefine.h>
 #import <MCJSONKit/NSDictionary+MCJSONkit.h>
 #import <MCJSONKit/NSArray+MCJSONKit.h>
 #import <MCJSONKit/NSObject+MCJSONKit.h>

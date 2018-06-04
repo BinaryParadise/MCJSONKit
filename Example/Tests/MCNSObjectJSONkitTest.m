@@ -33,6 +33,7 @@ describe(@"NSObject+MCJSONKit", ^{
         
         it(@"data type assert", ^{
             [[result shouldNot] beNil];
+            [[theValue(result.next_cursor) should] equal:@0];
             [[theValue(result.statuses.count) shouldNot] equal:@0];
             [[theValue(result.since_id) should] equal:@4238558845532583];
         });
@@ -85,6 +86,8 @@ describe(@"NSObject+MCJSONKit", ^{
         it(@"from NSString", ^{
             NSString *jsonStr = [[NSString alloc] initWithData:JSONFileData(kFriendsTimelineFile2) encoding:NSUTF8StringEncoding];
             array = [StatuseModel arrayOfModelsFromKeyValues:jsonStr];
+            [[theValue(array.firstObject.wid) shouldNot] equal:@0];
+            [[theValue(array.firstObject.user.verified_type) should] equal:@0];
             [[array shouldNot] beNil];
             [[theValue(array.count) should] equal:@20];
         });
@@ -108,6 +111,7 @@ describe(@"NSObject+MCJSONKit", ^{
             NSString *jsonStr = [[NSString alloc] initWithData:JSONFileData(kJSONConfigFile) encoding:NSUTF8StringEncoding];
             WeiboResult1 *result = [WeiboResult1 jsonObjectFromData:jsonStr];
             [[result shouldNot] beNil];
+            [[theValue(result.since_id) should] equal:@0];
             [[theValue(result.statuses.count) should] equal:@20];
             [[theValue(result.updateTime.timeIntervalSince1970) should] equal:@1526183950];
             [[theValue(result.timeStr.timeIntervalSince1970) should] equal:@1526183950];

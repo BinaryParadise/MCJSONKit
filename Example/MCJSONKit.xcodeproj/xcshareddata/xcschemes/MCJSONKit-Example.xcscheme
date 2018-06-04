@@ -34,7 +34,7 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45DFEAAC3D7F63C7A79820E622594E53"
+            BlueprintIdentifier = "C9BF0B25B60BCEB920B78CBEB903E4A2"
             BuildableName = "libMCJSONKit.a"
             BlueprintName = "MCJSONKit"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">

@@ -112,26 +112,26 @@ pod "MCJSONKit"
 /**
  允许的属性集合，配置后则ignoreSet失效
  */
-+ (NSSet *)allowedPropertyNames;
+- (NSSet *)allowedPropertyNames;
 
 /**
  忽略的属性集合
  */
-+ (NSSet *)ignoreSet;
+- (NSSet *)ignoreSet;
 
 /**
  key关联字段
  
  @return key:对象属性 value:keyPath
  */
-+ (NSDictionary *)keyMappingDictionary;
+- (NSDictionary *)keyMappingDictionary;
 
 /**
  类型关联字典
  
  @return key:对象属性   value:类型class
  */
-+ (NSDictionary *)typeMappingDictionary;
+- (NSDictionary *)typeMappingDictionary;
 - (NSDictionary *)toDictionary;
 - (NSString *)toJSONString;
 
@@ -168,19 +168,19 @@ pod "MCJSONKit"
     return [self mc_arrayOfModelsFromKeyValues:keyValues];
 }
 
-+ (NSSet *)allowedPropertyNames {
+- (NSSet *)allowedPropertyNames {
     return nil;
 }
 
-+ (NSDictionary *)keyMappingDictionary {
+- (NSDictionary *)keyMappingDictionary {
     return nil;
 }
 
-+ (NSDictionary *)typeMappingDictionary {
+- (NSDictionary *)typeMappingDictionary {
     return nil;
 }
 
-+ (NSSet *)ignoreSet {
+- (NSSet *)ignoreSet {
     return nil;
 }
 
@@ -194,19 +194,19 @@ pod "MCJSONKit"
 
 #pragma mark JSONCoreConfig
 
-+ (NSSet *)mc_allowedPropertiesSet {
+- (NSSet *)mc_allowedPropertiesSet {
     return [self allowedPropertyNames];
 }
 
-+ (NSDictionary *)mc_keyMappingDictionary {
+- (NSDictionary *)mc_keyMappingDictionary {
     return [self keyMappingDictionary];
 }
 
-+ (NSDictionary *)mc_typeMappingDictionary {
+- (NSDictionary *)mc_typeMappingDictionary {
     return [self typeMappingDictionary];
 }
 
-+ (NSSet *)mc_ignorePropertiesSet {
+- (NSSet *)mc_ignorePropertiesSet {
     return [self ignoreSet];
 }
 
@@ -276,16 +276,16 @@ CountryModel *country = [CountryModel jsonObjectFromData:jsonString];
 
 ```objc
 @implementation ProductModel
-+ (NSDictionary *)keyMappingDictionary {
-    return @{@"productID",@"id"};
+- (NSDictionary *)keyMappingDictionary {
+    return @{MCProperty(productID):@"id"};
 } 
 @end
 ```
 
 ```objc
 @implementation OrderModel
-+ (NSDictionary *)keyMappingDictionary {
-    return @{@"status":@"status.code"};
+- (NSDictionary *)keyMappingDictionary {
+    return @{MCProperty(status):@"status.code"};
 } 
 @end
 ```
@@ -294,8 +294,8 @@ CountryModel *country = [CountryModel jsonObjectFromData:jsonString];
 
 ```objc
 //模型中有个数组属性，数组元素映射为其他模型
-+ (NSDictionary *)typeMappingDictionary {
-    return @{@"products":[ProductModel class]};
+- (NSDictionary *)typeMappingDictionary {
+    return @{MCProperty(products):[ProductModel class]};
 }
 ```
 
