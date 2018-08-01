@@ -6,7 +6,7 @@
 //  Copyright © 2018年 MC-Stuido. All rights reserved.
 //
 
-#import <MCFoundation/MCFoundation.h>
+#import <MCFoundation/MCMacros.h>
 
 /*
  属性映射，正确校验 MCProperty(name) 展开后等同于 = @"name"
