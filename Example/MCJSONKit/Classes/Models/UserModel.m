@@ -10,12 +10,12 @@
 
 @implementation UserModel
 
-+ (NSDictionary *)keyMappingDictionary {
-    return @{@"uid":@"id",@"desc":@"description"};
+- (NSDictionary *)keyMappingDictionary {
+    return @{MYPropMapper(province):@"id",MYPropMapper(desc):@"description"};
 }
 
-+ (NSSet *)ignoreDictionary {
-    return [NSSet setWithObject:@"verified_type"];
+- (NSSet *)ignoreDictionary {
+    return [NSSet setWithObject:MYPropMapper(verified_type)];
 }
 
 @end

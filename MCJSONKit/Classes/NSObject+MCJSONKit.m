@@ -244,10 +244,11 @@ static BOOL _prettyPrinted;
         objc_property_t *properties = class_copyPropertyList(cls, &outCount);
         
         NSScanner *scanner;
-        NSSet *ignoreSet = [cls mc_ignorePropertiesSet];
-        NSDictionary *keyMapping = [cls mc_keyMappingDictionary];
-        NSDictionary *typeMapping = [cls mc_typeMappingDictionary];
-        NSSet *allowSet = [cls mc_allowedPropertiesSet];
+        NSObject *jsonObj = [[cls alloc] init];
+        NSSet *ignoreSet = [jsonObj mc_ignorePropertiesSet];
+        NSDictionary *keyMapping = [jsonObj mc_keyMappingDictionary];
+        NSDictionary *typeMapping = [jsonObj mc_typeMappingDictionary];
+        NSSet *allowSet = [jsonObj mc_allowedPropertiesSet];
         for (unsigned int i = 0; i<outCount; i++) {
             objc_property_t property = properties[i];
             //属性名称
@@ -395,19 +396,19 @@ static BOOL _prettyPrinted;
 
 @implementation NSObject (JSONCoreConfig)
 
-+ (NSSet *)mc_allowedPropertiesSet {
+- (NSSet *)mc_allowedPropertiesSet {
     return nil;
 }
 
-+ (NSSet *)mc_ignorePropertiesSet {
+- (NSSet *)mc_ignorePropertiesSet {
     return nil;
 }
 
-+ (NSDictionary *)mc_keyMappingDictionary {
+- (NSDictionary *)mc_keyMappingDictionary {
     return nil;
 }
 
-+ (NSDictionary *)mc_typeMappingDictionary {
+- (NSDictionary *)mc_typeMappingDictionary {
     return nil;
 }
 

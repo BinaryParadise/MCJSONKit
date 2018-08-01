@@ -72,7 +72,7 @@
     if (CGSizeEqualToSize(frame.size, CGSizeZero)) {
         frame.size = CGSizeMake(48, 48);
     }
-    if ([super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         [self initView];
     }
     return self;

@@ -10,24 +10,24 @@
 
 @implementation WeiboResult
 
-+ (NSDictionary *)typeMappingDictionary {
-    return @{@"statuses": [StatuseModel class]};
+- (NSDictionary *)typeMappingDictionary {
+    return @{MYPropMapper(statuses): [StatuseModel class]};
 }
 
-+ (NSSet *)ignoreSet {
-    return [NSSet setWithObjects:@"next_cursor", nil];
+- (NSSet *)ignoreSet {
+    return [NSSet setWithObjects:MYPropMapper(next_cursor), nil];
 }
 
 @end
 
 @implementation WeiboResult1
 
-+ (NSSet *)allowedPropertyNames {
-    return [NSSet setWithObjects:@"statuses", @"updateTime", @"timeStr", @"max_id", nil];
+- (NSSet *)allowedPropertyNames {
+    return [NSSet setWithObjects:MYPropMapper(statuses), MYPropMapper(updateTime), MYPropMapper(timeStr), MYPropMapper(max_id), nil];
 }
 
-+ (NSSet *)ignoreSet {
-    return [NSSet setWithObjects:@"statuses", nil];
+- (NSSet *)ignoreSet {
+    return [NSSet setWithObjects:MYPropMapper(statuses), MYPropMapper(since_id), nil];
 }
 
 @end

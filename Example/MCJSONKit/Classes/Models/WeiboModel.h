@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MCJSONKit/MCJSONKitDefine.h>
+
+#define MYPropMapper(name) MCProperty(name)
 
 @interface WeiboModel : NSObject
 
@@ -28,26 +31,26 @@
 /**
  允许的属性集合，配置后则ignoreSet失效
  */
-+ (NSSet *)allowedPropertyNames;
+- (NSSet *)allowedPropertyNames;
 
 /**
  忽略的属性集合
  */
-+ (NSSet *)ignoreSet;
+- (NSSet *)ignoreSet;
 
 /**
  key关联字段
  
  @return key:对象属性 value:keyPath
  */
-+ (NSDictionary *)keyMappingDictionary;
+- (NSDictionary *)keyMappingDictionary;
 
 /**
  类型关联字典
  
  @return key:对象属性   value:类型class
  */
-+ (NSDictionary *)typeMappingDictionary;
+- (NSDictionary *)typeMappingDictionary;
 - (NSDictionary *)toDictionary;
 - (NSString *)toJSONString;
 

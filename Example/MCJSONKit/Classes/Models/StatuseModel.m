@@ -10,14 +10,10 @@
 
 @implementation StatuseModel
 
-+ (NSDictionary *)keyMappingDictionary {
-    return @{@"wid":@"id",
-             @"visible":@"visible.type",
-             @"listid":@"visible.list_id"};
+- (NSDictionary *)keyMappingDictionary {
+    return @{MYPropMapper(wid):@"id",
+             MYPropMapper(visible):@"visible.type",
+             MYPropMapper(listid):@"visible.list_id"};
 }
-
-/*+ (NSArray *)allowedPropertyNames {
-    return @[@"visible",@"listid"];
-}*/
 
 @end

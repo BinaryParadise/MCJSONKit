@@ -45,26 +45,25 @@
 /**
  允许的属性集合，重写后则mc_ignorePropertiesSet失效
  */
-+ (NSSet *)mc_allowedPropertiesSet;
+- (NSSet *)mc_allowedPropertiesSet;
 
 /**
  忽略的属性集合
  */
-+ (NSSet *)mc_ignorePropertiesSet;
+- (NSSet *)mc_ignorePropertiesSet;
 
 /**
  key关联字段
  
  @return key:对象属性 value:keyPath
  */
-+ (NSDictionary *)mc_keyMappingDictionary;
-
+- (NSDictionary *)mc_keyMappingDictionary;
 
 /**
  类型关联字典
  
  @return key:对象属性   value:类型class
  */
-+ (NSDictionary *)mc_typeMappingDictionary;
+- (NSDictionary *)mc_typeMappingDictionary;
 
 @end

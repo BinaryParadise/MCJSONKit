@@ -39,19 +39,19 @@
     return [self mc_arrayOfModelsFromKeyValues:keyValues];
 }
 
-+ (NSSet *)allowedPropertyNames {
+- (NSSet *)allowedPropertyNames {
     return nil;
 }
 
-+ (NSDictionary *)keyMappingDictionary {
+- (NSDictionary *)keyMappingDictionary {
     return nil;
 }
 
-+ (NSDictionary *)typeMappingDictionary {
+- (NSDictionary *)typeMappingDictionary {
     return nil;
 }
 
-+ (NSSet *)ignoreSet {
+- (NSSet *)ignoreSet {
     return nil;
 }
 
@@ -65,19 +65,19 @@
 
 #pragma mark JSONCoreConfig
 
-+ (NSSet *)mc_allowedPropertiesSet {
+- (NSSet *)mc_allowedPropertiesSet {
     return [self allowedPropertyNames];
 }
 
-+ (NSDictionary *)mc_keyMappingDictionary {
+- (NSDictionary *)mc_keyMappingDictionary {
     return [self keyMappingDictionary];
 }
 
-+ (NSDictionary *)mc_typeMappingDictionary {
+- (NSDictionary *)mc_typeMappingDictionary {
     return [self typeMappingDictionary];
 }
 
-+ (NSSet *)mc_ignorePropertiesSet {
+- (NSSet *)mc_ignorePropertiesSet {
     return [self ignoreSet];
 }
 
@@ -95,19 +95,19 @@
     return [self mj_objectArrayWithKeyValuesArray:keyValues];
 }
 
-+ (NSSet *)allowedPropertyNames {
+- (NSSet *)allowedPropertyNames {
     return nil;
 }
 
-+ (NSDictionary *)keyMappingDictionary {
+- (NSDictionary *)keyMappingDictionary {
     return nil;
 }
 
-+ (NSDictionary *)typeMappingDictionary {
+- (NSDictionary *)typeMappingDictionary {
     return nil;
 }
 
-+ (NSSet *)ignoreSet {
+- (NSSet *)ignoreSet {
     return nil;
 }
 
@@ -119,19 +119,19 @@
     return [self mj_JSONString];
 }
 
-+ (NSArray *)mj_ignoredPropertyNames {
+- (NSArray *)mj_ignoredPropertyNames {
     return [self ignoreSet].allObjects;
 }
 
-+ (NSDictionary *)mj_replacedKeyFromPropertyName {
+- (NSDictionary *)mj_replacedKeyFromPropertyName {
     return [self keyMappingDictionary];
 }
 
-+ (NSDictionary *)mj_objectClassInArray {
+- (NSDictionary *)mj_objectClassInArray {
     return [self typeMappingDictionary];
 }
 
-+ (NSArray *)mj_allowedPropertyNames {
+- (NSArray *)mj_allowedPropertyNames {
     return [self allowedPropertyNames].allObjects;
 }
 

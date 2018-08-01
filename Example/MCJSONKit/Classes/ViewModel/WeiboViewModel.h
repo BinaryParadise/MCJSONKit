@@ -21,6 +21,6 @@
 /**
  获取当前登录用户及其所关注用户的最新微博
  */
-- (void)requestFriendsTimeline:(void (^)())completion;
+- (void)requestFriendsTimeline:(void (^)(void))completion;
 
 @end
