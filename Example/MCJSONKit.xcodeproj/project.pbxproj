@@ -24,18 +24,13 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C0B20416D9A80E49B8F4ED42 /* libPods-MCJSONKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */; };
-		C55E4A9820A7DA3800DE037D /* MCNSObjectJSONkitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */; };
+		C55E4A9820A7DA3800DE037D /* MCNSObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4A9720A7DA3800DE037D /* MCNSObjectSpec.m */; };
 		C55E4A9D20A7E17000DE037D /* mock in Resources */ = {isa = PBXBuildFile; fileRef = C55E4A9B20A7DD8500DE037D /* mock */; };
 		C55E4AA120A7FD9900DE037D /* MCPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4AA020A7FD9900DE037D /* MCPerformance.m */; };
-		C599F3D51FAD929700D19382 /* HomeTimelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3D31FAD923B00D19382 /* HomeTimelineController.m */; };
-		C599F3D91FAD93C100D19382 /* WeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C51FAD902D00D19382 /* WeiboRequest.m */; };
-		C599F3DA1FAD93C300D19382 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3BE1FAD902D00D19382 /* LoadingView.m */; };
-		C599F3DB1FAD93C600D19382 /* WeiboContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C91FAD902D00D19382 /* WeiboContentCell.m */; };
 		C599F3DC1FAD93CA00D19382 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C21FAD902D00D19382 /* UserModel.m */; };
 		C599F3DD1FAD93CD00D19382 /* WBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3BF1FAD902D00D19382 /* WBUser.m */; };
 		C599F3DE1FAD93CF00D19382 /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C01FAD902D00D19382 /* WeiboModel.m */; };
 		C599F3DF1FAD93D300D19382 /* StatuseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3C31FAD902D00D19382 /* StatuseModel.m */; };
-		C599F3E01FAD93D800D19382 /* WeiboViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F3D01FAD90A900D19382 /* WeiboViewModel.m */; };
 		C5D2A9C420A716EB008998BD /* WeiboResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D2A9C320A716EB008998BD /* WeiboResult.m */; };
 /* End PBXBuildFile section */
 
@@ -77,27 +72,17 @@
 		93190E7B99844BBF7607513E /* Pods-MCJSONKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9ABBD34770007F25E1BFC826 /* Pods-MCJSONKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B9C051CDCDC5724A854F4F8E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCNSObjectJSONkitTest.m; sourceTree = "<group>"; };
+		C55E4A9720A7DA3800DE037D /* MCNSObjectSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCNSObjectSpec.m; sourceTree = "<group>"; };
 		C55E4A9B20A7DD8500DE037D /* mock */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mock; sourceTree = "<group>"; };
 		C55E4AA020A7FD9900DE037D /* MCPerformance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCPerformance.m; sourceTree = "<group>"; };
-		C599F3BD1FAD902D00D19382 /* WeiboRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboRequest.h; sourceTree = "<group>"; };
-		C599F3BE1FAD902D00D19382 /* LoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		C599F3BF1FAD902D00D19382 /* WBUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBUser.m; sourceTree = "<group>"; };
 		C599F3C01FAD902D00D19382 /* WeiboModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboModel.m; sourceTree = "<group>"; };
-		C599F3C11FAD902D00D19382 /* WeiboContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboContentCell.h; sourceTree = "<group>"; };
 		C599F3C21FAD902D00D19382 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		C599F3C31FAD902D00D19382 /* StatuseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatuseModel.m; sourceTree = "<group>"; };
-		C599F3C51FAD902D00D19382 /* WeiboRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboRequest.m; sourceTree = "<group>"; };
 		C599F3C61FAD902D00D19382 /* WBUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBUser.h; sourceTree = "<group>"; };
-		C599F3C71FAD902D00D19382 /* LoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		C599F3C81FAD902D00D19382 /* WeiboModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboModel.h; sourceTree = "<group>"; };
-		C599F3C91FAD902D00D19382 /* WeiboContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboContentCell.m; sourceTree = "<group>"; };
 		C599F3CB1FAD902D00D19382 /* StatuseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatuseModel.h; sourceTree = "<group>"; };
 		C599F3CC1FAD902D00D19382 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
-		C599F3D01FAD90A900D19382 /* WeiboViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboViewModel.m; sourceTree = "<group>"; };
-		C599F3D11FAD90A900D19382 /* WeiboViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboViewModel.h; sourceTree = "<group>"; };
-		C599F3D31FAD923B00D19382 /* HomeTimelineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTimelineController.m; sourceTree = "<group>"; };
-		C599F3D41FAD923B00D19382 /* HomeTimelineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTimelineController.h; sourceTree = "<group>"; };
 		C5D2A9C220A716EB008998BD /* WeiboResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboResult.h; sourceTree = "<group>"; };
 		C5D2A9C320A716EB008998BD /* WeiboResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboResult.m; sourceTree = "<group>"; };
 		F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCJSONKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,7 +184,7 @@
 				C55E4A9B20A7DD8500DE037D /* mock */,
 				C55E4AA020A7FD9900DE037D /* MCPerformance.m */,
 				6003F5BB195388D20070C39A /* MCTypeTransformTest.m */,
-				C55E4A9720A7DA3800DE037D /* MCNSObjectJSONkitTest.m */,
+				C55E4A9720A7DA3800DE037D /* MCNSObjectSpec.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -239,10 +224,7 @@
 		C599F3BB1FAD902D00D19382 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C599F3D21FAD923B00D19382 /* Controllers */,
-				C599F3CD1FAD902D00D19382 /* Views */,
 				C599F3BC1FAD902D00D19382 /* Models */,
-				C599F3CF1FAD908600D19382 /* ViewModel */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -264,37 +246,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		C599F3CD1FAD902D00D19382 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C599F3BD1FAD902D00D19382 /* WeiboRequest.h */,
-				C599F3C51FAD902D00D19382 /* WeiboRequest.m */,
-				C599F3C71FAD902D00D19382 /* LoadingView.h */,
-				C599F3BE1FAD902D00D19382 /* LoadingView.m */,
-				C599F3C11FAD902D00D19382 /* WeiboContentCell.h */,
-				C599F3C91FAD902D00D19382 /* WeiboContentCell.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		C599F3CF1FAD908600D19382 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				C599F3D11FAD90A900D19382 /* WeiboViewModel.h */,
-				C599F3D01FAD90A900D19382 /* WeiboViewModel.m */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		C599F3D21FAD923B00D19382 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C599F3D41FAD923B00D19382 /* HomeTimelineController.h */,
-				C599F3D31FAD923B00D19382 /* HomeTimelineController.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,8 +257,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				3A7ACA29F558382CAC1E79C0 /* [CP] Embed Pods Frameworks */,
-				C05893B7ED17E0A89999727A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,8 +275,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				55275BBB1AD41F020B5BC4CF /* [CP] Embed Pods Frameworks */,
-				8D22451B4F54979E54F96BC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -415,40 +362,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3A7ACA29F558382CAC1E79C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MCJSONKit/MCJSONKit.framework",
-				"${BUILT_PRODUCTS_DIR}/MCLogger/MCLogger.framework",
-				"${BUILT_PRODUCTS_DIR}/MCUIKit/MCUIKit.framework",
-				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCJSONKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCLogger.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCUIKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4CBF2F132F90A35C86E48860 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -467,56 +380,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		55275BBB1AD41F020B5BC4CF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8D22451B4F54979E54F96BC5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C05893B7ED17E0A89999727A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
-				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -527,12 +390,7 @@
 				C599F3DE1FAD93CF00D19382 /* WeiboModel.m in Sources */,
 				6003F59E195388D20070C39A /* MCAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* MCViewController.m in Sources */,
-				C599F3DA1FAD93C300D19382 /* LoadingView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				C599F3D91FAD93C100D19382 /* WeiboRequest.m in Sources */,
-				C599F3DB1FAD93C600D19382 /* WeiboContentCell.m in Sources */,
-				C599F3E01FAD93D800D19382 /* WeiboViewModel.m in Sources */,
-				C599F3D51FAD929700D19382 /* HomeTimelineController.m in Sources */,
 				C599F3DC1FAD93CA00D19382 /* UserModel.m in Sources */,
 				C599F3DD1FAD93CD00D19382 /* WBUser.m in Sources */,
 				C599F3DF1FAD93D300D19382 /* StatuseModel.m in Sources */,
@@ -545,7 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55E4AA120A7FD9900DE037D /* MCPerformance.m in Sources */,
-				C55E4A9820A7DA3800DE037D /* MCNSObjectJSONkitTest.m in Sources */,
+				C55E4A9820A7DA3800DE037D /* MCNSObjectSpec.m in Sources */,
 				6003F5BC195388D20070C39A /* MCTypeTransformTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

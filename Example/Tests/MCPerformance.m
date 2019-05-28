@@ -2,7 +2,7 @@
 //  MCPerformance.m
 //  MCJSONKit_Tests
 //
-//  Created by mylcode on 2018/5/13.
+//  Created by Rake Yang on 2018/5/13.
 //  Copyright © 2018年 MC-Studio. All rights reserved.
 //
 

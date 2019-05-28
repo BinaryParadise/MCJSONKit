@@ -1,14 +1,14 @@
 //
-//  MCNSObjectJSONkitTest.m
+//  MCNSObjectSpec.m
 //  MCJSONKit_Tests
 //
-//  Created by mylcode on 2018/5/13.
-//  Copyright © 2018年 MC-Studio. All rights reserved.
+//  Created by Rake Yang on 2018/5/13.
+//  Copyright © 2018年 BinaryParadise. All rights reserved.
 //
 
 #import "WeiboResult.h"
 
-SPEC_BEGIN(MCNSObjectJSONkitTest)
+SpecBegin(MCNSObjectSpec)
 
 describe(@"NSObject+MCJSONKit", ^{
     context(@"transform NSDictionary to Model", ^{
@@ -20,36 +20,36 @@ describe(@"NSObject+MCJSONKit", ^{
         });
         
         it(@"nil", ^{
-            [[[WeiboResult jsonObjectFromData:nil] should] beNil];
+            expect([WeiboResult jsonObjectFromData:nil]).will.beNil();
         });
         
         it(@"NSString", ^{
-            [[[WeiboResult jsonObjectFromData:@"{}"] shouldNot] beNil];
+            expect([WeiboResult jsonObjectFromData:@"{}"]).willNot.beNil();
         });
         
         it(@"error NSString", ^{
-            [[[WeiboResult jsonObjectFromData:[@"{x}" dataUsingEncoding:NSUTF8StringEncoding]] should] beNil];
+            expect([WeiboResult jsonObjectFromData:[@"{x}" dataUsingEncoding:NSUTF8StringEncoding]]).will.beNil();
         });
         
         it(@"data type assert", ^{
-            [[result shouldNot] beNil];
-            [[theValue(result.next_cursor) should] equal:@0];
-            [[theValue(result.statuses.count) shouldNot] equal:@0];
-            [[theValue(result.since_id) should] equal:@4238558845532583];
+            expect(result).willNot.beNil();
+            expect(result.next_cursor).equal(0);
+            expect(result.statuses.count).willNot.equal(0);
+            expect(result.since_id).equal(4238558845532583);
         });
         
         it(@"prettyPrinted", ^{
             WeiboResult.prettyPrinted = NO;
             NSString *stored = result.mc_JSONString;
-            [[stored shouldNot] containString:@"\n"];
+            expect(stored).willNot.contain(@"\n");
             WeiboResult.prettyPrinted = YES;
             stored = result.mc_JSONString;
-            [[stored should] containString:@"\n"];
+            expect(stored).contain(@"\n");
             
         });
         
-        it(@"to NSArray", ^{
-            [[result.statuses.toDictionaryArray shouldNot] beNil];
+        it(@"NSArray", ^{
+            expect([result.statuses toDictionaryArray]).willNot.beNil();
         });
         
         afterAll(^{
@@ -65,8 +65,8 @@ describe(@"NSObject+MCJSONKit", ^{
         });
         
         it(@"not nil", ^{
-            [[result shouldNot] beNil];
-            [[theValue(result.since_id) should] equal:@0];
+            expect(result).willNot.beNil();
+            expect(result.since_id).equal(0);
         });
         
         afterAll(^{
@@ -79,51 +79,51 @@ describe(@"NSObject+MCJSONKit", ^{
         
         it(@"from NSData", ^{
             array = [StatuseModel arrayOfModelsFromKeyValues:JSONFileData(kFriendsTimelineFile2)];
-            [[array shouldNot] beNil];
-            [[theValue(array.count) should] equal:@20];
+            expect(array).willNot.beNil();
+            expect(array.count).equal(20);
         });
         
         it(@"from NSString", ^{
             NSString *jsonStr = [[NSString alloc] initWithData:JSONFileData(kFriendsTimelineFile2) encoding:NSUTF8StringEncoding];
             array = [StatuseModel arrayOfModelsFromKeyValues:jsonStr];
-            [[theValue(array.firstObject.wid) shouldNot] equal:@0];
-            [[theValue(array.firstObject.user.verified_type) should] equal:@0];
-            [[array shouldNot] beNil];
-            [[theValue(array.count) should] equal:@20];
+            expect(array.firstObject.wid).willNot.equal(0);
+            expect(array.firstObject.user.verified_type).equal(0);
+            expect(array).willNot.beNil();
+            expect(array.count).equal(20);
         });
         
         it(@"from nil", ^{
             array = [StatuseModel arrayOfModelsFromKeyValues:nil];
-            [[array should] beNil];
+            expect(array).will.beNil();
         });
         
         it(@"from null", ^{
             array = [StatuseModel arrayOfModelsFromKeyValues:[NSNull null]];
-            [[array should] beNil];
+            expect(array).will.beNil();
         });
         
         it(@"from error data", ^{
             array = [StatuseModel arrayOfModelsFromKeyValues:@"[,]"];
-            [[array should] beNil];
+            expect(array).will.beNil();
         });
         
         it(@"transform NSDate", ^{
             NSString *jsonStr = [[NSString alloc] initWithData:JSONFileData(kJSONConfigFile) encoding:NSUTF8StringEncoding];
             WeiboResult1 *result = [WeiboResult1 jsonObjectFromData:jsonStr];
-            [[result shouldNot] beNil];
-            [[theValue(result.since_id) should] equal:@0];
-            [[theValue(result.statuses.count) should] equal:@20];
-            [[theValue(result.updateTime.timeIntervalSince1970) should] equal:@1526183950];
-            [[theValue(result.timeStr.timeIntervalSince1970) should] equal:@1526183950];
-            [[result.mc_JSONString should] containString:@"1526183950"];
+            expect(result).willNot.beNil();
+            expect(result.since_id).equal(0);
+            expect(result.statuses.count).equal(20);
+            expect(result.updateTime.timeIntervalSince1970).equal(1526183950);
+            expect(result.timeStr.timeIntervalSince1970).equal(1526183950);
+            expect(result.mc_JSONString).contain(@"1526183950");
         });
         
         it(@"error to jsonString", ^{
             
-            NSNumber *number = @1526183950000;
-            [[theValue(number.mc_JSONString) shouldNot] beNil];
+            NSString *number = @"1526183950000";
+            expect(number.mc_JSONString).will.beNil();
         });
     });
 });
 
-SPEC_END
+SpecEnd

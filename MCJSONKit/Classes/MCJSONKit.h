@@ -2,8 +2,8 @@
 //  MCJSONKit.h
 //  MCJSONKit
 //
-//  Created by mylcode on 2017/10/3.
-//  Copyright © 2017年 mylcode. All rights reserved.
+//  Created by Rake Yang on 2017/10/3.
+//  Copyright © 2017年 BinaryParadise. All rights reserved.
 //
 
 //! Project version number for MCJSONKit.

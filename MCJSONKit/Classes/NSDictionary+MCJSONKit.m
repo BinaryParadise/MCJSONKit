@@ -2,7 +2,7 @@
 //  NSMutableDictionary+JSONCore.m
 //  iOSExample
 //
-//  Created by mylcode on 16/12/23.
+//  Created by Rake Yang on 16/12/23.
 //  Copyright © 2016年 mylcode. All rights reserved.
 //
 

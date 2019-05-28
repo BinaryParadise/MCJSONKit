@@ -2,7 +2,7 @@
 //  JSONCoreProperty.m
 //  COJSONCore
 //
-//  Created by mylcode on 16/12/6.
+//  Created by Rake Yang on 16/12/6.
 //  Copyright © 2016年 mylcode. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  NSArray+MCJSONKit.m
 //  MCJSONKit
 //
-//  Created by mylcode on 2018/3/20.
+//  Created by Rake Yang on 2018/3/20.
 //  Copyright © MC-Studio CO., LTD. All rights reserved.
 //
 

@@ -2,7 +2,8 @@
 
 #ifdef __OBJC__
 
-#import <Kiwi/Kiwi.h>
+#import <Specta/Specta.h>
+#import <Expecta/Expecta.h>
 #import <MCJSONKit/MCJSONKit.h>
 #import <MCLogger/MCLogger.h>
 

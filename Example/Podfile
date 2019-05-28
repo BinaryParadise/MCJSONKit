@@ -3,16 +3,15 @@ platform :ios, '8.0'
 
 target 'MCJSONKit_Example' do
   pod 'MCJSONKit', :path => '../'
-  pod 'MWPhotoBrowser'
-  pod 'Weibo_SDK'
   pod 'MJExtension'
   pod 'MCUIKit'
   pod 'MCLogger'
 
   target 'MCJSONKit_Tests' do
     inherit! :search_paths
-    
-    pod 'Kiwi'
-    
+
+    pod 'Specta'
+    pod "Expecta"
+
   end
 end

@@ -2,14 +2,13 @@
 //  MCAppDelegate.m
 //  MCJSONKit
 //
-//  Created by mylcode on 11/04/2017.
-//  Copyright (c) 2017 mylcode. All rights reserved.
+//  Created by Rake Yang on 11/04/2017.
+//  Copyright (c) 2017 BinaryParadise. All rights reserved.
 //
 
 #import "MCAppDelegate.h"
-#import "WeiboSDK.h"
 
-@interface MCAppDelegate () <WeiboSDKDelegate>
+@interface MCAppDelegate ()
     
 @end
 
@@ -47,29 +46,5 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-    
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [WeiboSDK handleOpenURL:url delegate:self];
-}
-    
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [WeiboSDK handleOpenURL:url delegate:self];
-}
-    
-- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
-    if (response.requestUserInfo[@"SSO_From"]) {
-        NSDictionary *info = response.userInfo;
-        if ([info[@"error_code"] intValue] == 0) {
-            [[NSUserDefaults standardUserDefaults] setObject:response.userInfo forKey:@"WeiboSSOUserInfo"];
-        } else {
-            MCLogError(@"%@", info);
-        }
-    }
-}
-
-- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
-    
-}
-
 
 @end
