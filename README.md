@@ -1,7 +1,7 @@
 # MCJSONKit
 
-[![Build Status](https://travis-ci.org/MC-Studio/MCJSONKit.svg?branch=master)](https://travis-ci.org/MC-Studio/MCJSONKit)
-[![Coverage Status](https://coveralls.io/repos/github/MC-Studio/MCJSONKit/badge.svg)](https://coveralls.io/github/MC-Studio/MCJSONKit)
+[![Build Status](https://travis-ci.org/BinaryParadise/MCJSONKit.svg?branch=master)](https://travis-ci.org/BinaryParadise/MCJSONKit)
+[![Coverage Status](https://coveralls.io/repos/github/BinaryParadise/MCJSONKit/badge.svg)](https://coveralls.io/github/BinaryParadise/MCJSONKit)
 [![Version](https://img.shields.io/cocoapods/v/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
 [![License](https://img.shields.io/cocoapods/l/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
 [![Platform](https://img.shields.io/cocoapods/p/MCJSONKit.svg?style=flat)](http://cocoapods.org/pods/MCJSONKit)
