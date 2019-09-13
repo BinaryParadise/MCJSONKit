@@ -1,4 +1,4 @@
-name: CI
+name: GithubCI
 
 on: 
   push:
@@ -15,6 +15,5 @@ jobs:
     - name: Run a multi-line script
       run: |
         pod install --project-directory=Example
-        xcodebuild clean test -enableCodeCoverage=YES -workspace Example/MCJSONKit.xcworkspace -scheme 'MCJSONKit-Example',
-        -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=latest' -configuration Debug | xcpretty -c
+        xcodebuild clean test -enableCodeCoverage=YES -workspace Example/MCJSONKit.xcworkspace -scheme 'MCJSONKit-Example' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=latest' -configuration Debug | xcpretty -c
 
