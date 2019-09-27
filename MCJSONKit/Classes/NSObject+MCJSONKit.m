@@ -95,7 +95,9 @@ static BOOL _prettyPrinted;
         array = [NSJSONSerialization JSONObjectWithData:keyValues options:kNilOptions error:&error];
     }
 #if DEBUG
-    JKLog(@"%@", error)
+    if (error) {
+        JKLog(@"%@", error)
+    }
 #endif
     if (!array) {
         return nil;

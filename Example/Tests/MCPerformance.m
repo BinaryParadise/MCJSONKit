@@ -45,7 +45,7 @@
     NSData *jsonData = JSONFileData(kFriendsTimelineFile1);
     [self measureBlock:^{
         for (int i=0; i<100; i++) {
-            [WeiboResult jsonObjectFromData:jsonData];
+            [WeiboResult mc_objectFromKeyValues:jsonData];
         }
     }];
 }

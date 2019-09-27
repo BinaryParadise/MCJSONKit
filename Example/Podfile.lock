@@ -30,25 +30,15 @@ DEPENDENCIES:
   - MJExtension
   - Specta
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - CocoaLumberjack
-    - Expecta
-    - MCFoundation
-    - MCLogger
-    - MCUIKit
-    - MJExtension
-    - Specta
-
 EXTERNAL SOURCES:
   MCJSONKit:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 3c8c74683302f9012bb168e1c4b7ae3c0b558431
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   MCFoundation: f03b2f02918ed3d8e6c30cef7ce030cf0b93f9aa
-  MCJSONKit: f0c5e2bed828c649899c620589a6dfa5c3923e06
+  MCJSONKit: 390ce31fe2b984994380125ff13382b16816e525
   MCLogger: f258a43a313bfeabcd85781847626a6f51e6a715
   MCUIKit: 4d9fb8d30b0cf44bf99605ecd248a3092d6f4e13
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -56,4 +46,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ce2bfdf4d365885b6acb263d91c0d0fdcecc998f
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.4.0
