@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09CA1D63819349D3A4D59DAA /* libPods-MCJSONKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,8 +21,9 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* MCTypeTransformTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* MCTypeTransformTest.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		7B81934F14A75417567CA068 /* Pods_MCJSONKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E305F5392910FF0D91D684 /* Pods_MCJSONKit_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		C0B20416D9A80E49B8F4ED42 /* libPods-MCJSONKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */; };
+		949A4D1448E6EDFB2E7158B1 /* Pods_MCJSONKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940EA6A2D3A089AEC7844AF8 /* Pods_MCJSONKit_Tests.framework */; };
 		C55E4A9820A7DA3800DE037D /* MCNSObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4A9720A7DA3800DE037D /* MCNSObjectSpec.m */; };
 		C55E4A9D20A7E17000DE037D /* mock in Resources */ = {isa = PBXBuildFile; fileRef = C55E4A9B20A7DD8500DE037D /* mock */; };
 		C55E4AA120A7FD9900DE037D /* MCPerformance.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E4AA020A7FD9900DE037D /* MCPerformance.m */; };
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCJSONKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06E305F5392910FF0D91D684 /* Pods_MCJSONKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCJSONKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D90BEEF760ECD471BB9AB3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MCJSONKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCJSONKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +70,7 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		918927202B39C27266615D47 /* Pods-MCJSONKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		93190E7B99844BBF7607513E /* Pods-MCJSONKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		940EA6A2D3A089AEC7844AF8 /* Pods_MCJSONKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCJSONKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABBD34770007F25E1BFC826 /* Pods-MCJSONKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B9C051CDCDC5724A854F4F8E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C55E4A9720A7DA3800DE037D /* MCNSObjectSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCNSObjectSpec.m; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		C599F3CC1FAD902D00D19382 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		C5D2A9C220A716EB008998BD /* WeiboResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboResult.h; sourceTree = "<group>"; };
 		C5D2A9C320A716EB008998BD /* WeiboResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiboResult.m; sourceTree = "<group>"; };
-		F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MCJSONKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BB5D2C14E6D372E0B9ECCD /* Pods-MCJSONKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCJSONKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FBBF959A9D0B72C5EC1D5E5D /* MCJSONKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MCJSONKit.podspec; path = ../MCJSONKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
@@ -98,7 +98,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				09CA1D63819349D3A4D59DAA /* libPods-MCJSONKit_Example.a in Frameworks */,
+				7B81934F14A75417567CA068 /* Pods_MCJSONKit_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +109,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				C0B20416D9A80E49B8F4ED42 /* libPods-MCJSONKit_Tests.a in Frameworks */,
+				949A4D1448E6EDFB2E7158B1 /* Pods_MCJSONKit_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,8 +144,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				F13FC4735500A7B6B0F6FAA7 /* libPods-MCJSONKit_Example.a */,
-				24EDCF03A8161914A8A24114 /* libPods-MCJSONKit_Tests.a */,
+				06E305F5392910FF0D91D684 /* Pods_MCJSONKit_Example.framework */,
+				940EA6A2D3A089AEC7844AF8 /* Pods_MCJSONKit_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -356,11 +356,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Tests/Pods-MCJSONKit_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
+				"${BUILT_PRODUCTS_DIR}/Specta/Specta.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Specta.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -449,11 +454,28 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MCJSONKit_Example/Pods-MCJSONKit_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/MCFoundation/MCFoundation.framework",
+				"${BUILT_PRODUCTS_DIR}/MCJSONKit/MCJSONKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MCLogger/MCLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/MCUIKit/MCUIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
+				"${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCFoundation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCJSONKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCUIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketRocket.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

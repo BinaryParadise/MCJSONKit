@@ -7,6 +7,8 @@
 //
 
 #import "MCViewController.h"
+#import <MCFoundation/MCFoundation.h>
+#import <MCJSONKit/MCJSONKit.h>
 
 @interface MCViewController ()
 
@@ -18,6 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"%s", MCFoundationVersionString);
 }
 
 - (void)didReceiveMemoryWarning

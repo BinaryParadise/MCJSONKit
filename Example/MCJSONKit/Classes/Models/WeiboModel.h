@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MCJSONKit/MCJSONKitDefine.h>
+#import <MCJSONKit/MCJSONKit.h>
 
 #define MYPropMapper(name) MCProperty(name)
 

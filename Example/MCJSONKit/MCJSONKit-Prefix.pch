@@ -13,7 +13,6 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
-    #import <MCJSONKit/MCJSONKit.h>
     #import <MCLogger/MCLogger.h>
     #import <MCUIKit/UIColor+MCExtension.h>
     #import <MCUIKit/UIView+MCFrameGeometry.h>
