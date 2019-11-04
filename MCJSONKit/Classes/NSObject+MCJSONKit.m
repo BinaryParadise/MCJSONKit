@@ -7,7 +7,6 @@
 //
 
 #import "NSObject+MCJSONKit.h"
-#import "MCJSONKitProperty.h"
 #import "NSDictionary+MCJSONKit.h"
 
 #import <objc/runtime.h>
@@ -119,8 +118,8 @@ static BOOL _prettyPrinted;
 
 - (void)setValuesWithDictionary:(NSDictionary *)dict {
     if (dict && [dict isKindOfClass:[NSDictionary class]]) {
-        NSMutableDictionary<NSString *,JSONCoreProperty *> *mdict = [self allProperties];
-        [mdict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JSONCoreProperty * _Nonnull obj, BOOL * _Nonnull stop) {
+        NSMutableDictionary<NSString *,MCJSONKitProperty *> *mdict = [self allProperties];
+        [mdict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, MCJSONKitProperty * _Nonnull obj, BOOL * _Nonnull stop) {
             if ([obj.jsonKey rangeOfString:@"."].location == NSNotFound) {
                 [self setValue:dict[obj.jsonKey] forProperty:obj];
             }else {
@@ -137,7 +136,7 @@ static BOOL _prettyPrinted;
 /**
  设置属性值
  */
-- (void)setValue:(id)value forProperty:(JSONCoreProperty *)property {
+- (void)setValue:(id)value forProperty:(MCJSONKitProperty *)property {
     if ([value isKindOfClass:[NSNull class]]) {
         //NSNull不做处理
         return;
@@ -160,7 +159,8 @@ static BOOL _prettyPrinted;
                         }
                         [self setValue:newValue forKey:property.name];
                     }
-                }else {
+                } else {
+                    value = [self mc_newValueFromOldValue:value property:property];
                     if ([value isKindOfClass:[NSNumber class]]) {
                         if ([property.typeClass isSubclassOfClass:[NSString class]]) {
                             //属性是NSString，但是值类型为NSNumber
@@ -197,7 +197,7 @@ static BOOL _prettyPrinted;
     }
 }
 
-- (id)valueForProperty:(JSONCoreProperty *)property {
+- (id)valueForProperty:(MCJSONKitProperty *)property {
     if (property) {
         id value = [self valueForKey:property.name];
         if (property.typeClass) {
@@ -283,7 +283,7 @@ static BOOL _prettyPrinted;
             }
             
             //类型说明
-            JSONCoreProperty *coprop = [JSONCoreProperty new];
+            MCJSONKitProperty *coprop = [MCJSONKitProperty new];
             coprop.name = propertyName;
             
             //自定义映射
@@ -347,9 +347,9 @@ static BOOL _prettyPrinted;
         return jsonObj;
     }
     
-    NSDictionary<NSString *,JSONCoreProperty *> *dict = [self allProperties];
+    NSDictionary<NSString *,MCJSONKitProperty *> *dict = [self allProperties];
     NSMutableDictionary *mdict = [NSMutableDictionary dictionary];
-    [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, JSONCoreProperty * _Nonnull obj, BOOL * _Nonnull stop) {
+    [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, MCJSONKitProperty * _Nonnull obj, BOOL * _Nonnull stop) {
         void(^setValueBlock)(id) = ^(id value) {
             if (value) {
                 [mdict setValue:value forKeyPath:obj.jsonKey];
@@ -412,6 +412,10 @@ static BOOL _prettyPrinted;
 
 - (NSDictionary *)mc_typeMappingDictionary {
     return nil;
+}
+
+- (id)mc_newValueFromOldValue:(id)oldValue property:(MCJSONKitProperty *)property {
+    return oldValue;
 }
 
 @end

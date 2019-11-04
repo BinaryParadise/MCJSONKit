@@ -8,6 +8,6 @@
 
 #import "MCJSONKitProperty.h"
 
-@implementation JSONCoreProperty
+@implementation MCJSONKitProperty
 
 @end

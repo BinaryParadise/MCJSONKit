@@ -16,7 +16,7 @@
 /**
  封装类的属性
  */
-@interface JSONCoreProperty : NSObject
+@interface MCJSONKitProperty : NSObject
 
 /**
  属性名称

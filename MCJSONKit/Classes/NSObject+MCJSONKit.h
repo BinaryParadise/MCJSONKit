@@ -1,12 +1,13 @@
 //
 //  NSObject+JSONCore.h
-//  iOSExample
+//  MCJSONKit
 //
 //  Created by maintoco on 16/12/21.
 //  Copyright © 2016年 maintoco. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "MCJSONKitProperty.h"
 
 /**
  JSON解析类别
@@ -65,5 +66,14 @@
  @return key:对象属性   value:类型class
  */
 - (NSDictionary *)mc_typeMappingDictionary;
+
+/**
+ 自定义类型的值转换
+
+ @param oldValue 旧值
+ @param property 属性
+ @return 新值
+ */
+- (id)mc_newValueFromOldValue:(id)oldValue property:(id)property;
 
 @end
