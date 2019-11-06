@@ -16,5 +16,6 @@ FOUNDATION_EXPORT const unsigned char MCJSONKitVersionString[];
 
 #import <MCJSONKit/MCJSONKitDefine.h>
 #import <MCJSONKit/NSDictionary+MCJSONkit.h>
+#import <MCJSONKit/NSDictionary+Fetcher.h>
 #import <MCJSONKit/NSArray+MCJSONKit.h>
 #import <MCJSONKit/NSObject+MCJSONKit.h>
