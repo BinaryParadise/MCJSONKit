@@ -3,6 +3,8 @@ workspace: Example/MCJSONKit.xcworkspace
 xcodeproj: Example/MCJSONKit.xcodeproj
 scheme: MCJSONKit-Example
 source_directory: MCJSONKit/Classes
-output_directory: ./DerivedData
+output_directory: Build
 ignore:
   - Example/*
+# 原始覆盖率数据解析
+# llvm-cov report --ignore-filename-regex=Example --instr-profile Coverage.profdata 二进制文件

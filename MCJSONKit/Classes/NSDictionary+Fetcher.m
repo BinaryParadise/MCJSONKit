@@ -15,23 +15,23 @@
                 number:(void (^)(NSNumber *val))number
                 array:(void (^)(NSArray *val))array
                 dictionary:(void (^)(NSDictionary *val))dictionary
-                  null:(void (^)(NSString *val))null {
-    if (key.length <= 0) {
+                  null:(void (^)(id val))null {
+    if ([key isKindOfClass:[NSNull class]] || key.length <= 0) {
         return;
     }
     id value = self[key];
     if ([value isKindOfClass:[NSString class]]) {
         string(value);
     } else if ([value isKindOfClass:[NSNumber class]]) {
-        number(value);
+        !number?:number(value);
     } else if ([value isKindOfClass:[NSArray class]]) {
-        array(value);
+        !array?:array(value);
     } else if ([value isKindOfClass:[NSDictionary class]]) {
-        dictionary(value);
+        !dictionary?:dictionary(value);
     } else if ([value isKindOfClass:[NSNull class]]) {
-        null(value);
+        !null?:null(nil);
     } else {
-        null(value);
+        !null?:null(value);
     }
 }
 
@@ -41,13 +41,7 @@
         retValue = val;
     } number:^(NSNumber *val) {
         retValue = val.stringValue;
-    } array:^(NSArray *val) {
-        
-    } dictionary:^(NSDictionary *val) {
-        
-    } null:^(NSString *val) {
-        
-    }];
+    } array:nil dictionary:nil null:nil];
     return retValue;
 }
 
@@ -57,28 +51,17 @@
         retValue = val.boolValue;
     } number:^(NSNumber *val) {
         retValue = val.boolValue;
-    } array:^(NSArray *val) {
-        
-    } dictionary:^(NSDictionary *val) {
-        
-    } null:^(NSString *val) {
-        
-    }];
+    } array:nil dictionary:nil null:nil];
     return retValue;
 }
 
 - (NSNumber *)mc_numberForKey:(NSString *)key {
     __block NSNumber *retValue;
     [self mc_valueForKey:key string:^(NSString *val) {
+        retValue = @(val.doubleValue);
     } number:^(NSNumber *val) {
         retValue = val;
-    } array:^(NSArray *val) {
-        
-    } dictionary:^(NSDictionary *val) {
-        
-    } null:^(NSString *val) {
-        
-    }];
+    } array:nil dictionary:nil null:nil];
     return retValue;
 }
 
@@ -88,13 +71,7 @@
         retValue = val.intValue;
     } number:^(NSNumber *val) {
         retValue = val.intValue;
-    } array:^(NSArray *val) {
-        
-    } dictionary:^(NSDictionary *val) {
-        
-    } null:^(NSString *val) {
-        
-    }];
+    } array:nil dictionary:nil null:nil];
     return retValue;
 }
 
@@ -108,29 +85,17 @@
         retValue = val.longLongValue;
     } number:^(NSNumber *val) {
         retValue = val.longLongValue;
-    } array:^(NSArray *val) {
-        
-    } dictionary:^(NSDictionary *val) {
-        
-    } null:^(NSString *val) {
-        
-    }];
+    } array:nil dictionary:nil null:nil];
     return retValue;
 }
 
 - (float)mc_floatForKey:(NSString *)key {
-    __block float retValue = 0;
+    __block float retValue = 0.0;
     [self mc_valueForKey:key string:^(NSString *val) {
         retValue = val.floatValue;
     } number:^(NSNumber *val) {
         retValue = val.floatValue;
-    } array:^(NSArray *val) {
-        
-    } dictionary:^(NSDictionary *val) {
-        
-    } null:^(NSString *val) {
-        
-    }];
+    } array:nil dictionary:nil null:nil];
     return retValue;
 }
 
@@ -140,40 +105,38 @@
         retValue = val.doubleValue;
     } number:^(NSNumber *val) {
         retValue = val.doubleValue;
-    } array:^(NSArray *val) {
-        
-    } dictionary:^(NSDictionary *val) {
-        
-    } null:^(NSString *val) {
-        
-    }];
+    } array:nil dictionary:nil null:nil];
     return retValue;
 }
 
 - (NSArray *)mc_arrayForKey:(NSString *)key {
     __block NSArray *retValue;
-    [self mc_valueForKey:key string:^(NSString *val) {
-    } number:^(NSNumber *val) {
-    } array:^(NSArray *val) {
+    [self mc_valueForKey:key string:nil number:nil array:^(NSArray *val) {
         retValue = val;
-    } dictionary:^(NSDictionary *val) {
-        
-    } null:^(NSString *val) {
-        
-    }];
+    } dictionary:nil null:nil];
     return retValue;
 }
 
 - (NSDictionary *)mc_dictionaryForKey:(NSString *)key {
     __block NSDictionary *retValue;
+    [self mc_valueForKey:key string:nil number:nil array:nil dictionary:^(NSDictionary *val) {
+        retValue = val;
+    } null:nil];
+    return retValue;
+}
+
+- (id)mc_objectForKey:(NSString *)key {
+    __block id retValue;
     [self mc_valueForKey:key string:^(NSString *val) {
+        retValue = val;
     } number:^(NSNumber *val) {
+        retValue = val;
     } array:^(NSArray *val) {
-        
+        retValue = val;
     } dictionary:^(NSDictionary *val) {
         retValue = val;
-    } null:^(NSString *val) {
-        
+    } null:^(id val) {
+        retValue = val;
     }];
     return retValue;
 }

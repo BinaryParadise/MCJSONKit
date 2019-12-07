@@ -30,4 +30,6 @@
 
 - (NSDictionary *)mc_dictionaryForKey:(NSString *)key;
 
+- (id)mc_objectForKey:(NSString *)key;
+
 @end

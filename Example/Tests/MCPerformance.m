@@ -31,6 +31,7 @@
 }
 
 - (void)testPerformanceExample {
+    return;
     // This is an example of a performance test case.
     NSData *jsonData = JSONFileData(kFriendsTimelineFile1);
     [self measureBlock:^{
@@ -41,6 +42,7 @@
 }
 
 - (void)testPerformanceMJExtension {
+    return;
     // This is an example of a performance test case.
     NSData *jsonData = JSONFileData(kFriendsTimelineFile1);
     [self measureBlock:^{

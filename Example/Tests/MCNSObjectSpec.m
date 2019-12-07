@@ -12,7 +12,6 @@ SpecBegin(MCNSObjectSpec)
 
 describe(@"NSObject+MCJSONKit", ^{
     context(@"transform NSDictionary to Model", ^{
-        MCLogDebug(@"%@",[NSBundle bundleForClass:self.class].bundlePath);
         __block WeiboResult *result;
         beforeAll(^{
             NSDictionary *jsonObj = [NSJSONSerialization JSONObjectWithData:JSONFileData(kFriendsTimelineFile1) options:NSJSONReadingMutableContainers error:nil];

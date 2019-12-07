@@ -11,13 +11,7 @@ PODS:
     - MJExtension (~> 3.0)
     - SAMKeychain (~> 1.5)
     - SocketRocket (~> 0.5)
-  - MCUIKit (0.3.0):
-    - MCUIKit/UIKit (= 0.3.0)
-  - MCUIKit/Category (0.3.0)
-  - MCUIKit/Gesonry (0.3.0)
-  - MCUIKit/UIKit (0.3.0):
-    - MCUIKit/Category
-    - MCUIKit/Gesonry
+  - MCUIKit (0.3.1)
   - MJExtension (3.2.1)
   - SAMKeychain (1.5.3)
   - SocketRocket (0.5.1)
@@ -31,22 +25,34 @@ DEPENDENCIES:
   - MJExtension
   - Specta
 
+SPEC REPOS:
+  trunk:
+    - CocoaLumberjack
+    - Expecta
+    - MCFoundation
+    - MCLogger
+    - MCUIKit
+    - MJExtension
+    - SAMKeychain
+    - SocketRocket
+    - Specta
+
 EXTERNAL SOURCES:
   MCJSONKit:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   MCFoundation: 1c05141cbc900ec15618d7d4c75fb88719d7b658
-  MCJSONKit: 17415c23d77292feaec963e0bf835cc8565c225f
+  MCJSONKit: dd40b3d00f5ca03dba107a82f3dbc40ff40fea0d
   MCLogger: baac17a212e7026585e2f1528d6de3fe548474c0
-  MCUIKit: 4d9fb8d30b0cf44bf99605ecd248a3092d6f4e13
+  MCUIKit: cdf31d6c54a0c3e8a371885a55212efff72b14fa
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: 061ae2c775676cfc400a9661fe66c73332f93b76
+PODFILE CHECKSUM: 5fda1c67c087a560aab19cf34530de2f2cad1741
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.8.4
